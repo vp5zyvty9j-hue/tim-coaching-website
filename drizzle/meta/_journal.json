@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1790355467242,
+      "tag": "0000_absent_hellfire_club",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1790356100478,
+      "tag": "0001_absent_tusk",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1790356859465,
+      "tag": "0002_outgoing_warbound",
+      "breakpoints": true
+    }
+  ]
+}

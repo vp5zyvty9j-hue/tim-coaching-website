@@ -1,0 +1,143 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "../vendor/shadcn-tailwind-4.13.0.css";
+
+@utility scrollbar-thin {
+  scrollbar-width: thin;
+}
+
+@utility scrollbar-none {
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility scrollbar-gutter-stable {
+  scrollbar-gutter: stable;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --card: #ffffff;
+  --card-foreground: #171717;
+  --popover: #ffffff;
+  --popover-foreground: #171717;
+  --primary: #171717;
+  --primary-foreground: #fafafa;
+  --secondary: #f5f5f5;
+  --secondary-foreground: #171717;
+  --muted: #f5f5f5;
+  --muted-foreground: #737373;
+  --accent: #f5f5f5;
+  --accent-foreground: #171717;
+  --destructive: #e7000b;
+  --border: #e5e5e5;
+  --input: #e5e5e5;
+  --ring: #a1a1a1;
+  --chart-1: #f54900;
+  --chart-2: #009689;
+  --chart-3: #104e64;
+  --chart-4: #ffb900;
+  --chart-5: #fe9a00;
+  --radius: 0.625rem;
+  --sidebar: #fafafa;
+  --sidebar-foreground: #171717;
+  --sidebar-primary: #171717;
+  --sidebar-primary-foreground: #fafafa;
+  --sidebar-accent: #f5f5f5;
+  --sidebar-accent-foreground: #171717;
+  --sidebar-border: #e5e5e5;
+  --sidebar-ring: #a1a1a1;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --font-sans: Arial, Helvetica, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    --card: #171717;
+    --card-foreground: #ededed;
+    --popover: #171717;
+    --popover-foreground: #ededed;
+    --primary: #ededed;
+    --primary-foreground: #171717;
+    --secondary: #262626;
+    --secondary-foreground: #ededed;
+    --muted: #262626;
+    --muted-foreground: #a1a1a1;
+    --accent: #262626;
+    --accent-foreground: #ededed;
+    --destructive: #ff6467;
+    --border: #ffffff1a;
+    --input: #ffffff26;
+    --ring: #737373;
+    --chart-1: #8e51ff;
+    --chart-2: #00bc7d;
+    --chart-3: #fe9a00;
+    --chart-4: #ad46ff;
+    --chart-5: #ff2056;
+    --sidebar: #171717;
+    --sidebar-foreground: #ededed;
+    --sidebar-primary: #8e51ff;
+    --sidebar-primary-foreground: #ededed;
+    --sidebar-accent: #262626;
+    --sidebar-accent-foreground: #ededed;
+    --sidebar-border: #ffffff1a;
+    --sidebar-ring: #737373;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+/* TIM COACHING portal */
+:root,.dark{--background:#080808;--foreground:#fff;--card:#111;--card-foreground:#fff;--popover:#171717;--popover-foreground:#fff;--primary:#4169e1;--primary-foreground:#fff;--secondary:#202020;--secondary-foreground:#fff;--muted:#202020;--muted-foreground:#b8b8b8;--accent:#263b78;--accent-foreground:#fff;--border:#333;--input:#444;--ring:#4169e1;--radius:.25rem}
+body{margin:0;background:#080808;color:#fff;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.6}button,a,input{touch-action:manipulation}button{cursor:pointer}button:disabled{opacity:.55;cursor:wait}a:focus-visible,button:focus-visible{outline:3px solid #4169e1;outline-offset:4px}.portal-header{padding:24px 5%;border-bottom:1px solid #303030;display:flex;align-items:center;justify-content:space-between;gap:24px}.wordmark{font-weight:900;letter-spacing:-.04em;font-size:23px}.wordmark span{color:#9bb1ff}.portal-header nav{display:flex;gap:24px;font-size:14px}.portal-main{max-width:1320px;margin:auto;padding:60px 5% 100px}.eyebrow{font-size:13px;letter-spacing:.14em;font-weight:700;color:#a9bbff;margin-bottom:16px}h1{font-size:clamp(34px,4.5vw,60px);font-weight:800;letter-spacing:-.055em;line-height:1.08;margin-bottom:18px}h1 span{color:#8ca7ff}h2{font-size:26px;line-height:1.2;font-weight:700;letter-spacing:-.03em}h3{font-size:20px;font-weight:700}p{margin:14px 0}.muted{font-size:14px;color:#b0b0b0}.primary,.secondary{display:inline-flex;align-items:center;justify-content:center;padding:12px 20px;min-height:48px;font-weight:700;font-size:15px;border:1px solid #444;border-radius:4px;gap:10px}.primary{background:#4169e1;color:white;border-color:#4169e1}.primary:hover{background:#3156cc}.secondary{background:#161616;color:white}.secondary:hover{background:#262626}.login-card{max-width:650px;margin:70px auto;padding:0 24px}.login-card>.primary{margin:16px 0}.field{display:flex;flex-direction:column;gap:7px;font-size:14px;font-weight:500;margin:16px 0}.field input{width:100%;padding:12px;border:1px solid #444;border-radius:4px;background:#161616;color:#fff;min-height:48px;font-size:16px;color-scheme:dark}.field input:focus{outline:2px solid #4169e1;outline-offset:2px}.field [data-slot=select-trigger]{width:100%;height:48px;font-size:16px;background:#161616}.consent-line{display:flex;align-items:flex-start;gap:12px;margin:26px 0;font-size:14px}.consent-line [data-slot=checkbox]{margin-top:4px;min-width:20px;min-height:20px}.consent-line a{text-decoration:underline}.feedback{padding:16px 20px;border:1px solid #4169e1;background:#101831;border-radius:4px;margin:20px 0;font-size:15px;overflow-wrap:anywhere}.page-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:40px}.page-heading h1{margin:0}.page-heading p{color:#b7b7b7}.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#333;border:1px solid #333;margin-bottom:40px}.stats-grid>div{background:#111;padding:25px}.stats-grid span{display:block;font-size:14px;color:#bbb}.stats-grid strong{display:block;font-size:46px;line-height:1.25;font-weight:800;letter-spacing:-.06em;margin-top:12px}.stats-grid>div:first-child strong{color:#8ca7ff}.roster{background:#111;border:1px solid #333;padding:28px}.section-top p{color:#b3b3b3;max-width:720px}.filters{display:grid;grid-template-columns:2fr 1fr 1fr;gap:18px;margin:15px 0 24px}.roster [data-slot=table]{font-size:15px}.roster [data-slot=table-cell]{padding:20px 12px}.roster [data-slot=table-head]{font-size:13px;color:#b0b0b0;padding:12px}.email-line{display:block;font-size:14px;color:#aaa;max-width:280px;overflow:hidden;text-overflow:ellipsis}.badge{display:inline-block;border:1px solid #4c5d8a;background:#15213e;padding:5px 10px;border-radius:3px;font-size:13px;white-space:nowrap}.text-button{font-size:14px;color:#a9bdff;font-weight:700}.empty-state{padding:55px 18px;text-align:center;border-top:1px solid #333}.empty-state p{max-width:500px;margin:12px auto;color:#b4b4b4}.roster-note{margin:24px 0 0}.athlete-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:24px}.subscription-card,.support-card{border:1px solid #333;background:#111;padding:32px}.subscription-card{border-top:4px solid #4169e1}.subscription-card>.badge{margin-bottom:32px}.subscription-card h2{font-size:44px;letter-spacing:-.04em}.subscription-card ul{margin:24px 0;padding-left:22px;list-style:disc}.subscription-card li{padding:5px 0}.dates{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #333;margin-top:30px;padding-top:22px;gap:18px}.dates span{display:block;font-size:14px;color:#aaa}.dates strong{display:block;margin-top:8px}.support-card hr{margin:32px 0;border-color:#333}.support-card p{color:#b8b8b8;overflow-wrap:anywhere}.edit-sheet{background:#111;color:white;border-color:#333;overflow-y:auto;padding:24px;max-width:480px!important;width:100%!important}.edit-sheet [data-slot=sheet-header]{padding:16px 0 12px}.edit-sheet [data-slot=sheet-title]{font-size:26px}.edit-form .primary,.edit-form>.secondary{width:100%;margin-top:12px}.edit-sheet [data-slot=sheet-description]{overflow-wrap:anywhere}input[type=date]{color-scheme:dark}
+@media(max-width:740px){.portal-header{padding:20px}.wordmark{font-size:18px}.portal-header nav{gap:14px;font-size:13px}.portal-main{padding:35px 20px 60px}.page-heading{align-items:flex-start;flex-direction:column}.stats-grid{grid-template-columns:1fr}.stats-grid>div{padding:16px 20px;display:flex;justify-content:space-between;align-items:center}.stats-grid strong{margin:0;font-size:30px}.roster{padding:20px 16px}.filters{grid-template-columns:1fr;gap:0}.filters .field{margin:8px 0}.athlete-grid{grid-template-columns:1fr}.subscription-card,.support-card{padding:24px}.login-card{margin-top:40px}h1{font-size:38px}}
+
+.invoice-section{margin-top:24px}.invoice-section h2{margin-bottom:24px}
