@@ -19,3 +19,13 @@
 .race-statement{margin:6px 0 0;padding:14px 0 0;border-top:1px solid #ffffff45;font-size:17px;line-height:1.45;font-weight:700;color:#fff}
 @media(min-width:701px) and (max-width:1000px){.milestone-with-photo{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:24px}.milestone-with-photo .milestone-photo{align-self:start;margin-top:70px}.milestone-with-photo .milestone-number{font-size:110px}.milestone-with-photo .race-story p{font-size:14px;line-height:1.5}}
 @media(max-width:700px){.milestone-with-photo{grid-template-columns:minmax(0,1fr);gap:24px;padding:24px}.milestone-with-photo .milestone-number{margin-top:20px}.milestone-with-photo .race-story p{font-size:15px}.race-statement{font-size:16px}.milestone-with-photo .milestone-photo{width:100%;max-width:440px;justify-self:center}}
+
+/* Personal sporting experience and ongoing study; future certificates can be added as articles. */
+.qualifications .qualification-layout{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:start;gap:clamp(32px,5vw,60px)}
+.qualifications .display{font-size:clamp(38px,5vw,66px);line-height:1.08}
+.experience-blocks{display:grid;gap:28px}
+.experience-blocks .qualification-panel{padding:4px 0 4px 24px}
+.experience-blocks h3{font-size:clamp(23px,2.3vw,28px);line-height:1.2;margin:12px 0}
+.experience-blocks p{font-size:16px;line-height:1.65;margin:0;max-width:600px;color:#555}
+.experience-blocks .certificate-note{font-size:14px;line-height:1.6;color:#666;margin-top:14px}
+@media(max-width:700px){.qualifications .qualification-layout{grid-template-columns:minmax(0,1fr);gap:30px}.experience-blocks{gap:26px}.experience-blocks .qualification-panel{padding-left:18px}.qualifications .eyebrow{font-size:12px;letter-spacing:.1em}}
