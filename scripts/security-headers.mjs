@@ -10,7 +10,7 @@ for (const name of await readdir(publicDir)) {
   }
 }
 const headers = {
-  'Content-Security-Policy': `default-src 'self'; script-src 'self' ${[...hashes].sort().join(' ')}; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; form-action https://formsubmit.co; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; upgrade-insecure-requests`,
+  'Content-Security-Policy': `default-src 'self'; script-src 'self' ${[...hashes].sort().join(' ')}; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src https://formsubmit.co; form-action https://formsubmit.co; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; upgrade-insecure-requests`,
   'Strict-Transport-Security': 'max-age=31536000',
   'Referrer-Policy': 'strict-origin-when-cross-origin',
   'X-Content-Type-Options': 'nosniff',

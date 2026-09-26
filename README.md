@@ -41,7 +41,7 @@ Die Website stellt keine eigenen Kundenkonten- oder Datenbank-APIs mehr bereit. 
 
 ## Externe Funktionen und offene Inhalte
 
-Das Kontaktformular sendet an FormSubmit. Der Empfänger muss die Aktivierungsmail bestätigen. Eine lokal geprüfte Formularfunktion beweist keine E-Mail-Zustellung; dazu ist ein echter Versandtest mit Kontrolle des Empfängerpostfachs nötig. Die CAPTCHA-Prüfung und Versandbestätigung öffnen in einem neuen Tab bei FormSubmit. Das Ausgangsformular behält seine Eingaben; es zeigt keine unbestätigte Erfolgsmeldung.
+Das Kontaktformular sendet an FormSubmit. Der Empfänger muss die Aktivierungsmail bestätigen. Eine lokal geprüfte Formularfunktion beweist keine E-Mail-Zustellung; dazu ist ein echter Versandtest mit Kontrolle des Empfängerpostfachs nötig. Die AJAX-Schnittstelle bestätigt die Annahme direkt auf der Website. Nur HTTP-Erfolg mit ausdrücklicher erfolgreicher Annahme setzt das Formular zurück. Fehler, Zeitüberschreitung und Aktivierungshinweise erhalten die Eingaben.
 
 Die bestätigte Geschäftsadresse ist eingetragen; offene Datenschutz-/Anbieterfragen stehen in docs/datenschutz-pruefstand.md. Rechnungsautomatisierung gehört nicht zu dieser Marketing-Website. Die Funktionsfähigkeit der separaten App und externer Dienste ist nicht Teil des Website-Builds.
 
@@ -52,7 +52,7 @@ Keine Zugangsschlüssel, echten Kundendaten oder lokalen Datenbanken committen.
 - Übernahme des gespeicherten Work-Quellstands fd79fcd, abgeglichen gegen main e4a27b5. Bereits vorhandene Dateien unverändert erhalten, soweit kein beauftragtes Update vorlag.
 - HTTP wird vor jeder produktiven Route auf HTTPS umgeleitet, einschliesslich statischer Assets (`run_worker_first`). Lokal bleibt HTTP für Entwicklung möglich.
 - CSP mit Hashes für JSON-LD, HSTS nur für den jeweiligen Host, Frame-/MIME-/Permissions-Schutz. Header werden bei Build aus `scripts/security-headers.mjs` generiert.
-- Normale FormSubmit-Übermittlung mit Anbieter-CAPTCHA, Honeypot und expliziter Formular-URL. Kein eigener serverseitiger Rate Limiter; Provider-Endpunkte bleiben ausserhalb unserer Kontrolle.
+- FormSubmit-AJAX mit Honeypot, Anbieterschutz und expliziter Formular-URL. Doppelklicks sind während des Versands gesperrt. Kein eigener serverseitiger Rate Limiter; Provider-Endpunkte bleiben ausserhalb unserer Kontrolle.
 - Keine Cloudflare-Domain-Einstellungen geändert. www.timschneider.ch muss separat verbunden bzw. weitergeleitet werden.
 - FormSubmit bei Bedarf per Aktivierungsmail bestätigen, anschliessend realen Versand und Eingang im Empfängerpostfach prüfen. Lokale Tests bestätigen keine E-Mail-Zustellung.
 - Private Work-Konfiguration und deren noindex-/Testversand-Modus wurden nicht in die Produktion übernommen.

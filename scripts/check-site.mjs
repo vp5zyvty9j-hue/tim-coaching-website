@@ -1,3 +1,4 @@
+import './prepare-images.mjs';
 import './check-seo.mjs';
 import './security-headers.mjs';
 import { readdir, readFile, access } from 'node:fs/promises';

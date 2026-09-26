@@ -5,3 +5,6 @@ dist/
 .dev.vars*
 *.log
 .DS_Store
+
+# Reproducibly generated from the committed original at build time.
+public/assets/tim-lauffinish*.webp
