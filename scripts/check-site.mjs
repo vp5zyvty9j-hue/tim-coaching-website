@@ -1,3 +1,4 @@
+import './security-headers.mjs';
 import { readdir, readFile, access } from 'node:fs/promises';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -23,7 +24,7 @@ for (const file of await readdir(publicDir)) {
   }
   for (const [, json] of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) JSON.parse(json);
 }
-for (const file of ['public/script.js', 'public/contact.js', 'worker/index.mjs']) {
+for (const file of ['public/script.js', 'public/contact.js', 'public/navigation.js', 'worker/index.mjs']) {
   const check = spawnSync(process.execPath, ['--check', resolve(root, file)], { stdio: 'inherit' });
   if (check.status !== 0) process.exit(check.status ?? 1);
 }

@@ -4,7 +4,7 @@ function closeMenu(){mobileMenu.classList.remove('open');menuToggle.setAttribute
 menuToggle.addEventListener('click',()=>{const open=mobileMenu.classList.toggle('open');menuToggle.setAttribute('aria-expanded',String(open));mobileMenu.setAttribute('aria-hidden',String(!open));menuToggle.setAttribute('aria-label',open?'Menü schliessen':'Menü öffnen');});
 mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&mobileMenu.classList.contains('open')){closeMenu();menuToggle.focus();}});
-window.matchMedia('(min-width:981px)').addEventListener('change',e=>{if(e.matches)closeMenu();});
+window.matchMedia('(min-width:1101px)').addEventListener('change',e=>{if(e.matches)closeMenu();});
 const bar=document.getElementById('progressBar');
 function progress(){const h=document.documentElement;bar.style.width=`${h.scrollHeight>h.clientHeight?100*h.scrollTop/(h.scrollHeight-h.clientHeight):0}%`;}
 window.addEventListener('scroll',progress,{passive:true});progress();

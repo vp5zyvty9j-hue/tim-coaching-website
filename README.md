@@ -4,7 +4,7 @@ Marketing-Website mit allen Bildern, Paketpreisen, dynamischem Fragebogen und Ko
 
 ## Cloudflare Workers
 
-Dieses Repository nutzt Workers Static Assets und einen kleinen Worker für bestehende App-Weiterleitungen. Es benötigt weder Next.js/OpenNext noch Vinext, D1 oder Supabase für die Auslieferung der Website.
+Dieses Repository nutzt Workers Static Assets und einen Worker für HTTPS, Sicherheitsheader und bestehende App-Weiterleitungen. Es benötigt weder Next.js/OpenNext noch Vinext, D1 oder Supabase für die Auslieferung der Website.
 
 Cloudflare Workers Builds:
 - Repository: `vp5zyvty9j-hue/tim-coaching-website`
@@ -32,7 +32,7 @@ Der Build prüft lokale HTML-Verweise, Sprungmarken, strukturierte Daten und Jav
 
 ## Dateien und Verhalten
 
-- `public/`: Startseite, Impressum, Datenschutz, Logo, Trainingsbild, Styles, Skripte sowie robots.txt und llms.txt.
+- `public/`: Startseite, Erfolge, Empfehlungen, Impressum, Datenschutz, freigegebene Fotos, Styles, Skripte sowie robots.txt, sitemap.xml und llms.txt.
 - `worker/index.mjs`: `/konto` und `/coach` leiten zur App-Verwaltung weiter; `/training` öffnet die App. Unbekannte URLs liefern 404.
 - `scripts/check-site.mjs`: Prüfung vor dem Deployment.
 - `tests/website.test.mjs`: Routing und Schutz vor Nutzung der entfernten Alt-APIs.
@@ -41,8 +41,18 @@ Die Website stellt keine eigenen Kundenkonten- oder Datenbank-APIs mehr bereit. 
 
 ## Externe Funktionen und offene Inhalte
 
-Das Kontaktformular sendet an FormSubmit. Der Empfänger muss die Aktivierungsmail bestätigen. Eine lokal geprüfte Formularfunktion beweist keine E-Mail-Zustellung; dazu ist ein echter Versandtest mit Kontrolle des Empfängerpostfachs nötig. Bei Fehlern bleiben Eingaben erhalten.
+Das Kontaktformular sendet an FormSubmit. Der Empfänger muss die Aktivierungsmail bestätigen. Eine lokal geprüfte Formularfunktion beweist keine E-Mail-Zustellung; dazu ist ein echter Versandtest mit Kontrolle des Empfängerpostfachs nötig. Die CAPTCHA-Prüfung und Versandbestätigung öffnen in einem neuen Tab bei FormSubmit. Das Ausgangsformular behält seine Eingaben; es zeigt keine unbestätigte Erfolgsmeldung.
 
-Geschäftsadresse und rechtliche Pflichtangaben sind noch zu ergänzen. Rechnungsautomatisierung gehört nicht zu dieser Marketing-Website. Die Funktionsfähigkeit der separaten App und externer Dienste ist nicht Teil des Website-Builds.
+Die bestätigte Geschäftsadresse ist eingetragen; offene Datenschutz-/Anbieterfragen stehen in docs/datenschutz-pruefstand.md. Rechnungsautomatisierung gehört nicht zu dieser Marketing-Website. Die Funktionsfähigkeit der separaten App und externer Dienste ist nicht Teil des Website-Builds.
 
 Keine Zugangsschlüssel, echten Kundendaten oder lokalen Datenbanken committen.
+
+## Sicherheitsfreigabe 26.09.2026
+
+- Übernahme des gespeicherten Work-Quellstands fd79fcd, abgeglichen gegen main e4a27b5. Bereits vorhandene Dateien unverändert erhalten, soweit kein beauftragtes Update vorlag.
+- HTTP wird vor jeder produktiven Route auf HTTPS umgeleitet, einschliesslich statischer Assets (`run_worker_first`). Lokal bleibt HTTP für Entwicklung möglich.
+- CSP mit Hashes für JSON-LD, HSTS nur für den jeweiligen Host, Frame-/MIME-/Permissions-Schutz. Header werden bei Build aus `scripts/security-headers.mjs` generiert.
+- Normale FormSubmit-Übermittlung mit Anbieter-CAPTCHA, Honeypot und expliziter Formular-URL. Kein eigener serverseitiger Rate Limiter; Provider-Endpunkte bleiben ausserhalb unserer Kontrolle.
+- Keine Cloudflare-Domain-Einstellungen geändert. www.timschneider.ch muss separat verbunden bzw. weitergeleitet werden.
+- FormSubmit bei Bedarf per Aktivierungsmail bestätigen, anschliessend realen Versand und Eingang im Empfängerpostfach prüfen. Lokale Tests bestätigen keine E-Mail-Zustellung.
+- Private Work-Konfiguration und deren noindex-/Testversand-Modus wurden nicht in die Produktion übernommen.

@@ -2,11 +2,11 @@
 <html lang="de">
 <head>
   <meta charset="utf-8">
-  <meta name="referrer" content="no-referrer">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>TIM COACHING | Lauf-, Kraft- & Hybrid Coaching</title>
   <meta name="description" content="Individuelles 1:1 Coaching für Laufen, Krafttraining, Hybrid Training und Ernährung. Persönliche Trainingsplanung für mehr Kraft, Ausdauer und Athletik.">
-  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <meta name="robots" content="index,follow">
   <meta name="author" content="Tim Schneider">
   <meta name="theme-color" content="#0a0a0a">
   <meta property="og:type" content="website">
@@ -20,7 +20,7 @@
   <meta name="twitter:title" content="TIM COACHING | Stärke. Ausdauer. Athletik.">
   <meta name="twitter:description" content="Individuelles 1:1 Coaching für Laufen, Krafttraining, Hybrid Training und Ernährung.">
   <meta name="twitter:image" content="/assets/training.png">
-  <link rel="stylesheet" href="styles.css"><link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/pages.css"><link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -46,27 +46,27 @@
         "name": "TIM COACHING 1:1 Coaching",
         "provider": {"@id": "#organization"},
         "serviceType": ["Laufcoaching", "Krafttraining", "Hybrid Training", "Ernährungscoaching"],
-        "areaServed": "CH",
+        "areaServed": ["CH", "DE", "AT"],
         "description": "Individuelle Coaching-Pakete für Laufen, Krafttraining, Hybrid Training und Ernährung."
       }
     ]
   }
   </script>
-</head>
+<link rel="canonical" href="https://timschneider.ch/"></head>
 <body><a class="skip-link" href="#main">Zum Inhalt</a>
   <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
 
   <header class="site-header" id="top">
     <a class="brand" href="#top" aria-label="TIM COACHING Startseite">
-      <span class="logo-frame"><img src="assets/tim-schneider-logo.png" alt="Tim Schneider – TS Monogramm" width="1600" height="1600"></span>
+      <span class="logo-frame"><img src="/assets/tim-schneider-logo.png" alt="Tim Schneider – TS Monogramm" width="1600" height="1600"></span>
     </a>
     <nav class="desktop-nav" aria-label="Hauptnavigation">
-      <a href="#about">Über mich</a>
-      <a href="#coaching">Coaching</a>
-      <a href="#approach">Mein Ansatz</a>
+      <a href="/index.html#coaching">Coaching</a>
+      <a href="/index.html#about">Über mich</a>
+      <a href="/erfolge.html">Erfolge &amp; Zertifikate</a>
       <a href="#bewertungen">Bewertungen</a>
-      <a href="#contact">Kontakt</a><a href="https://tim-coaching-app.timliam-schneider.chatgpt.site">Zur App</a>
-      <a class="nav-cta" href="#contact">Erstgespräch anfragen <span>↗</span></a>
+      
+      <a class="nav-cta" href="/index.html#contact">Erstgespräch anfragen <span>↗</span></a>
     </nav>
     <button class="menu-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu">
       <span></span><span></span>
@@ -74,12 +74,12 @@
   </header>
 
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-    <a href="#about">Über mich</a>
-    <a href="#coaching">Coaching</a>
-    <a href="#approach">Mein Ansatz</a>
-    <a href="#bewertungen">Bewertungen</a>
-    <a href="#contact">Kontakt</a><a href="https://tim-coaching-app.timliam-schneider.chatgpt.site">Zur App</a>
-    <a class="button button-light" href="#contact">Erstgespräch anfragen</a>
+      <a href="/index.html#coaching">Coaching</a>
+      <a href="/index.html#about">Über mich</a>
+      <a href="/erfolge.html">Erfolge &amp; Zertifikate</a>
+      <a href="#bewertungen">Bewertungen</a>
+      
+      <a class="button button-light" href="/index.html#contact">Erstgespräch anfragen <span>↗</span></a>
   </div>
 
   <main id="main">
@@ -93,14 +93,18 @@
             <a class="button button-accent" href="#contact">Erstgespräch anfragen <span>↗</span></a>
             <a class="text-link" href="#about">Mehr über mich <span>↓</span></a>
           </div>
+          <figure class="hero-review">
+            <blockquote>„Die Pläne sind klar aufgebaut und lassen sich gut in meinen Alltag integrieren.“</blockquote>
+            <figcaption><strong>Simon</strong> · Athlet bei TIM COACHING <a href="#bewertungen">Ganze Bewertung lesen ↗</a></figcaption>
+          </figure>
           <div class="hero-proof">
             <span>VON 122 KG ZUM ATHLETEN</span>
-            <span>100 KM</span>
-            <span>100 KG BANKDRÜCKEN</span>
+            <span>PERSÖNLICHE BETREUUNG</span>
+            <span>TRAINING FÜR DEINEN ALLTAG</span>
           </div>
         </div>
         <div class="hero-media reveal delay-1">
-          <img class="hero-image" src="assets/tim-krafttraining.jpg" alt="Tim beim Krafttraining am Kabelzug" width="1154" height="2048" fetchpriority="high">
+          <img class="hero-image" src="/assets/tim-krafttraining.jpg" alt="Tim beim Krafttraining am Kabelzug" width="1154" height="2048" fetchpriority="high">
           <div class="media-tag">KRAFT × AUSDAUER <span>DEIN WEG. DEIN TEMPO.</span></div>
         </div>
       </div>
@@ -151,26 +155,26 @@
         <div class="story-grid">
           <div class="story-visual reveal">
             <div class="transformation-pair">
-              <figure><img src="assets/tim-damals-122kg.jpg" alt="Tim am Strand, damals mit 122 kg" width="370" height="657" loading="lazy"><figcaption><span>DAMALS</span><strong>122 kg</strong></figcaption></figure>
-              <figure><img src="assets/tim-heute.jpg" alt="Tim nach seiner persönlichen Veränderung" width="1368" height="1824" loading="lazy"><figcaption><span>HEUTE</span><strong>Mein Weg geht weiter.</strong></figcaption></figure>
+              <figure><img src="/assets/tim-damals-bereinigt.webp" alt="Tim am Strand, damals mit 122 kg" width="370" height="657" loading="lazy"><figcaption><span>DAMALS</span><strong>122 kg</strong></figcaption></figure>
+              <figure><img src="/assets/tim-heute-freigegeben.png" alt="Tim nach seiner persönlichen Veränderung" width="1086" height="1448" loading="lazy"><figcaption><span>HEUTE</span><strong>Mein Weg geht weiter.</strong></figcaption></figure>
             </div>
             <p class="transformation-note">Mein persönlicher Weg. Jeder Mensch bringt andere Voraussetzungen mit und entwickelt sich in seinem eigenen Tempo.</p>
           </div>
           <div class="story-text reveal delay-1">
-            <p class="lead">Ich bin Tim, Hybrid-Athlet und angehender Coach. Ich weiss aus eigener Erfahrung, wie schwierig es sein kann, den eigenen Körper und seinen Lebensstil komplett zu verändern.</p>
+            <p class="lead">Ich bin Tim, Hybrid-Athlet und Coach. Ich weiss aus eigener Erfahrung, wie schwierig es sein kann, den eigenen Körper und seinen Lebensstil komplett zu verändern.</p>
             <p>Vor einigen Jahren wog ich 122 kg. Durch konsequentes Training, eine bessere Ernährung und vor allem viel Geduld habe ich über 30 kg abgenommen.</p>
             <p>Doch für mich war das erst der Anfang.</p>
             <p>Ich wollte nicht nur leichter werden. Ich wollte <strong>stärker, fitter und leistungsfähiger</strong> werden.</p>
-            <div class="story-break"><span>100 KM</span><p>Mein erster 100-km-Lauf wurde zur nächsten grossen Herausforderung. Die Vorbereitung und der Wettkampf haben mir gezeigt, was konsequentes Training, mentale Stärke und langfristige Vorbereitung wirklich bedeuten.</p></div>
+            <div class="story-break"><span>MEIN WEG</span><p>Ausdauer und Kraft gehören für mich zusammen. <a href="/erfolge.html">Meine sportlichen Erfolge und Qualifikationen ansehen ↗</a></p></div>
             <p>Heute verbinde ich Krafttraining und Ausdauertraining und stelle mich immer wieder neuen sportlichen Herausforderungen.</p>
             <p class="closing">Ich möchte dir nicht einfach einen Trainingsplan geben. Ich möchte dir zeigen, wie du dein eigenes Potenzial Schritt für Schritt ausschöpfen kannst.</p>
           </div>
         </div>
 
         <div class="training-moments" aria-label="Einblicke in mein Training">
-          <figure class="moment-running"><img src="assets/tim-laufen.jpg" alt="Tim beim Laufen im Freien" width="1290" height="1760" loading="lazy"><figcaption>Ausdauer aufbauen.</figcaption></figure>
-          <figure class="moment-gym"><img src="assets/tim-gym.jpg" alt="Tim im Fitnessstudio" width="1367" height="1824" loading="lazy"><figcaption>Stärker werden.</figcaption></figure>
-          <figure class="moment-winter"><div class="moment-crop"><img src="assets/tim-winterlauf.jpg" alt="Tim draussen beim Wintertraining im Schnee" width="1170" height="2048" loading="lazy"></div><figcaption>Dranbleiben.</figcaption></figure>
+          <figure class="moment-running"><img src="/assets/tim-laufen.jpg" alt="Tim beim Laufen im Freien" width="1290" height="1763" loading="lazy"><figcaption>Ausdauer aufbauen.</figcaption></figure>
+          <figure class="moment-gym"><img src="/assets/tim-gym.jpg" alt="Tim im Fitnessstudio" width="1535" height="2048" loading="lazy"><figcaption>Stärker werden.</figcaption></figure>
+          <figure class="moment-winter"><div class="moment-crop"><img src="/assets/tim-winterlauf.jpg" alt="Tim draussen beim Wintertraining im Schnee" width="1170" height="2048" loading="lazy"></div><figcaption>Dranbleiben.</figcaption></figure>
         </div>
       </div>
     </section>
@@ -184,7 +188,7 @@
         <div class="steps">
           <article class="step reveal"><span>01</span><div><h3>Analysieren</h3><p>Wir schauen uns deinen aktuellen Stand, deine Ziele, deinen Alltag und deine bisherigen Erfahrungen an.</p></div></article>
           <article class="step reveal"><span>02</span><div><h3>Planen</h3><p>Du erhältst deinen individuellen Trainingsplan in 4-Wochen-Blöcken – abgestimmt auf deinen Alltag und dein Ziel.</p></div></article>
-          <article class="step reveal"><span>03</span><div><h3>Umsetzen</h3><p>Du trainierst nach einem klaren System. Fragen und Feedback besprechen wir aktuell per WhatsApp; sobald die TIM COACHING App verfügbar ist, auch direkt dort.</p></div></article>
+          <article class="step reveal"><span>03</span><div><h3>Umsetzen</h3><p>Du trainierst nach einem klaren System. Fragen und Feedback besprechen wir persönlich per WhatsApp.</p></div></article>
           <article class="step reveal"><span>04</span><div><h3>Optimieren</h3><p>Dein Plan bleibt flexibel: Ich kann ihn auch innerhalb eines 4-Wochen-Blocks an deine Fortschritte, Rückmeldungen und deinen Alltag anpassen.</p></div></article>
         </div>
       </div>
@@ -206,7 +210,7 @@
     <section class="section coaching section-dark" id="coaching">
       <div class="container">
         <div class="section-heading reveal"><p class="eyebrow">COACHING</p><h2 class="display">Dein Coaching.</h2><p class="section-intro">Fünf Pakete. Wähle den Schwerpunkt, der zu deinem Ziel passt.</p></div>
-<div class="offer-grid"><article class="offer "><div class="offer-top"><span>01</span><span>Laufcoaching</span></div><h3>Basic</h3><div class="offer-price"><strong>CHF 179</strong><span>pro Monat</span></div><p>Für deinen ersten Lauf, deine nächste Bestzeit und alles dazwischen.</p><ul><li>Individueller Laufplan</li><li>Auf dein Niveau und deine Zeit abgestimmt</li><li>Zielgerichtete Wettkampfvorbereitung</li></ul><a class="offer-link" href="#contact" data-package="Basic">Basic kennenlernen ↗</a></article><article class="offer "><div class="offer-top"><span>02</span><span>Laufen + Kraft</span></div><h3>Basic Plus</h3><div class="offer-price"><strong>CHF 249</strong><span>pro Monat</span></div><p>Für alle, die ausdauernd und stark werden möchten.</p><ul><li>Alles aus Basic</li><li>Individueller Kraftplan</li><li>Aufeinander abgestimmte Belastung und Erholung</li></ul><a class="offer-link" href="#contact" data-package="Basic Plus">Basic Plus kennenlernen ↗</a></article><article class="offer featured"><div class="offer-top"><span>03</span><span>Laufen + Kraft + Ernährung</span></div><h3>Premium</h3><div class="offer-price"><strong>CHF 349</strong><span>pro Monat</span></div><p>Dein Training und deine Ernährung in einem gemeinsamen Plan.</p><ul><li>Alles aus Basic Plus</li><li>Individuelle Ernährungsunterstützung</li><li>Alltag, Training und Regeneration zusammen gedacht</li></ul><a class="offer-link" href="#contact" data-package="Premium">Premium kennenlernen ↗</a></article><article class="offer "><div class="offer-top"><span>04</span><span>Ernährungscoaching</span></div><h3>Ernährung</h3><div class="offer-price"><strong>CHF 149</strong><span>pro Monat</span></div><p>Für Essgewohnheiten, die zu dir und deinem Ziel passen.</p><ul><li>Deine Ausgangslage und Essgewohnheiten</li><li>Praktische Struktur für deinen Alltag</li><li>Unterstützung bei der Umsetzung</li></ul><a class="offer-link" href="#contact" data-package="Ernährung">Ernährung kennenlernen ↗</a></article><article class="offer "><div class="offer-top"><span>05</span><span>Krafttraining mit Betreuung</span></div><h3>Kraftplan</h3><div class="offer-price"><strong>CHF 149</strong><span>pro Monat</span></div><p>Für gezielten Muskelaufbau, mehr Kraft und einen klaren Plan.</p><ul><li>Individueller Krafttrainingsplan</li><li>Abgestimmt auf Erfahrung und Ausstattung</li><li>Übungsauswahl und sinnvolle Steigerung</li></ul><a class="offer-link" href="#contact" data-package="Kraftplan">Kraftplan kennenlernen ↗</a></article></div><p class="package-note">Trainingspläne in 4-Wochen-Blöcken, bei Bedarf auch zwischendurch angepasst. Persönlicher Austausch aktuell per WhatsApp, später auch über die TIM COACHING App. Monatliche Abrechnung; keine Mindestlaufzeit über einen Monat. Enthalten sind ein wöchentlicher Check-in und eine gebündelte Fragerunde pro Woche, beantwortet innerhalb von zwei Werktagen (Montag bis Freitag). Die weiteren Vertragsbedingungen besprechen wir im Erstgespräch.</p>
+<div class="offer-grid"><article class="offer "><div class="offer-top"><span>01</span><span>Laufcoaching</span></div><h3>Basic</h3><div class="offer-price"><strong>CHF 179</strong><span>pro Monat</span></div><p>Für deinen ersten Lauf, deine nächste Bestzeit und alles dazwischen.</p><ul><li>Individueller Laufplan</li><li>Auf dein Niveau und deine Zeit abgestimmt</li><li>Zielgerichtete Wettkampfvorbereitung</li><li>Persönlicher Austausch über WhatsApp</li><li>Plananpassung nach Bedarf: wöchentlich bis monatlich</li></ul><a class="offer-link" href="#contact" data-package="Basic">Basic kennenlernen ↗</a></article><article class="offer "><div class="offer-top"><span>02</span><span>Laufen + Kraft</span></div><h3>Basic Plus</h3><div class="offer-price"><strong>CHF 249</strong><span>pro Monat</span></div><p>Für alle, die ausdauernd und stark werden möchten.</p><ul><li>Alles aus Basic</li><li>Individueller Kraftplan</li><li>Aufeinander abgestimmte Belastung und Erholung</li><li>Persönlicher Austausch über WhatsApp</li><li>Plananpassung nach Bedarf: wöchentlich bis monatlich</li></ul><a class="offer-link" href="#contact" data-package="Basic Plus">Basic Plus kennenlernen ↗</a></article><article class="offer featured"><div class="offer-top"><span>03</span><span>Laufen + Kraft + Ernährung</span></div><h3>Premium</h3><div class="offer-price"><strong>CHF 349</strong><span>pro Monat</span></div><p>Dein Training und deine Ernährung in einem gemeinsamen Plan.</p><ul><li>Alles aus Basic Plus</li><li>Individuelle Ernährungsunterstützung</li><li>Alltag, Training und Regeneration zusammen gedacht</li><li>Persönlicher Austausch über WhatsApp</li><li>Plananpassung nach Bedarf: wöchentlich bis monatlich</li></ul><a class="offer-link" href="#contact" data-package="Premium">Premium kennenlernen ↗</a></article><article class="offer "><div class="offer-top"><span>04</span><span>Ernährungscoaching</span></div><h3>Ernährung</h3><div class="offer-price"><strong>CHF 149</strong><span>pro Monat</span></div><p>Für Essgewohnheiten, die zu dir und deinem Ziel passen.</p><ul><li>Deine Ausgangslage und Essgewohnheiten</li><li>Praktische Struktur für deinen Alltag</li><li>Unterstützung bei der Umsetzung</li><li>Persönlicher Austausch über WhatsApp</li><li>Plananpassung nach Bedarf: wöchentlich bis monatlich</li></ul><a class="offer-link" href="#contact" data-package="Ernährung">Ernährung kennenlernen ↗</a></article><article class="offer "><div class="offer-top"><span>05</span><span>Krafttraining mit Betreuung</span></div><h3>Kraftplan</h3><div class="offer-price"><strong>CHF 149</strong><span>pro Monat</span></div><p>Für gezielten Muskelaufbau, mehr Kraft und einen klaren Plan.</p><ul><li>Individueller Krafttrainingsplan</li><li>Abgestimmt auf Erfahrung und Ausstattung</li><li>Übungsauswahl und sinnvolle Steigerung</li><li>Persönlicher Austausch über WhatsApp</li><li>Plananpassung nach Bedarf: wöchentlich bis monatlich</li></ul><a class="offer-link" href="#contact" data-package="Kraftplan">Kraftplan kennenlernen ↗</a></article></div><p class="package-note">Dein Plan wird je nach Fortschritt, Rückmeldung und Bedarf wöchentlich bis monatlich angepasst. Der persönliche Austausch findet über WhatsApp statt. Monatliche Abrechnung; keine Mindestlaufzeit über einen Monat. Enthalten sind ein wöchentlicher Check-in und eine gebündelte Fragerunde pro Woche, beantwortet innerhalb von zwei Werktagen (Montag bis Freitag). Die weiteren Vertragsbedingungen besprechen wir im Erstgespräch.</p>
       </div>
     </section>
 
@@ -220,7 +224,7 @@
         <div class="principles">
           <div><span>01</span><h3>Nachhaltigkeit</h3><p>Fortschritt, den du langfristig halten kannst.</p></div>
           <div><span>02</span><h3>Individualität</h3><p>Ein System, das zu deinem Alltag passt.</p></div>
-          <div><span>03</span><h3>Leistung</h3><p>Nicht nur besser aussehen, sondern auch besser funktionieren.</p></div>
+          <div><span>03</span><h3>Wohlbefinden &amp; Fitness</h3><p>Dich in deinem Körper wohler fühlen und im Alltag fitter sein.</p></div>
         </div>
       </div>
     </section>
@@ -240,11 +244,12 @@
     <section class="contact section-dark" id="contact">
       <div class="container contact-grid">
         <div class="contact-copy reveal"><p class="eyebrow">KONTAKT</p><h2 class="display">Bereit für dein<br><em>nächstes Level?</em></h2><p>Du hast ein Ziel. Jetzt brauchst du einen Plan.</p><span>Frage dein unverbindliches Erstgespräch an. Wir schauen gemeinsam, welches Coaching zu deinem Alltag und deinen Zielen passt.</span><p><a class="contact-email" href="mailto:timliam.schneider@gmail.com">timliam.schneider@gmail.com</a></p></div>
-        <form class="contact-form" id="contactForm" aria-describedby="contactPrivacy" action="https://formsubmit.co/timliam.schneider@gmail.com" method="POST">
+        <form class="contact-form" id="contactForm" aria-describedby="contactPrivacy" action="https://formsubmit.co/timliam.schneider@gmail.com" method="POST" target="_blank" rel="noopener">
+          <p class="form-note">Beim Absenden öffnet sich FormSubmit in einem neuen Tab. Bitte schliesse dort die Spam-Prüfung ab und beachte die Versandbestätigung. Deine Eingaben bleiben hier erhalten.</p>
 <input type="hidden" name="_subject" value="TIM COACHING – Anfrage fürs Erstgespräch">
 <input type="hidden" name="_template" value="table">
-<input type="hidden" name="_captcha" value="false">
-<input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
+<input type="hidden" name="_url" value="https://timschneider.ch/#contact">
+<input type="text" name="_honey" tabindex="-1" autocomplete="off" class="form-honeypot" aria-hidden="true">
           <p class="form-intro">Deine Anfrage fürs Erstgespräch</p><p class="form-note">Pflichtangaben: Paket, Vorname, E-Mail und ein kurzes allgemeines Ziel. Alle weiteren Angaben sind freiwillig. Bitte keine Verletzungen, Diagnosen, Medikamente, Körpermesswerte oder sonstigen Gesundheitsdaten eintragen.</p>
           <label>Dein Paket<select name="Paket" id="package" required><option value="">Paket auswählen</option><option>Basic</option><option>Basic Plus</option><option>Premium</option><option>Ernährung</option><option>Kraftplan</option></select></label>
           <div class="form-row"><label>Vorname<input name="Vorname" required autocomplete="given-name" maxlength="80"></label><label>E-Mail<input type="email" name="email" required autocomplete="email" maxlength="160"></label></div>
@@ -253,9 +258,9 @@
           <div class="form-row"><label>Zeit pro Woche (freiwillig)<select name="Trainingszeit"><option value="">Bitte auswählen</option><option>1–3 Stunden</option><option>4–6 Stunden</option><option>7–10 Stunden</option><option>Mehr als 10 Stunden</option></select></label><label>Gewünschter Start<input type="month" name="Start"></label></div>
           <div id="packageQuestions"></div>
           <label>Was sollte ich noch wissen?<textarea name="Weitere Angaben" rows="3" placeholder="Zum Beispiel dein Alltag oder deine grösste Herausforderung." maxlength="2000"></textarea></label>
-          <p class="form-note" id="contactPrivacy">Mit deiner Anfrage bittest du Tim Schneider um eine Antwort zu deinem Coaching-Anliegen. Die Angaben werden über FormSubmit an sein Gmail-Postfach übermittelt. Informationen zur Verarbeitung und zu deinen Rechten findest du in der <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a>. Die Anfrage ist keine Newsletter-Anmeldung und löst keinen kostenpflichtigen Vertrag aus.</p>
+          <p class="form-note" id="contactPrivacy">Mit deiner Anfrage bittest du Tim Schneider um eine Antwort zu deinem Coaching-Anliegen. Die Angaben werden über FormSubmit an sein Gmail-Postfach übermittelt. Informationen zur Verarbeitung und zu deinen Rechten findest du in der <a href="/datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a>. Die Anfrage ist keine Newsletter-Anmeldung und löst keinen kostenpflichtigen Vertrag aus.</p>
 <button class="button button-accent full" type="submit">Anfrage senden <span>↗</span></button>
-          <p class="form-note">Deine Anfrage wird über FormSubmit an timliam.schneider@gmail.com übermittelt. Du erhältst hier eine Rückmeldung zum Versand. Bitte keine medizinischen Befunde oder Diagnosen angeben.</p>
+          <p class="form-note">Deine Anfrage wird über FormSubmit an timliam.schneider@gmail.com übermittelt. Die Versandbestätigung erscheint im FormSubmit-Tab. Bitte keine medizinischen Befunde oder Diagnosen angeben.</p>
           <div class="form-success" id="formSuccess" role="status" aria-live="polite"></div>
         </form>
       </div>
@@ -264,14 +269,14 @@
 
   <footer class="footer">
     <div class="container footer-top">
-      <div><a class="brand" href="#top"><span class="logo-frame"><img src="assets/tim-schneider-logo.png" alt="Tim Schneider – TS Monogramm" width="1600" height="1600"></span></a><p>Stärke. Ausdauer. Athletik.</p></div>
-      <div class="footer-links"><a href="#about">Über mich</a><a href="#coaching">Coaching</a><a href="#approach">Mein Ansatz</a><a href="#bewertungen">Bewertungen</a><a href="#contact">Kontakt</a><a href="https://tim-coaching-app.timliam-schneider.chatgpt.site">Zur App</a><a href="datenschutz.html">Datenschutz</a><a href="impressum.html">Impressum</a></div>
+      <div><a class="brand" href="#top"><span class="logo-frame"><img src="/assets/tim-schneider-logo.png" alt="Tim Schneider – TS Monogramm" width="1600" height="1600"></span></a><p>Stärke. Ausdauer. Athletik.</p></div>
+      <div class="footer-links"><a href="#about">Über mich</a><a href="#coaching">Coaching</a><a href="#approach">Mein Ansatz</a><a href="#bewertungen">Bewertungen</a><a href="#contact">Kontakt</a><a href="/erfolge.html">Erfolge &amp; Zertifikate</a><a href="/empfehlungen.html">Empfehlungen</a><a href="/datenschutz.html">Datenschutz</a><a href="/impressum.html">Impressum</a></div>
 
     </div>
     <div class="container footer-bottom"><span>© 2026 TIM COACHING</span><span>Stärke. Ausdauer. Athletik.</span></div>
   </footer>
 
-  <script src="script.js?v=8"></script>
-  <script src="contact.js?v=8"></script>
+  <script src="/script.js?v=8"></script>
+  <script src="/contact.js?v=8"></script>
 </body>
 </html>

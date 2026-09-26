@@ -23,3 +23,8 @@ Tim Schneider ist Hybrid-Athlet und Coach. Der Schwerpunkt liegt auf der Verbind
 ## Kontakt
 
 E-Mail: timliam.schneider@gmail.com
+
+## Weitere Seiten
+
+- [Erfolge & Zertifikate](erfolge.html): Sportliche Meilensteine und Dokumentation von Qualifikationen.
+- [Empfehlungen](empfehlungen.html): Kategorien für künftige Produktempfehlungen; derzeit keine aktiven Affiliate-Links.

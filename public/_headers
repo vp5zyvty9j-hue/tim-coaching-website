@@ -1,5 +1,7 @@
 /*
-  Referrer-Policy: no-referrer
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-4QIzWcl9uhyrryZKRtckROp3V23/lqTP+0yyP6ON1UY=' 'sha256-Cf/dooqZNMA4RMIizpkosXtPHcGPD2EaDfyfJjZk9wU=' 'sha256-amIstGmbquZcV5sVirfpnFihBEvqynBr7o97D5mP74E='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; form-action https://formsubmit.co; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; upgrade-insecure-requests
+  Strict-Transport-Security: max-age=31536000
+  Referrer-Policy: strict-origin-when-cross-origin
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
   Permissions-Policy: camera=(), microphone=(), geolocation=()
