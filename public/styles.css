@@ -115,3 +115,5 @@ body{font-family:Arial,Helvetica,sans-serif;font-size:16px}h1,h2,h3,.brand{font-
 
 /* Visual rating for Simon’s testimonial; no external review-platform affiliation. */
 .review-stars{display:flex;gap:5px;color:#b58a2a;margin:0 0 20px}.review-stars svg{display:block;width:21px;height:21px;flex:none;fill:currentColor}
+
+.footer .footer-contact{font-size:12px;color:#a5a5a5;margin-top:18px;margin-bottom:0;line-height:1.5}.footer-contact a{text-decoration:underline;text-underline-offset:3px}.contact-form input[type="date"]{color-scheme:dark;min-width:0;max-width:100%}

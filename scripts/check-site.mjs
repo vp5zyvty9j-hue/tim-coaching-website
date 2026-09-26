@@ -36,7 +36,7 @@ for (const file of await readdir(publicDir)) {
   }
   for (const [, json] of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) JSON.parse(json);
 }
-for (const file of ['public/script.js', 'public/contact.js', 'public/navigation.js', 'worker/index.mjs']) {
+for (const file of ['public/script.js', 'public/contact.js', 'public/navigation.js', 'public/coaching-check.js', 'public/coaching-logic.js', 'public/coaching-packages.js', 'worker/index.mjs']) {
   const check = spawnSync(process.execPath, ['--check', resolve(root, file)], { stdio: 'inherit' });
   if (check.status !== 0) process.exit(check.status ?? 1);
 }
