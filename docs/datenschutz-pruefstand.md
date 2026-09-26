@@ -2,6 +2,10 @@
 
 Keine anwaltliche Rechtsberatung, keine Konformitätsbescheinigung. Geprüft: Website-Repository und öffentlich verfügbare Rechts-/Anbieterquellen. Nicht geprüft: tatsächliches Cloudflare-Konto, Google-Vertrag, App-Backend, E-Mail-Zustellung, operative Löschungen.
 
+## Bestätigte Betreiberangaben
+
+Vom Inhaber am 26.09.2026 mitgeteilt: Tim Schneider, Einzelunternehmen (Geschäftsbezeichnung der Website: TIM COACHING), Seestrasse 50, 8617 Mönchaltorf, Schweiz. Kontakt: timliam.schneider@gmail.com; privates Gmail-Konto. Domain: timschneider.ch. Zielmarkt weltweit, hauptsächlich Schweiz, Deutschland und Österreich. Die Angaben wurden in Impressum und Datenschutzerklärung übernommen; DNS, TLS und aktuelle Veröffentlichung auf dieser Domain wurden nicht unabhängig geprüft.
+
 ## Umgesetzt
 
 - Unzutreffende Angaben zur ChatGPT-Anmeldung, D1-Kundenverwaltung und künftigen Rechnungsfunktionen aus der Website-Erklärung entfernt.
@@ -14,12 +18,12 @@ Keine anwaltliche Rechtsberatung, keine Konformitätsbescheinigung. Geprüft: We
 
 ## Vor abschliessender Freigabe vom Inhaber zu klären
 
-1. Vollständiger rechtlicher Name, genaue Firma, Geschäftsanschrift, Sitz, Telefon (falls veröffentlicht), Handelsregisterstelle/-eintrag, UID und MWST-Status. Nicht vorhandene Einträge ausdrücklich als nicht vorhanden bestätigen; nichts erfinden.
-2. Tatsächliche öffentliche Website-URL; separate App-URL; Angebot nur Schweiz oder gezielt EU/EWR? Bei EU-Angeboten Art. 3 und gegebenenfalls Vertretung nach Art. 27 DSGVO prüfen.
+1. Gegebenenfalls eingetragener Firmenname, Handelsregisterstelle/-eintrag, UID und MWST-Status; Telefon, falls veröffentlicht. Nicht vorhandene Einträge ausdrücklich als nicht vorhanden bestätigen; nichts erfinden.
+2. Domain timschneider.ch und gezieltes Angebot in Deutschland/Österreich bestätigt. Tatsächliche Veröffentlichung und Weiterleitungen zur separaten App prüfen. Für das gezielte EU-Angebot Art. 3 Abs. 2 DSGVO berücksichtigen. Erforderlichkeit einer EU-Vertretung nach Art. 27 prüfen: Die Ausnahme setzt unter anderem nur gelegentliche Verarbeitung und voraussichtlich kein Risiko für Rechte und Freiheiten voraus; sie darf bei laufendem EU-Coaching nicht ungeprüft angenommen werden. Bei Gesundheitsdaten zusätzlich Umfang und Art der Verarbeitung berücksichtigen. Eine weltweite Zielgruppe bedeutet keine geprüfte Konformität mit sämtlichen nationalen Gesetzen.
 3. Kundenalter und Coaching-Leistungen: Erwachsene/Minderjährige; Umgang mit Gesundheitsdaten, Ernährungsprotokollen und Fotos separat festlegen. Das Entfernen einzelner Felder verhindert keine freiwillige Eingabe sensibler Daten in Freitext.
 4. Cloudflare-Vertragspartner, DPA, aktivierte Analyse-/Logging-/Sicherheitsfunktionen, Unterauftragsbearbeiter und Länder. Den Einsatz von Standardvertragsklauseln oder DPF nicht ohne konkrete Prüfung behaupten.
 5. FormSubmit: Anbieteridentität, Auftragsbearbeitungsvereinbarung, Unterauftragnehmer, Verarbeitungsstaaten, Übermittlungsgrundlagen, Lösch- und Backupfristen. Die am Prüftag gelesene öffentliche Erklärung beantwortet diese Punkte nicht hinreichend. Falls nicht belegbar, Anbieter vor Datenschutzfreigabe ersetzen.
-6. Gmail: privates Google-Konto oder geeigneter Workspace-Vertrag? Aktueller Vertragspartner, geschäftliche Eignung/AVV und tatsächliche Zugriffe klären. Keine Behauptung, ein Gmail-Konto sei ohne weitere Prüfung zulässig oder unzulässig.
+6. Privates Gmail-Konto bestätigt. Aktuellen Vertragspartner, geschäftliche Eignung/AVV und tatsächliche Zugriffe klären; ein Workspace-Vertrag ist nicht nachgewiesen. Keine Behauptung, ein Gmail-Konto sei ohne weitere Prüfung zulässig oder unzulässig.
 7. Löschkonzept tatsächlich umsetzen, inklusive E-Mail-Archiv, Spam, Backups, Formularanbieter und Anfragen ohne Vertrag. Vorschlag zur Prüfung: solche Anfragen 90 Tage nach Abschluss löschen, wenn kein anderer dokumentierter Aufbewahrungsgrund besteht. Das ist eine vorgeschlagene Betriebsregel, keine gesetzliche Standardfrist und derzeit nicht automatisiert.
 8. Website-/App-Zugriffsberechtigte, Mehrfaktor-Anmeldung, Geräte-/Passwortschutz, Auskunfts- und Löschablauf sowie Reaktion auf Datenschutzvorfälle dokumentieren. Aufbewahrungspflichten für Rechnungen getrennt von Kontaktanfragen behandeln.
 9. Vor Verkäufen Vertrag/AGB, Leistungsumfang, Kündigung, Preis-/Steuerdarstellung, Haftung, Berufsqualifikation und gegebenenfalls EU-Verbraucherinformationen prüfen. Kein universeller Haftungsausschluss ergänzt.
