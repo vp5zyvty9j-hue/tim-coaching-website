@@ -2,6 +2,7 @@
 <html lang="de">
 <head>
   <meta charset="utf-8">
+  <meta name="referrer" content="no-referrer">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>TIM COACHING | Lauf-, Kraft- & Hybrid Coaching</title>
   <meta name="description" content="Individuelles 1:1 Coaching für Laufen, Krafttraining, Hybrid Training und Ernährung. Persönliche Trainingsplanung für mehr Kraft, Ausdauer und Athletik.">
@@ -233,21 +234,20 @@
     <section class="contact section-dark" id="contact">
       <div class="container contact-grid">
         <div class="contact-copy reveal"><p class="eyebrow">KONTAKT</p><h2 class="display">Bereit für dein<br><em>nächstes Level?</em></h2><p>Du hast ein Ziel. Jetzt brauchst du einen Plan.</p><span>Frage dein unverbindliches Erstgespräch an. Wir schauen gemeinsam, welches Coaching zu deinem Alltag und deinen Zielen passt.</span><p><a class="contact-email" href="mailto:timliam.schneider@gmail.com">timliam.schneider@gmail.com</a></p></div>
-        <form class="contact-form" id="contactForm" action="https://formsubmit.co/timliam.schneider@gmail.com" method="POST">
+        <form class="contact-form" id="contactForm" aria-describedby="contactPrivacy" action="https://formsubmit.co/timliam.schneider@gmail.com" method="POST">
 <input type="hidden" name="_subject" value="TIM COACHING – Anfrage fürs Erstgespräch">
 <input type="hidden" name="_template" value="table">
 <input type="hidden" name="_captcha" value="false">
 <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
-          <p class="form-intro">Dein Fragebogen fürs Erstgespräch</p>
+          <p class="form-intro">Deine Anfrage fürs Erstgespräch</p><p class="form-note">Pflichtangaben: Paket, Vorname, E-Mail und ein kurzes allgemeines Ziel. Alle weiteren Angaben sind freiwillig. Bitte keine Verletzungen, Diagnosen, Medikamente, Körpermesswerte oder sonstigen Gesundheitsdaten eintragen.</p>
           <label>Dein Paket<select name="Paket" id="package" required><option value="">Paket auswählen</option><option>Basic</option><option>Basic Plus</option><option>Premium</option><option>Ernährung</option><option>Kraftplan</option></select></label>
           <div class="form-row"><label>Vorname<input name="Vorname" required autocomplete="given-name" maxlength="80"></label><label>E-Mail<input type="email" name="email" required autocomplete="email" maxlength="160"></label></div>
           <label>Dein konkretes Ziel<textarea name="Ziel" required rows="3" placeholder="Was möchtest du erreichen – und bis wann?" maxlength="2000"></textarea></label>
-          <label>Bisherige Sporterfahrung<textarea name="Sporterfahrung" rows="3" required placeholder="Wie lange trainierst du und wie sieht deine Woche aus?" maxlength="2000"></textarea></label>
-          <div class="form-row"><label>Zeit pro Woche<select name="Trainingszeit" required><option value="">Bitte auswählen</option><option>1–3 Stunden</option><option>4–6 Stunden</option><option>7–10 Stunden</option><option>Mehr als 10 Stunden</option></select></label><label>Gewünschter Start<input type="month" name="Start"></label></div>
+          <label>Bisherige Sporterfahrung (freiwillig)<textarea name="Sporterfahrung" rows="3" placeholder="Wie lange trainierst du und wie sieht deine Woche aus?" maxlength="2000"></textarea></label>
+          <div class="form-row"><label>Zeit pro Woche (freiwillig)<select name="Trainingszeit"><option value="">Bitte auswählen</option><option>1–3 Stunden</option><option>4–6 Stunden</option><option>7–10 Stunden</option><option>Mehr als 10 Stunden</option></select></label><label>Gewünschter Start<input type="month" name="Start"></label></div>
           <div id="packageQuestions"></div>
-          <details class="optional-data"><summary>Optionale Angaben zu deinem Körper</summary><p>Freiwillig: Diese Angaben werden mit deiner Anfrage per E-Mail übermittelt. Du kannst sie stattdessen im Erstgespräch nennen.</p><div class="form-row"><label>Gewicht in kg<input type="number" name="Gewicht (kg)" min="25" max="350" step="0.1"></label><label>Körperfettanteil in %<input type="number" name="KFA (%)" min="2" max="70" step="0.1"></label></div></details>
           <label>Was sollte ich noch wissen?<textarea name="Weitere Angaben" rows="3" placeholder="Zum Beispiel dein Alltag oder deine grösste Herausforderung." maxlength="2000"></textarea></label>
-          <label class="consent"><input type="checkbox" name="Datenschutzhinweis" value="Gelesen und Versand zugestimmt" required><span>Ich habe die <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a> gelesen und stimme zu, dass meine Angaben über FormSubmit an Tim Schneider zur Bearbeitung meiner Anfrage gesendet werden.</span></label>
+          <p class="form-note" id="contactPrivacy">Mit deiner Anfrage bittest du Tim Schneider um eine Antwort zu deinem Coaching-Anliegen. Die Angaben werden über FormSubmit an sein Gmail-Postfach übermittelt. Informationen zur Verarbeitung und zu deinen Rechten findest du in der <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a>. Die Anfrage ist keine Newsletter-Anmeldung und löst keinen kostenpflichtigen Vertrag aus.</p>
 <button class="button button-accent full" type="submit">Anfrage senden <span>↗</span></button>
           <p class="form-note">Deine Anfrage wird über FormSubmit an timliam.schneider@gmail.com übermittelt. Du erhältst hier eine Rückmeldung zum Versand. Bitte keine medizinischen Befunde oder Diagnosen angeben.</p>
           <div class="form-success" id="formSuccess" role="status" aria-live="polite"></div>
@@ -265,7 +265,7 @@
     <div class="container footer-bottom"><span>© 2026 TIM COACHING</span><span>Stärke. Ausdauer. Athletik.</span></div>
   </footer>
 
-  <script src="script.js?v=7"></script>
-  <script src="contact.js?v=7"></script>
+  <script src="script.js?v=8"></script>
+  <script src="contact.js?v=8"></script>
 </body>
 </html>

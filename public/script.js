@@ -14,3 +14,6 @@ const picker=document.getElementById('package');const area=document.getElementBy
 function renderQuestions(){area.querySelectorAll('textarea').forEach(t=>answers[t.name]=t.value);area.replaceChildren();for(const group of mapping[picker.value]||[]){const fieldset=document.createElement('fieldset');const legend=document.createElement('legend');legend.textContent=group;fieldset.append(legend);for(const [name,question] of questions[group]){const label=document.createElement('label');label.textContent=question;const input=document.createElement('textarea');input.name=name;input.rows=2;input.maxLength=2000;input.value=answers[name]||'';label.append(input);fieldset.append(label);}area.append(fieldset);}document.getElementById('formSuccess').classList.remove('show');}
 picker.addEventListener('change',renderQuestions);
 document.querySelectorAll('[data-package]').forEach(a=>a.addEventListener('click',()=>{picker.value=a.dataset.package;renderQuestions();}));
+
+// Forget temporarily retained package answers after a completed request/reset.
+document.getElementById('contactForm').addEventListener('reset',()=>{for(const key of Object.keys(answers))delete answers[key];area.replaceChildren();});

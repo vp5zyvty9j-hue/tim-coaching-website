@@ -37,7 +37,7 @@
     const timer = setTimeout(() => controller.abort(), 20000);
     try {
       const response = await fetch('https://formsubmit.co/ajax/timliam.schneider@gmail.com', {
-        method: 'POST', headers: {'Content-Type':'application/json', 'Accept':'application/json'},
+        method: 'POST', credentials: 'omit', referrerPolicy: 'no-referrer', cache: 'no-store', headers: {'Content-Type':'application/json', 'Accept':'application/json'},
         body: JSON.stringify(payload), signal: controller.signal
       });
       const result = await response.json();
