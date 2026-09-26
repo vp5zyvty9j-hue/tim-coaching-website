@@ -170,3 +170,6 @@ Serverautorisierung: Coach-ID aus der coach-Tabelle; Athletenzugriff ausschliess
 Enthalten: Wochenkalender, Einheiten bearbeiten/kopieren/verschieben/löschen, Vorlagen, Intervalle mit N Belastungen und N−1 Pausen, Kraftübungen, Athletenfeedback, Schuhverwaltung, Profil. Ergebnis-Kraftprotokoll derzeit als Freitext pro Einheit. Garmin und Ernährung aus dem Mockup sind noch nicht angebunden.
 
 Prüfung: `node tests/training.mjs` und `node node_modules/typescript/bin/tsc --noEmit`. SQLite-Integrationstest prüft Kontentrennung, Schreibrechte, Paketstatus, idempotente Kilometer, Korrekturen und Löschkaskaden. UI- und Mehrkonten-Abnahme mit echten Athleten steht aus.
+
+## Update: separate App und gemeinsame Anmeldung
+Die App ist nun ein eigenes Site-Projekt unter https://tim-coaching-app.timliam-schneider.chatgpt.site. `/training` verweist dorthin. `/konto` nutzt dieselbe Supabase-Authentifizierung und Mitgliederverwaltung (Projekt hxzycsanrqxbfmveosle). Die alten D1-Daten und API-Routen bleiben für die Rückrollbarkeit erhalten; die Kundenoberfläche verwendet sie nicht mehr. Details, Tests und offene SMTP-/Auth-URL-Konfiguration stehen im README des App-Projekts. Noch keine Freigabe für echte Athleten.

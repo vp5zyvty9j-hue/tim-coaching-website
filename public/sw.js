@@ -1,0 +1,2 @@
+self.addEventListener('push',event=>{let d={title:'TIM COACHING',body:'Neue Mitteilung'};try{d={...d,...event.data.json()}}catch{}event.waitUntil(self.registration.showNotification(d.title,{body:d.body,tag:d.id||'tim-coaching',icon:'/assets/tim-schneider-logo.png',data:{url:'/'}}))});
+self.addEventListener('notificationclick',event=>{event.notification.close();event.waitUntil(clients.matchAll({type:'window',includeUncontrolled:true}).then(list=>{const c=list.find(x=>new URL(x.url).origin===self.location.origin);return c?c.focus():clients.openWindow('/')}))});

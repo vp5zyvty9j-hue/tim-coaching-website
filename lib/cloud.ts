@@ -1,0 +1,7 @@
+'use client';
+import {createClient} from '@supabase/supabase-js';
+export const cloud=createClient('https://hxzycsanrqxbfmveosle.supabase.co','sb_publishable_brr2wk2M_XpQFB1ajmXevg_M5j69hGo');
+export const APP_URL='https://tim-coaching-app.timliam-schneider.chatgpt.site';
+export const WEBSITE_URL='https://tim-coaching.timliam-schneider.chatgpt.site';
+export async function rpc<T=Record<string,unknown>>(p:Record<string,unknown>):Promise<T>{const {data,error}=await cloud.rpc('platform',{p});if(error)throw Error(error.message);return data as T;}
+export async function platformApi<T>(path:string,body?:unknown):Promise<T>{const u=new URL(path,'https://local.test');if(path.startsWith('/api/training'))return rpc<T>(body?body as Record<string,unknown>:{action:'load',athlete:u.searchParams.get('athlete')});if(path==='/api/profile'){if(body)return rpc<T>({action:'profile',...body as Record<string,unknown>});const d=await rpc<{account:{avatar:string}}>({action:'account'});return {...d,profile:{avatar:d.account.avatar}} as T;}if(path==='/api/athletes'){if(body){await rpc({action:'assign',account:body});const d=await rpc<{athletes:Array<{user_id:string}>}>({action:'load'});return {account:d.athletes.find(a=>a.user_id===(body as {user_id:string}).user_id)} as T;}return rpc<T>({action:'load'});}if(path==='/api/account')return rpc<T>({action:'bootstrap',...body as Record<string,unknown>});throw Error('Unbekannte Anfrage');}

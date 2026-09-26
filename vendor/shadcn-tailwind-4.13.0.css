@@ -356,7 +356,7 @@
     to right,
     transparent 0,
     #000 var(--scroll-fade-s, 0px),
- #000 100%
+    #000 100%
   );
   -webkit-mask-image: var(--scroll-fade-mask);
   mask-image: var(--scroll-fade-mask);
