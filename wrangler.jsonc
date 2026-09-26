@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "tim-coaching-website",
+  "main": "worker/index.mjs",
+  "compatibility_date": "2026-05-15",
+  "build": { "command": "node scripts/check-site.mjs" },
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "html_handling": "none",
+    "not_found_handling": "none"
+  },
+  "workers_dev": true
+}
