@@ -112,3 +112,6 @@ body{font-family:Arial,Helvetica,sans-serif;font-size:16px}h1,h2,h3,.brand{font-
 .dark-panel .eyebrow,.discipline .num{color:#bcbcbc}
 .offer .offer-top{color:#bcbcbc}
 .offer .offer-link{color:#9db1ff}
+
+/* Visual rating for Simon’s testimonial; no external review-platform affiliation. */
+.review-stars{display:flex;gap:5px;color:#b58a2a;margin:0 0 20px}.review-stars svg{display:block;width:21px;height:21px;flex:none;fill:currentColor}
