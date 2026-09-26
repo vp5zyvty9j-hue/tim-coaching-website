@@ -68,3 +68,22 @@ test('duplicate page URLs and alternate hosts redirect in one hop to the canonic
     }
   }
 });
+
+test('missing pages retain real 404 status with noindex and useful navigation', async () => {
+  const response = await worker.fetch(new Request('https://timschneider.ch/not-a-page'), env);
+  assert.equal(response.status, 404);
+  assert.equal(response.headers.get('x-robots-tag'), 'noindex');
+  assert.match(response.headers.get('content-type'), /text\/html/);
+  assert.match(await response.text(), /href="\/#coaching"/);
+});
+test('only successful fingerprinted images receive immutable browser caching', async () => {
+  const imageEnv = { ASSETS: { fetch: async () => new Response('image', { headers: {ETag:'"photo"'} }) } };
+  const response = await worker.fetch(new Request('https://timschneider.ch/assets/optimized/tim-krafttraining-123456abcdef-480.webp'), imageEnv);
+  assert.equal(response.headers.get('cache-control'), 'public, max-age=31536000, immutable');
+  assert.equal(response.headers.get('etag'), '"photo"');
+  const missing = await worker.fetch(new Request('https://timschneider.ch/assets/optimized/missing-123456abcdef-480.webp'), env);
+  assert.equal(missing.status, 404);
+  assert.equal(missing.headers.get('cache-control'), 'no-store');
+  const page = await worker.fetch(new Request('https://timschneider.ch/'), imageEnv);
+  assert.notEqual(page.headers.get('cache-control'), 'public, max-age=31536000, immutable');
+});

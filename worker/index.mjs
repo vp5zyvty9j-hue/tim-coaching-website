@@ -1,4 +1,5 @@
 import { securityHeaders } from './security-headers.mjs';
+import { notFoundHtml } from './not-found.mjs';
 
 const APP = 'https://tim-coaching-app.timliam-schneider.chatgpt.site';
 const redirects = new Map([
@@ -11,6 +12,9 @@ const pages = new Set(['/datenschutz', '/impressum', '/erfolge', '/empfehlungen'
 function secure(response, request) {
   const headers = new Headers(response.headers);
   for (const [name, value] of Object.entries(securityHeaders)) headers.set(name, value);
+  if (response.status === 200 && /^\/assets\/optimized\/[a-z0-9-]+-[a-f0-9]{12}-[0-9]+\.webp$/.test(new URL(request.url).pathname)) {
+    headers.set('Cache-Control', 'public, max-age=31536000, immutable');
+  }
   return new Response(request.method === 'HEAD' ? null : response.body, {
     status: response.status, statusText: response.statusText, headers,
   });
@@ -34,8 +38,8 @@ export default {
     if (path === '/' || pages.has(path)) url.pathname = path === '/' ? '/index.html' : path + '.html';
     const asset = await env.ASSETS.fetch(new Request(url, request));
     if (asset.status !== 404) return secure(asset, request);
-    return secure(new Response('Seite nicht gefunden', {
-      status: 404, headers: { 'Content-Type': 'text/plain; charset=utf-8' },
+    return secure(new Response(notFoundHtml, {
+      status: 404, headers: { 'Content-Type': 'text/html; charset=utf-8', 'X-Robots-Tag': 'noindex', 'Cache-Control': 'no-store' },
     }), request);
   },
 };

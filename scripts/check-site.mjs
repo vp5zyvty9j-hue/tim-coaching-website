@@ -19,10 +19,20 @@ for (const file of await readdir(publicDir)) {
       if (!ids.has(raw.slice(1))) throw new Error(`${file}: missing anchor ${raw}`);
       continue;
     }
-    const path = decodeURIComponent(raw.split(/[?#]/)[0]).replace(/^\//, '');
-    if (!path) continue;
+    const path = decodeURIComponent(raw.split(/[?#]/)[0]).replace(/^\//, '') || 'index.html';
     await access(resolve(publicDir, path));
+    const fragment = raw.split('#')[1];
+    if (fragment && path.endsWith('.html')) {
+      const target = await readFile(resolve(publicDir, path), 'utf8');
+      if (!target.includes('id="' + fragment + '"')) throw Error(file + ': missing destination anchor ' + raw);
+    }
     references++;
+  }
+  for (const [, srcset] of html.matchAll(/\bsrcset="([^"]+)"/g)) {
+    for (const item of srcset.split(',')) {
+      const image = item.trim().split(/\s+/)[0];
+      await access(resolve(publicDir, image.replace(/^\//, '')));
+    }
   }
   for (const [, json] of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) JSON.parse(json);
 }

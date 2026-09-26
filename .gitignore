@@ -8,3 +8,4 @@ dist/
 
 # Reproducibly generated from the committed original at build time.
 public/assets/tim-lauffinish*.webp
+public/assets/optimized/

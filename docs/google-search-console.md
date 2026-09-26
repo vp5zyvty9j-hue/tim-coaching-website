@@ -28,7 +28,7 @@ Unter „Seiten“ und „Core Web Vitals“ später Indexierungsgründe bzw. ve
 - Sitemap enthält alle drei indexierbaren HTML-Seiten. Impressum und Datenschutz sind öffentlich erreichbar, aber bewusst noindex.
 - Favicon aus bestehendem TIM-SCHNEIDER-Logo: ICO mit 16/32/48 px, PNG 48/96 px, Apple Touch Icon 180 px, Browser-Icons 192/512 px. Kein neues Logo generiert.
 - Keine erfundenen Bewertungen, Qualifikationen oder Unternehmensstandorte in Schema.org ergänzt.
-- Mobile Darstellung und Routing werden geprüft. Die öffentliche PageSpeed-API meldete beim Versuch einen Quotenfehler; keine bestätigten Core-Web-Vitals-Feldwerte oder Lighthouse-Punktzahlen daraus ableitbar.
+- Mobile Darstellung und Routing werden geprüft. Die öffentliche PageSpeed-API meldete einen Quotenfehler; die PageSpeed-Weboberfläche liefert dagegen Labormessungen. Diese sind keine Core-Web-Vitals-Felddaten. Der SEO-Bericht dokumentiert den Messstand.
 
 Offizielle Anleitungen:
 - https://support.google.com/webmasters/answer/9008080

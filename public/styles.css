@@ -100,3 +100,15 @@ body{font-family:Arial,Helvetica,sans-serif;font-size:16px}h1,h2,h3,.brand{font-
 .philosophy .principles h3{font-size:clamp(23px,2.5vw,30px);margin-top:24px}
 .philosophy .principles p{font-size:16px;line-height:1.6}
 @media(max-width:620px){.philosophy .display{font-size:clamp(32px,9vw,44px)}.philosophy .philosophy-lead{margin-top:22px}.philosophy .principles{margin-top:28px}.philosophy .principles h3{margin-top:14px}}
+
+.coaching-answers{margin-top:36px;max-width:900px}
+.coaching-answers h3{font-size:24px;margin:0 0 16px;letter-spacing:-.03em}
+.coaching-answers details{border-top:1px solid #3f3f3f;padding:16px 0}
+.coaching-answers summary{cursor:pointer;font-weight:600;font-size:16px}
+.coaching-answers p{color:#bcbcbc;font-size:16px;line-height:1.65;margin:14px 0 0}
+.coaching-answers a{text-decoration:underline;text-underline-offset:3px}
+/* Improve small-text contrast without changing layout or the accent palette. */
+.section-soft .eyebrow,.philosophy .eyebrow,.step>span,.audience-item>span,.principles span{color:#666}
+.dark-panel .eyebrow,.discipline .num{color:#bcbcbc}
+.offer .offer-top{color:#bcbcbc}
+.offer .offer-link{color:#9db1ff}

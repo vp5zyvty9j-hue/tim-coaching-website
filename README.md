@@ -1,4 +1,4 @@
-# TIM COACHING Website
+# Tim Schneider Coaching Website
 
 Marketing-Website mit allen Bildern, Paketpreisen, dynamischem Fragebogen und Kontaktformular. Die Trainings-App läuft separat unter https://tim-coaching-app.timliam-schneider.chatgpt.site.
 
@@ -56,3 +56,7 @@ Keine Zugangsschlüssel, echten Kundendaten oder lokalen Datenbanken committen.
 - Keine Cloudflare-Domain-Einstellungen geändert. www.timschneider.ch muss separat verbunden bzw. weitergeleitet werden.
 - FormSubmit bei Bedarf per Aktivierungsmail bestätigen, anschliessend realen Versand und Eingang im Empfängerpostfach prüfen. Lokale Tests bestätigen keine E-Mail-Zustellung.
 - Private Work-Konfiguration und deren noindex-/Testversand-Modus wurden nicht in die Produktion übernommen.
+
+## SEO und Bildauslieferung
+
+Der Build prüft H1/Heading-Hierarchie, eindeutige Metadaten, Social-Metadaten, Canonicals, Sitemap, Bildattribute, srcset-Dateien und interne Sprungziele. Responsive Bilder werden aus den unveränderten Originalen erzeugt. Inhaltsabhängige Dateinamen unter public/assets/optimized erlauben langes Browser-Caching; bei Änderungen der Verarbeitung muss die Pipeline-Version in prepare-images.mjs erhöht werden. HTML und normale Assets behalten ihre Revalidierung. Unbekannte Pfade liefern eine hilfreiche HTML-Seite mit echtem HTTP 404 und noindex.

@@ -14,12 +14,12 @@
   <meta property="og:site_name" content="Tim Schneider Coaching">
   <meta property="og:title" content="Tim Schneider Coaching | Individualbetreuung">
   <meta property="og:description" content="Individuelle Betreuung und Trainingspläne für Laufen, Krafttraining und Hybrid Training – abgestimmt auf deine Ziele und deinen Alltag.">
-  <meta property="og:image" content="https://timschneider.ch/assets/training.png">
-  <meta property="og:image:alt" content="Tim Schneider Coaching – Kraft und Ausdauer Training">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Tim Schneider Coaching | Individualbetreuung">
-  <meta name="twitter:description" content="Individuelle Betreuung und Trainingspläne für Laufen, Krafttraining und Hybrid Training – abgestimmt auf deine Ziele und deinen Alltag.">
-  <meta name="twitter:image" content="https://timschneider.ch/assets/training.png">
+
+
+
+
+
+
   <link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/pages.css"><link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
@@ -35,7 +35,10 @@
       "email": "timliam.schneider@gmail.com",
       "description": "Individuelle Betreuung und Trainingspläne für Laufen, Krafttraining und Hybrid Training – abgestimmt auf deine Ziele und deinen Alltag.",
       "url": "https://timschneider.ch/",
-      "logo": "https://timschneider.ch/assets/tim-schneider-logo.png"
+      "logo": "https://timschneider.ch/assets/tim-schneider-logo.png",
+      "founder": {
+        "@id": "https://timschneider.ch/#coach"
+      }
     },
     {
       "@type": "Person",
@@ -45,7 +48,9 @@
       "worksFor": {
         "@id": "https://timschneider.ch/#organization"
       },
-      "description": "Hybrid-Athlet und Coach für Kraft, Ausdauer und Athletik."
+      "description": "Tim Schneider ist Hybrid-Athlet und Coach aus der Schweiz mit vier Jahren eigener sportlicher Erfahrung und laufender fachlicher Weiterbildung.",
+      "url": "https://timschneider.ch/erfolge.html",
+      "knowsLanguage": "de"
     },
     {
       "@type": "Service",
@@ -61,12 +66,26 @@
         "Ernährungscoaching"
       ],
       "areaServed": [
-        "CH",
-        "DE",
-        "AT"
+        {
+          "@type": "Country",
+          "name": "Schweiz"
+        },
+        {
+          "@type": "Country",
+          "name": "Deutschland"
+        },
+        {
+          "@type": "Country",
+          "name": "Österreich"
+        }
       ],
       "description": "Individuelle Betreuung und Trainingspläne für Laufen, Krafttraining und Hybrid Training – abgestimmt auf deine Ziele und deinen Alltag.",
-      "url": "https://timschneider.ch/"
+      "url": "https://timschneider.ch/",
+      "availableChannel": {
+        "@type": "ServiceChannel",
+        "serviceUrl": "https://timschneider.ch/#contact",
+        "availableLanguage": "de"
+      }
     },
     {
       "@type": "WebSite",
@@ -76,7 +95,7 @@
       "publisher": {
         "@id": "https://timschneider.ch/#organization"
       },
-      "inLanguage": "de-CH"
+      "inLanguage": "de"
     },
     {
       "@type": "WebPage",
@@ -89,26 +108,35 @@
       },
       "about": {
         "@id": "https://timschneider.ch/#coaching"
-      }
+      },
+      "inLanguage": "de"
     }
   ]
 }</script>
 <link rel="canonical" href="https://timschneider.ch/">
 <meta property="og:url" content="https://timschneider.ch/">
+
+<meta property="og:image" content="https://timschneider.ch/assets/tim-krafttraining.jpg">
+<meta property="og:image:alt" content="Tim Schneider beim Krafttraining am Kabelzug">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tim Schneider Coaching | Individualbetreuung">
+<meta name="twitter:description" content="Individuelle Betreuung und Trainingspläne für Laufen, Krafttraining und Hybrid Training – abgestimmt auf deine Ziele und deinen Alltag.">
+<meta name="twitter:image" content="https://timschneider.ch/assets/tim-krafttraining.jpg">
+<meta name="twitter:image:alt" content="Tim Schneider beim Krafttraining am Kabelzug">
 </head>
 <body><a class="skip-link" href="#main">Zum Inhalt</a>
   <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
 
   <header class="site-header" id="top">
     <a class="brand" href="#top" aria-label="Tim Schneider Coaching – Startseite">
-      <span class="logo-frame"><img src="/assets/tim-schneider-logo.png" alt="Tim Schneider Coaching – Logo" width="1600" height="1600"></span>
+      <span class="logo-frame"><img src="/assets/optimized/tim-schneider-logo-c66f60c736f7-512.webp" alt="Tim Schneider Coaching – Logo" width="2000" height="2000" data-responsive="tim-schneider-logo" sizes="200px" decoding="async" srcset="/assets/optimized/tim-schneider-logo-c66f60c736f7-256.webp 256w, /assets/optimized/tim-schneider-logo-c66f60c736f7-512.webp 512w"></span>
     </a>
     <nav class="desktop-nav" aria-label="Hauptnavigation">
       <a href="/#coaching">Coaching</a>
       <a href="/#about">Über mich</a>
       <a href="/erfolge.html">Erfolge &amp; Zertifikate</a>
       <a href="#bewertungen">Bewertungen</a>
-      
+
       <a class="nav-cta" href="/#contact">Erstgespräch anfragen <span>↗</span></a>
     </nav>
     <button class="menu-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu">
@@ -121,7 +149,7 @@
       <a href="/#about">Über mich</a>
       <a href="/erfolge.html">Erfolge &amp; Zertifikate</a>
       <a href="#bewertungen">Bewertungen</a>
-      
+
       <a class="button button-light" href="/#contact">Erstgespräch anfragen <span>↗</span></a>
   </div>
 
@@ -129,16 +157,16 @@
     <section class="hero section-dark">
       <div class="container hero-grid">
         <div class="hero-copy reveal">
-          <p class="eyebrow">1:1 COACHING · KRAFT × AUSDAUER × ATHLETIK</p>
+          <p class="eyebrow">ONLINE-COACHING · LAUFEN × KRAFT × AUSDAUER</p>
           <h1>Stärke.<br>Ausdauer.<br><em>Athletik.</em></h1>
-          <p class="hero-lead">Individuelles Coaching für Menschen, die Kraft, Ausdauer und einen athletischen Körper entwickeln möchten – ohne dass Sport ihr gesamtes Leben bestimmt.</p>
+          <p class="hero-lead">Individuelles Lauf-, Kraft- und Hybrid-Coaching mit Tim Schneider. Für Menschen, die ihre Ausdauer verbessern, Muskeln aufbauen oder sich auf einen Wettkampf vorbereiten möchten – mit einem Trainingsplan, der in ihren Alltag passt.</p>
           <div class="hero-actions">
             <a class="button button-accent" href="#contact">Erstgespräch anfragen <span>↗</span></a>
             <a class="text-link" href="#about">Mehr über mich <span>↓</span></a>
           </div>
           <figure class="hero-review">
             <blockquote>„Die Pläne sind klar aufgebaut und lassen sich gut in meinen Alltag integrieren.“</blockquote>
-            <figcaption><strong>Simon</strong> · Athlet bei TIM COACHING <a href="#bewertungen">Ganze Bewertung lesen ↗</a></figcaption>
+            <figcaption><strong>Simon</strong> · Athlet bei TIM SCHNEIDER COACHING <a href="#bewertungen">Ganze Bewertung lesen ↗</a></figcaption>
           </figure>
           <div class="hero-proof">
             <span>VON 122 KG ZUM ATHLETEN</span>
@@ -147,7 +175,7 @@
           </div>
         </div>
         <div class="hero-media reveal delay-1">
-          <img class="hero-image" src="/assets/tim-krafttraining.jpg" alt="Tim beim Krafttraining am Kabelzug" width="1154" height="2048" fetchpriority="high">
+          <img class="hero-image" src="/assets/optimized/tim-krafttraining-6edbbaf38f5d-1154.webp" alt="Tim beim Krafttraining am Kabelzug" width="1154" height="2048" fetchpriority="high" data-responsive="tim-krafttraining" sizes="(max-width: 700px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 64px), 580px" decoding="async" srcset="/assets/optimized/tim-krafttraining-6edbbaf38f5d-480.webp 480w, /assets/optimized/tim-krafttraining-6edbbaf38f5d-768.webp 768w, /assets/optimized/tim-krafttraining-6edbbaf38f5d-1154.webp 1154w">
           <div class="media-tag">KRAFT × AUSDAUER <span>DEIN WEG. DEIN TEMPO.</span></div>
         </div>
       </div>
@@ -199,25 +227,25 @@
           <div class="story-visual reveal">
             <div class="transformation-pair">
               <figure><img src="/assets/tim-damals-bereinigt.webp" alt="Tim am Strand, damals mit 122 kg" width="370" height="657" loading="lazy"><figcaption><span>DAMALS</span><strong>122 kg</strong></figcaption></figure>
-              <figure><img src="/assets/tim-heute-freigegeben.png" alt="Tim nach seiner persönlichen Veränderung" width="1086" height="1448" loading="lazy"><figcaption><span>HEUTE</span><strong>Mein Weg geht weiter.</strong></figcaption></figure>
+              <figure><img src="/assets/optimized/tim-heute-freigegeben-7936de14ef12-1086.webp" alt="Tim nach seiner persönlichen Veränderung" width="1086" height="1448" loading="lazy" data-responsive="tim-heute-freigegeben" sizes="(max-width: 620px) calc(100vw - 36px), 400px" decoding="async" srcset="/assets/optimized/tim-heute-freigegeben-7936de14ef12-400.webp 400w, /assets/optimized/tim-heute-freigegeben-7936de14ef12-720.webp 720w, /assets/optimized/tim-heute-freigegeben-7936de14ef12-1086.webp 1086w"><figcaption><span>HEUTE</span><strong>Mein Weg geht weiter.</strong></figcaption></figure>
             </div>
             <p class="transformation-note">Mein persönlicher Weg. Jeder Mensch bringt andere Voraussetzungen mit und entwickelt sich in seinem eigenen Tempo.</p>
           </div>
           <div class="story-text reveal delay-1">
-            <p class="lead">Ich bin Tim, Hybrid-Athlet und Coach. Ich weiss aus eigener Erfahrung, wie schwierig es sein kann, den eigenen Körper und seinen Lebensstil komplett zu verändern.</p>
+            <p class="lead">Ich bin Tim Schneider, Hybrid-Athlet und Coach aus der Schweiz. Ich weiss aus eigener Erfahrung, wie schwierig es sein kann, den eigenen Körper und seinen Lebensstil komplett zu verändern.</p>
             <p>Vor einigen Jahren wog ich 122 kg. Durch konsequentes Training, eine bessere Ernährung und vor allem viel Geduld habe ich über 30 kg abgenommen.</p>
             <p>Doch für mich war das erst der Anfang.</p>
             <p>Ich wollte nicht nur leichter werden. Ich wollte <strong>stärker, fitter und leistungsfähiger</strong> werden.</p>
-            <div class="story-break"><span>MEIN WEG</span><p>Ausdauer und Kraft gehören für mich zusammen. <a href="/erfolge.html">Meine sportlichen Erfolge und Qualifikationen ansehen ↗</a></p></div>
+            <div class="story-break"><span>MEIN WEG</span><p>Ausdauer und Kraft gehören für mich zusammen. <a href="/erfolge.html">Meine sportlichen Erfolge und Weiterbildung ansehen ↗</a></p></div>
             <p>Heute verbinde ich Krafttraining und Ausdauertraining und stelle mich immer wieder neuen sportlichen Herausforderungen.</p>
             <p class="closing">Ich möchte dir nicht einfach einen Trainingsplan geben. Ich möchte dir zeigen, wie du dein eigenes Potenzial Schritt für Schritt ausschöpfen kannst.</p>
           </div>
         </div>
 
         <div class="training-moments" aria-label="Einblicke in mein Training">
-          <figure class="moment-running"><img src="/assets/tim-laufen.jpg" alt="Tim beim Laufen im Freien" width="1290" height="1763" loading="lazy"><figcaption>Ausdauer aufbauen.</figcaption></figure>
-          <figure class="moment-gym"><img src="/assets/tim-gym.jpg" alt="Tim im Fitnessstudio" width="1535" height="2048" loading="lazy"><figcaption>Stärker werden.</figcaption></figure>
-          <figure class="moment-winter"><div class="moment-crop"><img src="/assets/tim-winterlauf.jpg" alt="Tim draussen beim Wintertraining im Schnee" width="1170" height="2048" loading="lazy"></div><figcaption>Dranbleiben.</figcaption></figure>
+          <figure class="moment-running"><img src="/assets/optimized/tim-laufen-866fdbf0eb21-1080.webp" alt="Tim beim Laufen im Freien" width="1290" height="1763" loading="lazy" data-responsive="tim-laufen" sizes="(max-width: 620px) calc(100vw - 36px), 400px" decoding="async" srcset="/assets/optimized/tim-laufen-866fdbf0eb21-400.webp 400w, /assets/optimized/tim-laufen-866fdbf0eb21-720.webp 720w, /assets/optimized/tim-laufen-866fdbf0eb21-1080.webp 1080w"><figcaption>Ausdauer aufbauen.</figcaption></figure>
+          <figure class="moment-gym"><img src="/assets/optimized/tim-gym-2d66da9c86ce-1080.webp" alt="Tim im Fitnessstudio" width="1535" height="2048" loading="lazy" data-responsive="tim-gym" sizes="(max-width: 620px) calc(100vw - 36px), 400px" decoding="async" srcset="/assets/optimized/tim-gym-2d66da9c86ce-400.webp 400w, /assets/optimized/tim-gym-2d66da9c86ce-720.webp 720w, /assets/optimized/tim-gym-2d66da9c86ce-1080.webp 1080w"><figcaption>Stärker werden.</figcaption></figure>
+          <figure class="moment-winter"><div class="moment-crop"><img src="/assets/optimized/tim-winterlauf-107c849d8ada-1080.webp" alt="Tim draussen beim Wintertraining im Schnee" width="1170" height="2048" loading="lazy" data-responsive="tim-winterlauf" sizes="(max-width: 620px) calc(100vw - 36px), 400px" decoding="async" srcset="/assets/optimized/tim-winterlauf-107c849d8ada-400.webp 400w, /assets/optimized/tim-winterlauf-107c849d8ada-720.webp 720w, /assets/optimized/tim-winterlauf-107c849d8ada-1080.webp 1080w"></div><figcaption>Dranbleiben.</figcaption></figure>
         </div>
       </div>
     </section>
@@ -244,7 +272,7 @@
           <div class="audience-item reveal"><span>01</span><div><h3>Abnehmen</h3><p>Körperfett reduzieren und gleichzeitig möglichst viel Muskulatur und Leistung erhalten.</p></div><b>↗</b></div>
           <div class="audience-item reveal"><span>02</span><div><h3>Muskelaufbau</h3><p>Mehr Muskulatur und Kraft aufbauen.</p></div><b>↗</b></div>
           <div class="audience-item reveal"><span>03</span><div><h3>Schneller laufen</h3><p>Die eigene Laufleistung verbessern und auf neue persönliche Bestzeiten hinarbeiten.</p></div><b>↗</b></div>
-          <div class="audience-item reveal"><span>04</span><div><h3>Hybrid trainieren</h3><p>Kraft, Muskelaufbau und Ausdauer miteinander verbinden.</p></div><b>↗</b></div>
+          <div class="audience-item reveal"><span>04</span><div><h3>Hybrid trainieren</h3><p>Kraft- und Ausdauertraining in einem gemeinsamen Trainingsplan verbinden.</p></div><b>↗</b></div>
           <div class="audience-item reveal"><span>05</span><div><h3>Ein konkretes Ziel erreichen</h3><p>Zum Beispiel einen Wettkampf, eine bestimmte Laufzeit, ein Körpergewicht oder eine Kraftleistung.</p></div><b>↗</b></div>
         </div>
       </div>
@@ -252,8 +280,12 @@
 
     <section class="section coaching section-dark" id="coaching">
       <div class="container">
-        <div class="section-heading reveal"><p class="eyebrow">COACHING</p><h2 class="display">Dein Coaching.</h2><p class="section-intro">Fünf Pakete. Wähle den Schwerpunkt, der zu deinem Ziel passt.</p></div>
-<div class="offer-grid"><article class="offer "><div class="offer-top"><span>01</span><span>Laufcoaching</span></div><h3>Basic</h3><div class="offer-price"><strong>CHF 179</strong><span>pro Monat</span></div><p>Für deinen ersten Lauf, deine nächste Bestzeit und alles dazwischen.</p><ul><li>Individueller Laufplan</li><li>Auf dein Niveau und deine Zeit abgestimmt</li><li>Zielgerichtete Wettkampfvorbereitung</li><li>Persönlicher Austausch über WhatsApp</li><li>Plananpassung nach Bedarf: wöchentlich bis monatlich</li></ul><a class="offer-link" href="#contact" data-package="Basic">Basic kennenlernen ↗</a></article><article class="offer "><div class="offer-top"><span>02</span><span>Laufen + Kraft</span></div><h3>Basic Plus</h3><div class="offer-price"><strong>CHF 249</strong><span>pro Monat</span></div><p>Für alle, die ausdauernd und stark werden möchten.</p><ul><li>Alles aus Basic</li><li>Individueller Kraftplan</li><li>Aufeinander abgestimmte Belastung und Erholung</li><li>Persönlicher Austausch über WhatsApp</li><li>Plananpassung nach Bedarf: wöchentlich bis monatlich</li></ul><a class="offer-link" href="#contact" data-package="Basic Plus">Basic Plus kennenlernen ↗</a></article><article class="offer featured"><div class="offer-top"><span>03</span><span>Laufen + Kraft + Ernährung</span></div><h3>Premium</h3><div class="offer-price"><strong>CHF 349</strong><span>pro Monat</span></div><p>Dein Training und deine Ernährung in einem gemeinsamen Plan.</p><ul><li>Alles aus Basic Plus</li><li>Individuelle Ernährungsunterstützung</li><li>Alltag, Training und Regeneration zusammen gedacht</li><li>Persönlicher Austausch über WhatsApp</li><li>Plananpassung nach Bedarf: wöchentlich bis monatlich</li></ul><a class="offer-link" href="#contact" data-package="Premium">Premium kennenlernen ↗</a></article><article class="offer "><div class="offer-top"><span>04</span><span>Ernährungscoaching</span></div><h3>Ernährung</h3><div class="offer-price"><strong>CHF 149</strong><span>pro Monat</span></div><p>Für Essgewohnheiten, die zu dir und deinem Ziel passen.</p><ul><li>Deine Ausgangslage und Essgewohnheiten</li><li>Praktische Struktur für deinen Alltag</li><li>Unterstützung bei der Umsetzung</li><li>Persönlicher Austausch über WhatsApp</li><li>Plananpassung nach Bedarf: wöchentlich bis monatlich</li></ul><a class="offer-link" href="#contact" data-package="Ernährung">Ernährung kennenlernen ↗</a></article><article class="offer "><div class="offer-top"><span>05</span><span>Krafttraining mit Betreuung</span></div><h3>Kraftplan</h3><div class="offer-price"><strong>CHF 149</strong><span>pro Monat</span></div><p>Für gezielten Muskelaufbau, mehr Kraft und einen klaren Plan.</p><ul><li>Individueller Krafttrainingsplan</li><li>Abgestimmt auf Erfahrung und Ausstattung</li><li>Übungsauswahl und sinnvolle Steigerung</li><li>Persönlicher Austausch über WhatsApp</li><li>Plananpassung nach Bedarf: wöchentlich bis monatlich</li></ul><a class="offer-link" href="#contact" data-package="Kraftplan">Kraftplan kennenlernen ↗</a></article></div><p class="package-note">Dein Plan wird je nach Fortschritt, Rückmeldung und Bedarf wöchentlich bis monatlich angepasst. Der persönliche Austausch findet über WhatsApp statt. Monatliche Abrechnung; keine Mindestlaufzeit über einen Monat. Enthalten sind ein wöchentlicher Check-in und eine gebündelte Fragerunde pro Woche, beantwortet innerhalb von zwei Werktagen (Montag bis Freitag). Die weiteren Vertragsbedingungen besprechen wir im Erstgespräch.</p>
+        <div class="section-heading reveal"><p class="eyebrow">COACHING</p><h2 class="display">Dein Coaching.</h2><p class="section-intro">Individuelle Trainingsplanung für Lauftraining, Krafttraining und Hybrid Training. Fünf Pakete – wähle den Schwerpunkt, der zu deinem Ziel passt.</p></div>
+<div class="offer-grid"><article class="offer "><div class="offer-top"><span>01</span><span>Laufcoaching</span></div><h3>Basic</h3><div class="offer-price"><strong>CHF 179</strong><span>pro Monat</span></div><p>Für deinen ersten Lauf, deine nächste Bestzeit und alles dazwischen.</p><ul><li>Individueller Laufplan</li><li>Auf dein Niveau und deine Zeit abgestimmt</li><li>Zielgerichtete Wettkampfvorbereitung</li><li>Persönlicher Austausch über WhatsApp</li><li>Plananpassung nach Bedarf: wöchentlich bis monatlich</li></ul><a class="offer-link" href="#contact" data-package="Basic">Basic kennenlernen ↗</a></article><article class="offer "><div class="offer-top"><span>02</span><span>Laufen + Kraft</span></div><h3>Basic Plus</h3><div class="offer-price"><strong>CHF 249</strong><span>pro Monat</span></div><p>Für alle, die ausdauernd und stark werden möchten.</p><ul><li>Alles aus Basic</li><li>Individueller Kraftplan</li><li>Aufeinander abgestimmte Belastung und Erholung</li><li>Persönlicher Austausch über WhatsApp</li><li>Plananpassung nach Bedarf: wöchentlich bis monatlich</li></ul><a class="offer-link" href="#contact" data-package="Basic Plus">Basic Plus kennenlernen ↗</a></article><article class="offer featured"><div class="offer-top"><span>03</span><span>Laufen + Kraft + Ernährung</span></div><h3>Premium</h3><div class="offer-price"><strong>CHF 349</strong><span>pro Monat</span></div><p>Dein Training und deine Ernährung in einem gemeinsamen Plan.</p><ul><li>Alles aus Basic Plus</li><li>Individuelle Ernährungsunterstützung</li><li>Alltag, Training und Regeneration zusammen gedacht</li><li>Persönlicher Austausch über WhatsApp</li><li>Plananpassung nach Bedarf: wöchentlich bis monatlich</li></ul><a class="offer-link" href="#contact" data-package="Premium">Premium kennenlernen ↗</a></article><article class="offer "><div class="offer-top"><span>04</span><span>Ernährungscoaching</span></div><h3>Ernährung</h3><div class="offer-price"><strong>CHF 149</strong><span>pro Monat</span></div><p>Für Essgewohnheiten, die zu dir und deinem Ziel passen.</p><ul><li>Deine Ausgangslage und Essgewohnheiten</li><li>Praktische Struktur für deinen Alltag</li><li>Unterstützung bei der Umsetzung</li><li>Persönlicher Austausch über WhatsApp</li><li>Plananpassung nach Bedarf: wöchentlich bis monatlich</li></ul><a class="offer-link" href="#contact" data-package="Ernährung">Ernährung kennenlernen ↗</a></article><article class="offer "><div class="offer-top"><span>05</span><span>Krafttraining mit Betreuung</span></div><h3>Kraftplan</h3><div class="offer-price"><strong>CHF 149</strong><span>pro Monat</span></div><p>Für gezielten Muskelaufbau, mehr Kraft und einen klaren Plan.</p><ul><li>Individueller Krafttrainingsplan</li><li>Abgestimmt auf Erfahrung und Ausstattung</li><li>Übungsauswahl und sinnvolle Steigerung</li><li>Persönlicher Austausch über WhatsApp</li><li>Plananpassung nach Bedarf: wöchentlich bis monatlich</li></ul><a class="offer-link" href="#contact" data-package="Kraftplan">Kraftplan kennenlernen ↗</a></article></div><div class="coaching-answers"><h3>So funktioniert dein Online-Coaching</h3>
+<details><summary>Kann ich auch aus Deutschland oder Österreich teilnehmen?</summary><p>Ja. Tim Schneider Coaching kommt aus der Schweiz und bietet Online-Betreuung im deutschsprachigen Raum an – in der Schweiz, Deutschland und Österreich. Du trainierst an deinem Wohnort; Planung, Rückmeldungen und der persönliche Austausch erfolgen online.</p></details>
+<details><summary>Was bedeutet Hybrid-Coaching?</summary><p>Beim Hybrid-Coaching stimmen wir Kraft- und Ausdauertraining aufeinander ab. Basic Plus verbindet Lauf- und Kraftcoaching; Premium ergänzt die Ernährungsunterstützung. Im <a href="#contact">unverbindlichen Erstgespräch</a> klären wir, welcher Schwerpunkt zu deinem Ziel passt.</p></details>
+<details><summary>Wie individuell ist mein Trainingsplan?</summary><p>Dein Plan richtet sich nach deinem Ziel, deinem Leistungsstand, deiner verfügbaren Zeit und deinem Alltag. Ich plane in 4-Wochen-Blöcken und passe das Training bei Bedarf an. Mehr zum <a href="#approach">Ablauf der Betreuung</a> und zu <a href="/erfolge.html#qualifikationen">meiner Erfahrung und laufenden Weiterbildung</a>.</p></details>
+</div><p class="package-note">Dein Plan wird je nach Fortschritt, Rückmeldung und Bedarf wöchentlich bis monatlich angepasst. Der persönliche Austausch findet über WhatsApp statt. Monatliche Abrechnung; keine Mindestlaufzeit über einen Monat. Enthalten sind ein wöchentlicher Check-in und eine gebündelte Fragerunde pro Woche, beantwortet innerhalb von zwei Werktagen (Montag bis Freitag). Die weiteren Vertragsbedingungen besprechen wir im Erstgespräch.</p>
       </div>
     </section>
 
@@ -279,7 +311,7 @@
         <div class="reveal"><p class="eyebrow">ATHLETEN-BEWERTUNGEN</p><h2 class="display" id="reviews-heading">Meine Athleten.<br><em>Ihre Erfahrungen.</em></h2></div>
         <figure class="athlete-review reveal delay-1">
           <blockquote><p>„Ich bin mit Tims Trainingsplänen und seinem Coaching sehr zufrieden. Die Pläne sind klar aufgebaut und lassen sich gut in meinen Alltag integrieren. Tim geht auf meine Ziele und Fragen ein, erklärt die Übungen verständlich und passt das Training an, wenn etwas nicht funktioniert. Besonders schätze ich, dass er regelmässig nachfragt und mich motiviert, dranzubleiben. Ich kann sein Coaching weiterempfehlen.“</p></blockquote>
-          <figcaption><strong>Simon</strong><span>Athlet bei TIM COACHING</span></figcaption>
+          <figcaption><strong>Simon</strong><span>Athlet bei TIM SCHNEIDER COACHING</span></figcaption>
         </figure>
       </div>
     </section>
@@ -310,11 +342,11 @@
 
   <footer class="footer">
     <div class="container footer-top">
-      <div><a class="brand" href="#top"><span class="logo-frame"><img src="/assets/tim-schneider-logo.png" alt="Tim Schneider Coaching – Logo" width="1600" height="1600"></span></a><p>Stärke. Ausdauer. Athletik.</p></div>
+      <div><a class="brand" href="#top"><span class="logo-frame"><img src="/assets/optimized/tim-schneider-logo-c66f60c736f7-512.webp" alt="Tim Schneider Coaching – Logo" width="2000" height="2000" data-responsive="tim-schneider-logo" sizes="200px" decoding="async" srcset="/assets/optimized/tim-schneider-logo-c66f60c736f7-256.webp 256w, /assets/optimized/tim-schneider-logo-c66f60c736f7-512.webp 512w"></span></a><p>Stärke. Ausdauer. Athletik.</p></div>
       <div class="footer-links"><a href="#about">Über mich</a><a href="#coaching">Coaching</a><a href="#approach">Mein Ansatz</a><a href="#bewertungen">Bewertungen</a><a href="#contact">Kontakt</a><a href="/erfolge.html">Erfolge &amp; Zertifikate</a><a href="/empfehlungen.html">Empfehlungen</a><a href="/datenschutz.html">Datenschutz</a><a href="/impressum.html">Impressum</a></div>
 
     </div>
-    <div class="container footer-bottom"><span>© 2026 TIM COACHING</span><span>Stärke. Ausdauer. Athletik.</span></div>
+    <div class="container footer-bottom"><span>© 2026 TIM SCHNEIDER COACHING</span><span>Stärke. Ausdauer. Athletik.</span></div>
   </footer>
 
   <script src="/script.js?v=8"></script>
