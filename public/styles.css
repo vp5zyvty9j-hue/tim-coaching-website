@@ -80,6 +80,6 @@ body{font-family:Arial,Helvetica,sans-serif;font-size:16px}h1,h2,h3,.brand{font-
 @media(max-width:620px){.hero-image{height:470px;object-position:50% 0%}.transformation-pair{gap:8px}.transformation-pair img{height:280px}.transformation-pair figcaption{padding:16px 12px;min-height:110px}.transformation-pair figcaption strong{font-size:20px}.training-moments{grid-template-columns:1fr 1fr;gap:16px;margin-top:48px}.training-moments .moment-running{grid-column:1/-1}.training-moments img{height:260px}.training-moments .moment-running img{height:auto;max-height:560px;object-fit:contain;background:#101010}.training-moments figcaption{font-size:16px}}
 
 /* Individuelle Ausschnitte: ganzer Läufer, mehr Kontext im Gym, Winterportrait näher. */
-.training-moments .moment-running img,.training-moments .moment-gym img{object-fit:contain;object-position:center;background:#101010}
+.training-moments .moment-running img,.training-moments .moment-gym img{width:100%;height:auto;max-height:none;object-fit:contain;object-position:center;background:transparent}
 .moment-crop{overflow:hidden;background:#101010}
 .training-moments .moment-winter img{object-fit:cover;object-position:50% 62%;transform:scale(1.35);transform-origin:50% 62%}
