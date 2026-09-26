@@ -9,3 +9,13 @@
 /* A single black achievement card contains both the result and its photo. */
 .milestone-feature{grid-template-columns:1fr}.milestone-with-photo{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}.milestone-copy{display:flex;flex-direction:column;align-self:stretch}.milestone-copy .milestone-foot{margin-top:auto}.milestone-with-photo .milestone-photo{align-self:center}.milestone-with-photo .milestone-photo figcaption{background:transparent;color:#c4c4c4;padding:16px 0 0}.milestone-with-photo .milestone-photo img{height:auto;width:100%}
 @media(max-width:700px){.milestone-with-photo{grid-template-columns:1fr;gap:28px}.milestone-copy .milestone-foot{margin-top:28px}}
+/* Compact race story alongside the original full photo. */
+.milestone-with-photo{grid-template-columns:minmax(0,1.12fr) minmax(0,1fr);gap:clamp(24px,3vw,40px);min-height:0}
+.milestone-with-photo .milestone-number{margin:24px 0 10px;font-size:clamp(100px,11vw,150px)}
+.milestone-with-photo h3{font-size:28px;margin:0}
+.milestone-with-photo .race-result{font-size:14px;font-weight:700;line-height:1.7;color:#9db1ff;max-width:none;margin:12px 0 16px}
+.race-result span{white-space:nowrap}
+.milestone-with-photo .race-story p{font-size:15px;line-height:1.55;max-width:none;margin:0 0 12px}
+.race-statement{margin:6px 0 0;padding:14px 0 0;border-top:1px solid #ffffff45;font-size:17px;line-height:1.45;font-weight:700;color:#fff}
+@media(min-width:701px) and (max-width:1000px){.milestone-with-photo{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:24px}.milestone-with-photo .milestone-photo{align-self:start;margin-top:70px}.milestone-with-photo .milestone-number{font-size:110px}.milestone-with-photo .race-story p{font-size:14px;line-height:1.5}}
+@media(max-width:700px){.milestone-with-photo{grid-template-columns:minmax(0,1fr);gap:24px;padding:24px}.milestone-with-photo .milestone-number{margin-top:20px}.milestone-with-photo .race-story p{font-size:15px}.race-statement{font-size:16px}.milestone-with-photo .milestone-photo{width:100%;max-width:440px;justify-self:center}}

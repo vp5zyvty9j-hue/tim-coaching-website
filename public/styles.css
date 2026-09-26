@@ -93,3 +93,10 @@ body{font-family:Arial,Helvetica,sans-serif;font-size:16px}h1,h2,h3,.brand{font-
 .contact-form .form-honeypot { display: none; }
 
 .form-success:empty { display:none; }
+/* Balanced measure and spacing for the longer philosophy introduction. */
+.philosophy .display{font-size:clamp(38px,5.3vw,70px);line-height:1.08}
+.philosophy .philosophy-lead{max-width:900px;font-size:clamp(17px,1.6vw,20px);line-height:1.65;margin:28px auto 0}
+.philosophy .principles{margin-top:40px}
+.philosophy .principles h3{font-size:clamp(23px,2.5vw,30px);margin-top:24px}
+.philosophy .principles p{font-size:16px;line-height:1.6}
+@media(max-width:620px){.philosophy .display{font-size:clamp(32px,9vw,44px)}.philosophy .philosophy-lead{margin-top:22px}.philosophy .principles{margin-top:28px}.philosophy .principles h3{margin-top:14px}}
