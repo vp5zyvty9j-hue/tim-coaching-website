@@ -1,3 +1,4 @@
+import './check-seo.mjs';
 import './security-headers.mjs';
 import { readdir, readFile, access } from 'node:fs/promises';
 import { resolve, dirname } from 'node:path';
