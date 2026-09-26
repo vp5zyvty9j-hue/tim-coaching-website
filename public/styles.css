@@ -79,7 +79,11 @@ body{font-family:Arial,Helvetica,sans-serif;font-size:16px}h1,h2,h3,.brand{font-
 @media(max-width:980px){.story-grid{grid-template-columns:1fr;gap:40px}.hero-image{height:540px}.transformation-pair img{height:480px}.training-moments img{height:330px}}
 @media(max-width:620px){.hero-image{height:470px;object-position:50% 0%}.transformation-pair{gap:8px}.transformation-pair img{height:280px}.transformation-pair figcaption{padding:16px 12px;min-height:110px}.transformation-pair figcaption strong{font-size:20px}.training-moments{grid-template-columns:1fr 1fr;gap:16px;margin-top:48px}.training-moments .moment-running{grid-column:1/-1}.training-moments img{height:260px}.training-moments .moment-running img{height:auto;max-height:560px;object-fit:contain;background:#101010}.training-moments figcaption{font-size:16px}}
 
-/* Individuelle Ausschnitte: ganzer Läufer, mehr Kontext im Gym, Winterportrait näher. */
-.training-moments .moment-running img,.training-moments .moment-gym img{width:100%;height:auto;max-height:none;object-fit:contain;object-position:center;background:transparent}
-.moment-crop{overflow:hidden;background:#101010}
-.training-moments .moment-winter img{object-fit:cover;object-position:50% 62%;transform:scale(1.35);transform-origin:50% 62%}
+/* Gleiche Bildflächen mit individuellen Ausschnitten, ohne Letterboxing. */
+.training-moments{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}
+.training-moments .moment-running{grid-column:auto}
+.training-moments .moment-running img,.training-moments .moment-gym img{display:block;width:100%;height:auto;max-height:none;aspect-ratio:3/4;object-fit:cover;object-position:50% 50%;background:transparent}
+.training-moments .moment-gym img{object-position:50% 0%}
+.training-moments .moment-crop{width:100%;aspect-ratio:3/4;overflow:hidden}
+.training-moments .moment-winter img{display:block;width:100%;height:100%;max-height:none;object-fit:cover;object-position:50% 62%;transform:scale(1.15);transform-origin:50% 62%}
+@media(max-width:620px){.training-moments{grid-template-columns:1fr}.training-moments .moment-running{grid-column:auto}}
