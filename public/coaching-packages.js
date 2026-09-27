@@ -2,10 +2,10 @@ export const packages = [
   {
     "name": "Basic",
     "price": 179,
-    "subtitle": "Laufcoaching",
-    "description": "Für deinen ersten Lauf, deine nächste Bestzeit und alles dazwischen.",
+    "subtitle": "Ausdauer-Coaching",
+    "description": "Individuelles Ausdauer-Coaching – vom strukturierten Einstieg bis zur ambitionierten Wettkampfvorbereitung.",
     "features": [
-      "Individueller Laufplan",
+      "Individueller Ausdauertrainingsplan",
       "Auf dein Niveau und deine Zeit abgestimmt",
       "Zielgerichtete Wettkampfvorbereitung",
       "Persönlicher Austausch über WhatsApp",
@@ -15,8 +15,8 @@ export const packages = [
   {
     "name": "Basic Plus",
     "price": 249,
-    "subtitle": "Laufen + Kraft",
-    "description": "Für alle, die ausdauernd und stark werden möchten.",
+    "subtitle": "Ausdauer + Kraft",
+    "description": "Ausdauer und Kraft gemeinsam entwickeln – mit abgestimmter Belastung und Regeneration.",
     "features": [
       "Alles aus Basic",
       "Individueller Kraftplan",
@@ -28,8 +28,8 @@ export const packages = [
   {
     "name": "Premium",
     "price": 349,
-    "subtitle": "Laufen + Kraft + Ernährung",
-    "description": "Dein Training und deine Ernährung in einem gemeinsamen Plan.",
+    "subtitle": "Ausdauer + Kraft + Ernährung",
+    "description": "Ausdauer, Kraft und Ernährung in einem gemeinsamen Plan – unsere umfassendste Betreuung.",
     "features": [
       "Alles aus Basic Plus",
       "Individuelle Ernährungsunterstützung",

@@ -2,32 +2,32 @@
 
 Der Einstieg liegt unmittelbar nach dem bestehenden Hero auf der Startseite (`/#coaching-check`). Der Fragebogen öffnet als nativer modaler Dialog, ohne Fremdtool, neue öffentliche URL oder Seitenwechsel. Hero, Pakete, Canonicals und Sitemap bleiben erhalten.
 
-## Zehn Schritte
+## Grundablauf mit dynamischen Folgefragen
 
 1. Hauptziel
 2. Trainingsschwerpunkt
 3. Trainingsstand, einschliesslich Wettkampforientierung / Leistungssport
-4. Lauf-/Wettkampfziel; alternativ Ausstattung, Ernährungsalltag oder Richtungsfrage
-5. Kraftziel; alternativ Lauf-Schwerpunkt, Ernährungsschwerpunkt oder Hindernis
+4. Ausdauersportart; alternativ Ausstattung, Ernährungsalltag oder Richtungsfrage
+5. Kraftziel; alternativ Ausdauer-Schwerpunkt, Ernährungsschwerpunkt oder Hindernis
 6. Trainingszeit
 7. Bisherige Planung
 8. Gewünschte Ernährungsunterstützung
 9. Gewünschte Betreuung
 10. Wichtigste Priorität
 
-Frage 4 und 5 passen sich dem Schwerpunkt an. Eine ausdrückliche Trainingsauswahl hat Vorrang vor dem allgemeineren Hauptziel. Unpassende Folgeantworten werden bei einem Wechsel entfernt, kompatible Antworten bleiben erhalten. Schliessen/Escape unterbricht den Check; erneutes Öffnen setzt ihn innerhalb desselben Tabs fort. Neuladen löscht diesen Zwischenstand.
+Die Fragen zur Sportart und zum Trainingsziel passen sich dem Schwerpunkt an; die Auswahl Laufen ergänzt eine Distanzfrage. Bei einer offenen Richtung kann zunächst eine zusätzliche Sportartfrage folgen. Eine ausdrückliche Trainingsauswahl hat Vorrang vor dem allgemeineren Hauptziel. Unpassende Folgeantworten werden bei einem Wechsel entfernt, kompatible Antworten bleiben erhalten. Schliessen/Escape unterbricht den Check; erneutes Öffnen setzt ihn innerhalb desselben Tabs fort. Neuladen löscht diesen Zwischenstand.
 
 ## Empfehlung und Premium
 
 | Schwerpunkt | Beste Übereinstimmung |
 |---|---|
-| Laufen | Basic, CHF 179 / Monat |
-| Laufen + Kraft / Hybrid | Basic Plus, CHF 249 / Monat |
-| Laufen + Kraft + ausdrücklich gewünschte Ernährung | Premium, CHF 349 / Monat |
+| Ausdauer | Basic, CHF 179 / Monat |
+| Ausdauer + Kraft / Hybrid | Basic Plus, CHF 249 / Monat |
+| Ausdauer + Kraft + ausdrücklich gewünschte Ernährung | Premium, CHF 349 / Monat |
 | Krafttraining | Kraftplan, CHF 149 / Monat |
 | Nur Ernährung | Ernährung, CHF 149 / Monat |
 
-Premium wird bei jedem Ergebnis angezeigt. Ohne entsprechenden Bedarf trägt es „Umfassendste Betreuung“, nicht „Beste Übereinstimmung“. Die Begründung nennt die zusätzlich enthaltenen, bisher nicht gewählten Bereiche. Die Bezeichnung bezieht sich auf den Leistungsumfang aus Laufen, Kraft und Ernährung, nicht auf zusätzliche Kontaktzeiten. Die bestehenden Betreuungsbedingungen bleiben unverändert.
+Premium wird bei jedem Ergebnis angezeigt. Ohne entsprechenden Bedarf trägt es „Umfassendste Betreuung“, nicht „Beste Übereinstimmung“. Die Begründung nennt die zusätzlich enthaltenen, bisher nicht gewählten Bereiche. Die Bezeichnung bezieht sich auf den Leistungsumfang aus Ausdauer, Kraft und Ernährung, nicht auf zusätzliche Kontaktzeiten. Die bestehenden Betreuungsbedingungen bleiben unverändert.
 
 Bis zu drei Optionen. Hoher Trainingsstand, viele Trainingsstunden oder Betreuungswunsch allein führen nicht zu Premium als bester Übereinstimmung. „Vielleicht“ bei Ernährung reicht ebenfalls nicht aus. Bei offenen oder widersprüchlichen Angaben wird keine beste Übereinstimmung erzwungen; das Paket kann im Erstgespräch geklärt werden. Bei Ernährungs-Hauptthema und passendem Körper-/Ernährungsziel kann Ernährung vorrangig sein.
 
@@ -35,7 +35,7 @@ Paketdaten stehen in `public/coaching-packages.js`; ein Test gleicht Namen, Prei
 
 ## Formular und Datum
 
-Die Übergabe wählt das Paket vor und ergänzt leere beziehungsweise zuvor automatisch ausgefüllte Felder (Ziel, Trainingsstand, Zeit, Laufziel, Kraftziel, Ausstattung, Ernährungsalltag). Eigene Änderungen werden nicht überschrieben. Empfehlung und tatsächliche Paketauswahl sind getrennt.
+Die Übergabe wählt das Paket vor und ergänzt leere beziehungsweise zuvor automatisch ausgefüllte Felder (Ziel, Trainingsstand, Zeit, Ausdauersportart und Ausdauerziel, Kraftziel, Ausstattung, Ernährungsalltag). Eigene Änderungen werden nicht überschrieben. Empfehlung und tatsächliche Paketauswahl sind getrennt.
 
 Zusätzliche Formulardaten:
 
@@ -69,8 +69,12 @@ Vorbereitete lokale DOM-Ereignisse über `tim:coaching-check`, jeweils version: 
 
 Es gibt noch keinen Statistikempfänger und keine App-Anbindung. Ereignisse enthalten keine Kontaktangaben oder Antworten. Ein pagehide-Ereignis ist kein verlässlicher Nachweis jedes Abbruchs und wird derzeit nicht gespeichert. Für echte Statistiken braucht es später ein gesondertes Messkonzept und einen Empfänger.
 
-Das Dashboard kann später aus einer tatsächlich abgesendeten Anfrage strukturierte Ziele, Schwerpunkt, Trainingsstand, Lauf-/Kraftziel, Zeit, Planung, Ernährung, Betreuung, Priorität, Empfehlung und gewähltes Paket übernehmen. Kontaktname, E-Mail und Startdatum stehen in den normalen Formularfeldern. Das JSON ist eine Eingabedatenstruktur, keine vertrauenswürdige Berechtigungs- oder Preisquelle; serverseitig validieren.
+Das Dashboard kann später aus einer tatsächlich abgesendeten Anfrage strukturierte Ziele, Schwerpunkt, Trainingsstand, Ausdauer-/Kraftziel, Zeit, Planung, Ernährung, Betreuung, Priorität, Empfehlung und gewähltes Paket übernehmen. Kontaktname, E-Mail und Startdatum stehen in den normalen Formularfeldern. Das JSON ist eine Eingabedatenstruktur, keine vertrauenswürdige Berechtigungs- oder Preisquelle; serverseitig validieren.
 
 ## Prüfung
 
 35 automatisierte Tests inklusive fünf Pflichtszenarien, Premium-Matrix, adaptive Fragen, Datumssperre und tatsächlicher JSON-Erstellung im bestehenden Versandhandler mit kontrolliertem Testtransport. Browser: Desktop-Laufanfänger, mobiler Hybrid-Athlet mit Ernährung und mobiler Kraft-Pfad vollständig durchlaufen; Tastaturauswahl, Zurück, Paketwechsel, Übergabe und Datenentfernung geprüft. Kein echter Testversand an das Postfach durchgeführt. Bestehender FormSubmit-Endpunkt bleibt unverändert.
+
+## Ausdauer-Positionierung
+
+Der Check fragt bei Ausdauer und Hybrid nach Laufen, allgemeiner Ausdauer oder einer anderen (im Erstgespräch zu klärenden) Sportart. Nur bei Laufen folgt die Distanzfrage. Die Fragezahl und Fortschrittsanzeige passen sich an (10 bis 12 Fragen). Laufantworten werden beim Sportartwechsel entfernt. Premium bleibt stets sichtbar und wird nur bei Ausdauer + Kraft + ausdrücklich gewünschter Ernährung zur besten Übereinstimmung. Das Übergabeformat trägt Version `coaching-check-2`; die Sportart steht auch in den zusammengefassten Antworten.
