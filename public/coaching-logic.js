@@ -74,7 +74,7 @@ export function recommend(a){
  rows=ordered;
  const bestRow=rows.find(p=>p.name===best);
  if(bestRow){
-  bestRow.reason+=` Dein Trainingsstand: ${label(a,'level')||'noch offen'}. Besonders wichtig ist dir: ${label(a,'priority')||'eine passende Planung'}.`;
+  bestRow.reason+=` Besonders wichtig ist dir: ${label(a,'priority')||'eine passende Planung'}.`;
  }
  const notes=[];
  if(a.sport==='other')notes.push('Die Paketauswahl ordnet deine gewünschten Trainingsbereiche ein. Ob meine Betreuung für deine konkrete Ausdauersportart geeignet ist, klären wir im Erstgespräch.');

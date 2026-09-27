@@ -2,8 +2,8 @@ export const packages = [
   {
     "name": "Basic",
     "price": 179,
-    "subtitle": "Ausdauer-Coaching",
-    "description": "Individuelles Ausdauer-Coaching – vom strukturierten Einstieg bis zur ambitionierten Wettkampfvorbereitung.",
+    "subtitle": "AUSDAUER",
+    "description": "Vom strukturierten Einstieg bis zur ambitionierten Wettkampfvorbereitung.",
     "features": [
       "Individueller Ausdauertrainingsplan",
       "Auf dein Niveau und deine Zeit abgestimmt",
@@ -15,8 +15,8 @@ export const packages = [
   {
     "name": "Basic Plus",
     "price": 249,
-    "subtitle": "Ausdauer + Kraft",
-    "description": "Ausdauer und Kraft gemeinsam entwickeln – mit abgestimmter Belastung und Regeneration.",
+    "subtitle": "AUSDAUER + KRAFT",
+    "description": "Für alle, die ausdauernd und stark werden möchten.",
     "features": [
       "Alles aus Basic",
       "Individueller Kraftplan",
@@ -28,8 +28,8 @@ export const packages = [
   {
     "name": "Premium",
     "price": 349,
-    "subtitle": "Ausdauer + Kraft + Ernährung",
-    "description": "Ausdauer, Kraft und Ernährung in einem gemeinsamen Plan – unsere umfassendste Betreuung.",
+    "subtitle": "AUSDAUER + KRAFT + ERNÄHRUNG",
+    "description": "Unsere umfassendste Betreuung für Training, Alltag und Regeneration.",
     "features": [
       "Alles aus Basic Plus",
       "Individuelle Ernährungsunterstützung",
@@ -41,7 +41,7 @@ export const packages = [
   {
     "name": "Ernährung",
     "price": 149,
-    "subtitle": "Ernährungscoaching",
+    "subtitle": "ERNÄHRUNG",
     "description": "Für Essgewohnheiten, die zu dir und deinem Ziel passen.",
     "features": [
       "Deine Ausgangslage und Essgewohnheiten",
@@ -54,7 +54,7 @@ export const packages = [
   {
     "name": "Kraftplan",
     "price": 149,
-    "subtitle": "Krafttraining mit Betreuung",
+    "subtitle": "KRAFT",
     "description": "Für gezielten Muskelaufbau, mehr Kraft und einen klaren Plan.",
     "features": [
       "Individueller Krafttrainingsplan",
