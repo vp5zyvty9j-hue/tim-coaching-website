@@ -1,5 +1,5 @@
 /*
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-KdZtiBEPvuDeI3Wgg4nEq8OPVZOaKe4jpFkqidzfDbg=' 'sha256-MtEXYhi/aNBaXunlMRgXBP9W9uNFTrUsqScha2q+nlw=' 'sha256-NhROuu9qhU7eRWEQB9wYm/4H89oxrEpBKH6/y0hc4cE='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src https://formsubmit.co; form-action https://formsubmit.co; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-KdZtiBEPvuDeI3Wgg4nEq8OPVZOaKe4jpFkqidzfDbg=' 'sha256-NhROuu9qhU7eRWEQB9wYm/4H89oxrEpBKH6/y0hc4cE=' 'sha256-z9RyZ21H+kHvKCxsI/zU00kM0YZCPYcwxEVrY9Ch9o8='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src https://formsubmit.co; form-action https://formsubmit.co; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; upgrade-insecure-requests
   Strict-Transport-Security: max-age=31536000
   Referrer-Policy: strict-origin-when-cross-origin
   X-Content-Type-Options: nosniff
