@@ -7,7 +7,7 @@ for (const file of (await readdir(root)).filter(name => name.endsWith('.html')))
   const expected = 'https://timschneider.ch/' + (file === 'index.html' ? '' : file);
   const canonical = html.match(/<link rel="canonical" href="([^"]+)"/g) || [];
   if (canonical.length !== 1 || !canonical[0].includes(`href="${expected}"`)) throw Error(`${file}: canonical mismatch`);
-  if (!html.includes('href="/favicon.ico"') || !html.includes('href="/favicon-96.png"')) throw Error(`${file}: favicon missing`);
+  if (!html.includes('href="https://timschneider.ch/favicon.ico"') || !html.includes('href="https://timschneider.ch/favicon-96.png"')) throw Error(`${file}: favicon missing`);
   if (/Brand Logo|Running,Coaching,Individualbetreuung/i.test(html)) throw Error(`${file}: obsolete SEO text`);
   if (!/<meta name="robots" content="[^"]*noindex/.test(html)) urls.push(expected);
   const headingLevels = [...html.matchAll(/<h([1-6])(?:\s[^>]*)?>/g)].map(m => Number(m[1]));
