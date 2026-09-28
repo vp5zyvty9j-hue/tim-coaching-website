@@ -3,7 +3,7 @@ export const packages = [
     "name": "Basic",
     "price": 179,
     "subtitle": "AUSDAUER",
-    "description": "Individuelles Ausdauertraining für deine Sportart, dein Leistungsniveau und deine Ziele – vom strukturierten Einstieg bis zur ambitionierten Wettkampfvorbereitung.",
+    "description": "Individuelles Ausdauertraining für deine Sportart, deinen Leistungsstand und deine Ziele – vom strukturierten Einstieg bis zur ambitionierten Wettkampfvorbereitung.",
     "features": [
       "Individueller Ausdauertrainingsplan",
       "Auf Leistungsstand, Ziel und verfügbare Zeit abgestimmt",
