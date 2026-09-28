@@ -5,7 +5,7 @@ const question=(id,kicker,title,help,choices)=>({id,kicker,title,help,options:ch
 const goal=question('goal','DEIN ZIEL','Was möchtest du hauptsächlich erreichen?','Dein wichtigstes Ziel gibt die Richtung vor.',[
  ['speed','Sportliche Leistung verbessern'],['endurance','Ausdauer verbessern'],['race','Für einen Wettkampf trainieren'],['hybrid','Kraft und Ausdauer kombinieren'],['strength','Muskeln und Kraft aufbauen'],['body','Körperfett reduzieren / Körper verändern'],['fitness','Allgemein fitter und leistungsfähiger werden'],['food','Meine Ernährung im Alltag verbessern']]);
 const training=question('training','DEIN SCHWERPUNKT','Welche Trainingsform interessiert dich am meisten?','Wähle, welche Bereiche du im Coaching betreuen lassen möchtest.',[
- ['endurance','Ausdauertraining'],['strength','Krafttraining'],['both','Ausdauer + Kraft'],['hybrid','Hybrid Training'],['unsure','Noch unsicher'],['food','Nur Ernährung – ohne Trainingsplan']]);
+ ['endurance','Ausdauertraining'],['strength','Krafttraining'],['both','Ausdauer + Kraft'],['hybrid','Hybrid Training (Ausdauer + Kraft)'],['unsure','Noch unsicher'],['food','Nur Ernährung – ohne Trainingsplan']]);
 const level=question('level','DEIN AUSGANGSPUNKT','Wie schätzt du deinen aktuellen Trainingsstand ein?','Vom Einstieg bis zum ambitionierten Wettkampfsport: Die Planung richtet sich nach dir.',[
  ['beginner','Anfänger'],['active','Regelmässig aktiv'],['advanced','Fortgeschritten'],['athlete','Ambitionierter Athlet'],['competitive','Wettkampforientiert / Leistungssport']]);
 export function baseMode(a){
@@ -48,10 +48,10 @@ export function recommend(a){
  const add=(name,reason,tradeoff='')=>rows.push({...packages.find(p=>p.name===name),reason,tradeoff});
  if(m==='both'){
  if(nutrition)add('Premium','Du möchtest Ausdauer und Krafttraining verbinden und wünschst dir ausdrücklich Ernährungsunterstützung. Premium vereint diese drei Bereiche in einem Paket.');
- add('Basic Plus','Du möchtest Kraft und Ausdauer gemeinsam entwickeln. Basic Plus verbindet einen individuellen Ausdauertrainingsplan mit einem abgestimmten Kraftplan.',nutrition?'Alternative, wenn du zunächst auf Ernährungsunterstützung verzichtest.':'');
+ add('Basic Plus','Du möchtest Kraft und Ausdauer gemeinsam entwickeln. Basic Plus integriert Krafttraining passend zu deinem Ausdauertraining, deiner Sportart und deinem Ziel. Du musst dich dafür nicht als Hybrid-Athlet verstehen.',nutrition?'Alternative, wenn du zunächst auf Ernährungsunterstützung verzichtest.':'');
  add('Basic','Basic konzentriert sich auf deinen individuellen Ausdauertrainingsplan und deine sportlichen Ziele.','Nur wenn du deinen Coaching-Schwerpunkt auf Ausdauer begrenzen möchtest; kein individueller Kraftplan enthalten.');
  }else if(m==='endurance'){
- add('Basic','Du möchtest dein Ausdauertraining gezielt entwickeln. Basic bietet dir einen individuellen Ausdauertrainingsplan und zielgerichtete Wettkampfvorbereitung.');
+ add('Basic','Du möchtest dein Ausdauertraining gezielt entwickeln. Basic bietet dir einen individuellen Ausdauertrainingsplan, abgestimmt auf deinen Leistungsstand und dein Ziel – einschliesslich Wettkampfvorbereitung, wenn diese für dich relevant ist.');
  if(nutrition)add('Ernährung','Du wünschst dir zusätzlich Unterstützung bei deinen Essgewohnheiten.','Eigenständiges Paket ohne Ausdauertrainingsplan. Eine Kombination und deren Gesamtumfang besprechen wir im Erstgespräch.');
  }else if(m==='strength'){
  add('Kraftplan','Dein gewählter Schwerpunkt ist Krafttraining. Der Kraftplan bietet individuelle Übungsauswahl und sinnvolle Steigerung, abgestimmt auf deine Erfahrung und Ausstattung.');

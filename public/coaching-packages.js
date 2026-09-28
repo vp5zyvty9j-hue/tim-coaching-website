@@ -3,11 +3,11 @@ export const packages = [
     "name": "Basic",
     "price": 179,
     "subtitle": "AUSDAUER",
-    "description": "Vom strukturierten Einstieg bis zur ambitionierten Wettkampfvorbereitung.",
+    "description": "Individuelles Ausdauertraining für deine Sportart, dein Leistungsniveau und deine Ziele – vom strukturierten Einstieg bis zur ambitionierten Wettkampfvorbereitung.",
     "features": [
       "Individueller Ausdauertrainingsplan",
-      "Auf dein Niveau und deine Zeit abgestimmt",
-      "Zielgerichtete Wettkampfvorbereitung",
+      "Auf Leistungsstand, Ziel und verfügbare Zeit abgestimmt",
+      "Wettkampfvorbereitung, wenn für dein Ziel relevant",
       "Persönlicher Austausch über WhatsApp",
       "Plananpassung nach Bedarf: wöchentlich bis monatlich"
     ]
@@ -16,11 +16,12 @@ export const packages = [
     "name": "Basic Plus",
     "price": 249,
     "subtitle": "AUSDAUER + KRAFT",
-    "description": "Für alle, die ausdauernd und stark werden möchten.",
+    "description": "Ausdauertraining mit gezielt integriertem Krafttraining – für Athleten, die ihre Leistungsfähigkeit ganzheitlich entwickeln möchten.",
     "features": [
       "Alles aus Basic",
-      "Individueller Kraftplan",
-      "Aufeinander abgestimmte Belastung und Erholung",
+      "Individueller Krafttrainingsplan",
+      "Abgestimmt auf Ausdauertraining, Sportart und Ziel",
+      "Aufeinander abgestimmte Belastung und Regeneration",
       "Persönlicher Austausch über WhatsApp",
       "Plananpassung nach Bedarf: wöchentlich bis monatlich"
     ]
@@ -29,7 +30,7 @@ export const packages = [
     "name": "Premium",
     "price": 349,
     "subtitle": "AUSDAUER + KRAFT + ERNÄHRUNG",
-    "description": "Unsere umfassendste Betreuung für Training, Alltag und Regeneration.",
+    "description": "Unsere umfassendste Betreuung: Ausdauer, Kraft und Ernährung werden gemeinsam auf deine sportlichen Ziele, deinen Alltag und deine Leistungsentwicklung abgestimmt.",
     "features": [
       "Alles aus Basic Plus",
       "Individuelle Ernährungsunterstützung",
