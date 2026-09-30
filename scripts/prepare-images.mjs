@@ -11,6 +11,22 @@ for (const width of [400, 720]) {
 }
 console.log('100-km photo: pixel-identical full-size WebP and responsive variants prepared.');
 
+// Bestzeiten photos: 5 km night run and half marathon. Originals stay untouched,
+// so the derivatives only compress and resize without retouching the photos.
+for (const [name, widths] of [['tim-5km-nacht.jpg', [400, 720]], ['tim-halbmarathon.jpg', [400, 720]]]) {
+  const file = path(name), stem = name.replace(/\.[^.]+$/, ''), meta = await sharp(file).metadata();
+  assert.equal(meta.orientation ?? 1, 1, stem + ': unexpected EXIF orientation');
+  await sharp(file).webp({ quality: 92, effort: 6 }).toFile(path(stem + '.webp'));
+  for (const requested of widths) {
+    const width = Math.min(requested, meta.width);
+    if (width === meta.width) continue;
+    await sharp(file).resize({ width, withoutEnlargement: true }).webp({ quality: 92, effort: 6 }).toFile(path(stem + '-' + width + '.webp'));
+  }
+  const full = await sharp(path(stem + '.webp')).metadata();
+  assert.deepEqual([full.width, full.height], [meta.width, meta.height], stem + ': derivative must keep the original frame');
+  console.log(stem + ': ' + meta.width + 'x' + meta.height + ' photo and responsive variants prepared.');
+}
+
 // Responsive derivatives of the existing photographs; originals stay untouched.
 import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';

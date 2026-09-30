@@ -20,6 +20,10 @@
 @media(min-width:701px) and (max-width:1000px){.milestone-with-photo{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:24px}.milestone-with-photo .milestone-photo{align-self:start;margin-top:70px}.milestone-with-photo .milestone-number{font-size:110px}.milestone-with-photo .race-story p{font-size:14px;line-height:1.5}}
 @media(max-width:700px){.milestone-with-photo{grid-template-columns:minmax(0,1fr);gap:24px;padding:24px}.milestone-with-photo .milestone-number{margin-top:20px}.milestone-with-photo .race-story p{font-size:15px}.race-statement{font-size:16px}.milestone-with-photo .milestone-photo{width:100%;max-width:440px;justify-self:center}}
 
+/* Bestzeiten series: one shared photo frame keeps all three entries aligned; the photos are fitted
+   instead of cropped, so their different formats stay undistorted and nothing important is cut off. */
+.milestone-with-photo .milestone-photo img{aspect-ratio:3/4;object-fit:contain;background:#080808}
+
 /* Personal sporting experience and ongoing study; future certificates can be added as articles. */
 .qualifications .qualification-layout{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:start;gap:clamp(32px,5vw,60px)}
 .qualifications .display{font-size:clamp(38px,5vw,66px);line-height:1.08}
