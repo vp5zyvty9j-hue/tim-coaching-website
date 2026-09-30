@@ -3,14 +3,14 @@ export { packages };
 const option=(value,label)=>({value,label});
 const question=(id,kicker,title,help,choices)=>({id,kicker,title,help,options:choices.map(([v,l])=>option(v,l))});
 const goal=question('goal','DEIN ZIEL','Was möchtest du hauptsächlich erreichen?','Dein wichtigstes Ziel gibt die Richtung vor.',[
- ['speed','Sportliche Leistung verbessern'],['endurance','Ausdauer verbessern'],['race','Für einen Wettkampf trainieren'],['hybrid','Kraft und Ausdauer kombinieren'],['strength','Muskeln und Kraft aufbauen'],['body','Körperfett reduzieren / Körper verändern'],['fitness','Allgemein fitter und leistungsfähiger werden'],['food','Meine Ernährung im Alltag verbessern']]);
+ ['speed','Sportliche Leistung verbessern'],['endurance','Ausdauer verbessern'],['race','Für einen Wettkampf trainieren'],['hybrid','Kraft und Ausdauer kombinieren'],['strength','Ich möchte Muskeln aufbauen'],['body','Körperfett reduzieren / Körper verändern'],['fitness','Ich möchte allgemein fitter und stärker werden'],['food','Meine Ernährung im Alltag verbessern'],['lose','Ich möchte abnehmen'],['gain','Ich möchte zunehmen'],['sportfood','Ich möchte meine Ernährung für meinen Sport verbessern']]);
 const training=question('training','DEIN SCHWERPUNKT','Welche Trainingsform interessiert dich am meisten?','Wähle, welche Bereiche du im Coaching betreuen lassen möchtest.',[
  ['endurance','Ausdauertraining'],['strength','Krafttraining'],['both','Ausdauer + Kraft'],['hybrid','Hybrid Training (Ausdauer + Kraft)'],['unsure','Noch unsicher'],['food','Nur Ernährung – ohne Trainingsplan']]);
 const level=question('level','DEIN AUSGANGSPUNKT','Wie schätzt du deinen aktuellen Trainingsstand ein?','Vom Einstieg bis zum ambitionierten Wettkampfsport: Die Planung richtet sich nach dir.',[
- ['beginner','Anfänger'],['active','Regelmässig aktiv'],['advanced','Fortgeschritten'],['athlete','Ambitionierter Athlet'],['competitive','Wettkampforientiert / Leistungssport']]);
+ ['inactive','Aktuell kein Training'],['beginner','Anfänger'],['active','Regelmässig aktiv'],['advanced','Fortgeschritten'],['athlete','Ambitionierter Athlet'],['competitive','Wettkampforientiert / Leistungssport']]);
 export function baseMode(a){
  if(a.training && a.training!=='unsure')return ['both','hybrid'].includes(a.training)?'both':a.training;
- return {speed:'endurance',endurance:'endurance',race:'endurance',hybrid:'both',strength:'strength',food:'food'}[a.goal]||'unsure';
+ return {speed:'endurance',endurance:'endurance',race:'endurance',hybrid:'both',strength:'strength',fitness:'strength',food:'food',lose:'food',gain:'food',sportfood:'food'}[a.goal]||'unsure';
 }
 export function mode(a){return baseMode(a)==='unsure'?(a.focus||'unsure'):baseMode(a);}
 export function questions(a={}){
@@ -21,13 +21,13 @@ export function questions(a={}){
  question('routine','DEIN ALLTAG','Wie sieht dein Essalltag meistens aus?','Es geht um alltagstaugliche Gewohnheiten, nicht um Körperwerte.',[['regular','Meist regelmässige Mahlzeiten'],['busy','Wechselnde Zeiten / viel unterwegs'],['sport','Ich plane rund um mein Training'],['unsure','Mir fehlt bisher eine feste Struktur']]);
  const fifth=['both','strength'].includes(m)?question('strengthGoal','DEIN KRAFTZIEL','Was ist dein wichtigstes Ziel im Krafttraining?','Wir berücksichtigen, wie Krafttraining dein Hauptziel unterstützen soll.',[['muscle','Muskelaufbau'],['power','Mehr Kraft'],['athletic','Athletischer werden'],['running','Kraft für meinen Ausdauersport'],['general','Allgemeine Fitness']]):
  m==='endurance'?question('enduranceFocus','DEIN AUSDAUERTRAINING','Was möchtest du in deinem Ausdauertraining besonders verbessern?','So wird aus deinem Ziel ein konkreter Ansatz für die Planung.',[['routine','Regelmässig trainieren und dranbleiben'],['pace','Tempo gezielt entwickeln'],['distance','Längere Distanzen bewältigen'],['load','Belastung und Erholung besser abstimmen']]):
- m==='food'?question('foodFocus','DEINE ERNÄHRUNG','Wo wünschst du dir im Alltag mehr Orientierung?','Wähle den Bereich, der dir gerade am meisten helfen würde.',[['habits','Verlässliche Essgewohnheiten'],['planning','Mahlzeiten einfacher planen'],['sport','Ernährung und Training abstimmen'],['implementation','Gute Vorsätze praktisch umsetzen']]):
+ m==='food'?question('foodFocus','DEINE ERNÄHRUNG','Wo wünschst du dir im Alltag mehr Orientierung?','Wähle den Bereich, der dir gerade am meisten helfen würde.',[['lose','Ernährung zum Abnehmen strukturieren'],['gain','Ernährung zum Zunehmen strukturieren'],['habits','Verlässliche Essgewohnheiten'],['planning','Mahlzeiten einfacher planen'],['sport','Ernährung und Training abstimmen'],['implementation','Gute Vorsätze praktisch umsetzen']]):
  question('obstacle','DEIN NÄCHSTER SCHRITT','Was fehlt dir momentan am meisten?','Auch ohne festen Trainingsschwerpunkt können wir dein Anliegen klar festhalten.',[['direction','Eine klare Richtung'],['routine','Eine umsetzbare Routine'],['progress','Ein Plan für weitere Fortschritte'],['feedback','Persönliches Feedback']]);
  return [goal,training,level,fourth,
  ...(b==='unsure'&&['endurance','both'].includes(m)?[question('sport','DEIN AUSDAUERSPORT','Welche Ausdauersportart steht für dich im Mittelpunkt?','Für andere Sportarten klären wir im Erstgespräch, ob die Betreuung zu deinem Ziel passt.',[['running','Laufen'],['general','Allgemeine Ausdauer / noch keine feste Sportart'],['other','Andere Ausdauersportart – im Erstgespräch klären']])]:[]),
  ...(['endurance','both'].includes(m)&&a.sport==='running'?[question('race','DEIN LAUFZIEL','Hast du ein konkretes Lauf- oder Wettkampfziel?','Die Distanz hilft bei der Planung – sie bestimmt nicht den Preis deines Pakets.',[['general','Allgemeine Laufleistung verbessern'],['5k','5 km'],['10k','10 km'],['half','Halbmarathon'],['marathon','Marathon'],['ultra','Ultra'],['other','Anderer Wettkampf']])]:[]),
  fifth,
- question('time','DEINE ZEIT','Wie viel Zeit kannst du realistisch pro Woche für Training einplanen?','Eine ehrliche Einschätzung hilft mehr als ein perfekter Vorsatz. Bei reinem Ernährungscoaching dient sie nur als Kontext.',[['1-3','1–3 Stunden'],['4-6','4–6 Stunden'],['7-10','7–10 Stunden'],['10+','Mehr als 10 Stunden']]),
+ question('time','DEINE ZEIT','Wie viel Zeit kannst du realistisch pro Woche für Training einplanen?','Eine ehrliche Einschätzung hilft mehr als ein perfekter Vorsatz. Bei reinem Ernährungscoaching dient sie nur als Kontext.',[...(m==='food'?[['none','Kein Training – nur Ernährungsbetreuung']]:[]),['1-3','1–3 Stunden'],['4-6','4–6 Stunden'],['7-10','7–10 Stunden'],['10+','Mehr als 10 Stunden']]),
  question('structure','DEINE PLANUNG','Trainierst du aktuell nach einem strukturierten Plan?','Es geht um deinen aktuellen Stand, nicht um richtig oder falsch.',[['no','Nein'],['partial','Teilweise'],['stuck','Ja, aber ich komme nicht wie gewünscht voran'],['optimize','Ja, ich möchte meine Planung weiter optimieren']]),
  question('nutrition','DEINE ERNÄHRUNG','Möchtest du auch Unterstützung bei deiner Ernährung?','Ein „Vielleicht“ führt noch nicht zu einer Premium-Empfehlung.',[['no','Nein'],['maybe','Vielleicht'],['yes','Ja'],['main','Ernährung ist aktuell eines meiner Hauptthemen']]),
  question('support','DEINE BETREUUNG','Wie viel persönliche Betreuung möchtest du?','Alle Pakete enthalten persönlichen Austausch. Dein Wunsch hilft, den passenden Umfang im Erstgespräch abzugleichen.',[['plan','Hauptsächlich einen klaren individuellen Plan'],['adjust','Regelmässige Anpassungen'],['feedback','Persönliches Feedback und Austausch'],['full','Möglichst umfassende Betreuung']]),
@@ -57,10 +57,10 @@ export function recommend(a){
  add('Kraftplan','Dein gewählter Schwerpunkt ist Krafttraining. Der Kraftplan bietet individuelle Übungsauswahl und sinnvolle Steigerung, abgestimmt auf deine Erfahrung und Ausstattung.');
  if(nutrition)add('Ernährung','Auch deine Ernährung soll Unterstützung bekommen.','Eigenständiges Paket ohne Kraftplan. Eine Kombination und deren Gesamtumfang besprechen wir im Erstgespräch.');
  }else if(m==='food'&&a.nutrition!=='no'){
- add('Ernährung','Du möchtest deine Ernährung betreuen lassen und brauchst aktuell keinen Trainingsplan. Dieses Paket unterstützt alltagstaugliche Essgewohnheiten und deren Umsetzung.');
+ add('Ernährung','Du möchtest deine Ernährung betreuen lassen und brauchst aktuell keinen Trainingsplan. Dieses Paket unterstützt dich beim Abnehmen, Zunehmen oder dabei, deine Ernährung passend zu Alltag und Sport zu strukturieren – auch unabhängig von Sport.');
  }
  // Fit comes before price. Premium is always available as an explicitly broader option.
- const nutritionFirst=a.nutrition==='main' && (m==='food'||['body','food'].includes(a.goal));
+ const nutritionFirst=a.nutrition==='main' && (m==='food'||['body','food','lose','gain','sportfood'].includes(a.goal));
  const best=(nutritionFirst?rows.find(p=>p.name==='Ernährung'):rows[0])?.name||null;
  const premium=rows.find(p=>p.name==='Premium');
  if(!premium){

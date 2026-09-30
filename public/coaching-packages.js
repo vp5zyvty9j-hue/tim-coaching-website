@@ -1,7 +1,7 @@
 export const packages = [
   {
     "name": "Basic",
-    "price": 179,
+    "price": 139,
     "subtitle": "AUSDAUER",
     "description": "Individuelles Ausdauertraining für deine Sportart, deinen Leistungsstand und deine Ziele – vom strukturierten Einstieg bis zur ambitionierten Wettkampfvorbereitung.",
     "features": [
@@ -9,12 +9,13 @@ export const packages = [
       "Auf Leistungsstand, Ziel und verfügbare Zeit abgestimmt",
       "Wettkampfvorbereitung, wenn für dein Ziel relevant",
       "Persönlicher Austausch über WhatsApp",
-      "Plananpassung nach Bedarf: wöchentlich bis monatlich"
+      "Plananpassung nach Bedarf: wöchentlich bis monatlich",
+      "Ausdauerplanung in strukturierten 4-Wochen-Blöcken"
     ]
   },
   {
     "name": "Basic Plus",
-    "price": 249,
+    "price": 189,
     "subtitle": "AUSDAUER + KRAFT",
     "description": "Ausdauertraining mit gezielt integriertem Krafttraining – für Athleten, die ihre Leistungsfähigkeit ganzheitlich entwickeln möchten.",
     "features": [
@@ -23,12 +24,13 @@ export const packages = [
       "Abgestimmt auf Ausdauertraining, Sportart und Ziel",
       "Aufeinander abgestimmte Belastung und Regeneration",
       "Persönlicher Austausch über WhatsApp",
-      "Plananpassung nach Bedarf: wöchentlich bis monatlich"
+      "Plananpassung nach Bedarf: wöchentlich bis monatlich",
+      "Ausdauerplanung in strukturierten 4-Wochen-Blöcken"
     ]
   },
   {
     "name": "Premium",
-    "price": 349,
+    "price": 269,
     "subtitle": "AUSDAUER + KRAFT + ERNÄHRUNG",
     "description": "Unsere umfassendste Betreuung: Ausdauer, Kraft und Ernährung werden gemeinsam auf deine sportlichen Ziele, deinen Alltag und deine Leistungsentwicklung abgestimmt.",
     "features": [
@@ -36,33 +38,36 @@ export const packages = [
       "Individuelle Ernährungsunterstützung",
       "Alltag, Training und Regeneration zusammen gedacht",
       "Persönlicher Austausch über WhatsApp",
-      "Plananpassung nach Bedarf: wöchentlich bis monatlich"
+      "Plananpassung nach Bedarf: wöchentlich bis monatlich",
+      "Ausdauerplanung in strukturierten 4-Wochen-Blöcken"
     ]
   },
   {
     "name": "Ernährung",
-    "price": 149,
+    "price": 109,
     "subtitle": "ERNÄHRUNG",
-    "description": "Für Essgewohnheiten, die zu dir und deinem Ziel passen.",
+    "description": "Individuelle Ernährungsbetreuung für deine Ziele und deinen Alltag – ob Abnehmen, Zunehmen oder die Ernährung passend zu deinem Training strukturieren.",
     "features": [
       "Deine Ausgangslage und Essgewohnheiten",
+      "Auch unabhängig von Sport buchbar",
       "Praktische Struktur für deinen Alltag",
       "Unterstützung bei der Umsetzung",
       "Persönlicher Austausch über WhatsApp",
-      "Plananpassung nach Bedarf: wöchentlich bis monatlich"
+      "Plananpassung nach Bedarf"
     ]
   },
   {
     "name": "Kraftplan",
-    "price": 149,
+    "price": 109,
     "subtitle": "KRAFT",
-    "description": "Für gezielten Muskelaufbau, mehr Kraft und einen klaren Plan.",
+    "description": "Individuelles Krafttraining für mehr Fitness, Kraft und Muskelaufbau – abgestimmt auf deinen Leistungsstand und deine Ziele.",
     "features": [
       "Individueller Krafttrainingsplan",
-      "Abgestimmt auf Erfahrung und Ausstattung",
-      "Übungsauswahl und sinnvolle Steigerung",
+      "Abgestimmt auf Erfahrung, Ziele und verfügbare Ausstattung",
+      "Individuelle Übungsauswahl",
+      "Sinnvolle und strukturierte Progression",
       "Persönlicher Austausch über WhatsApp",
-      "Plananpassung nach Bedarf: wöchentlich bis monatlich"
+      "Plananpassung nach Bedarf"
     ]
   }
 ];
