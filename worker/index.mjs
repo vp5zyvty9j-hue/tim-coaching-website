@@ -7,7 +7,7 @@ const redirects = new Map([
   ['/coach', APP + '/verwaltung'],
   ['/training', APP],
 ]);
-const pages = new Set(['/datenschutz', '/impressum', '/erfolge', '/empfehlungen']);
+const pages = new Set(['/datenschutz', '/impressum', '/erfolge', '/empfehlungen', '/agb', '/widerruf']);
 
 function secure(response, request) {
   const headers = new Headers(response.headers);
