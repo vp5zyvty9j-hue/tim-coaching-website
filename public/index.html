@@ -483,10 +483,7 @@
     <section class="contact section-dark" id="contact">
       <div class="container contact-grid">
         <div class="contact-copy reveal"><p class="eyebrow">KONTAKT</p><h2 class="display">Bereit für dein<br><em>nächstes Level?</em></h2><p>Du hast ein Ziel. Jetzt brauchst du einen Plan.</p><span>Frage dein unverbindliches Erstgespräch an. Wir schauen gemeinsam, welches Coaching zu deinem Alltag und deinen Zielen passt.</span></div>
-        <form class="contact-form" id="contactForm" aria-describedby="contactPrivacy" action="https://formsubmit.co/timliam.schneider@gmail.com" method="POST">
-<input type="hidden" name="_subject" value="TIM SCHNEIDER COACHING – Anfrage fürs Erstgespräch">
-<input type="hidden" name="_template" value="table">
-<input type="hidden" name="_url" value="https://timschneider.ch/#contact">
+        <form class="contact-form" id="contactForm" aria-describedby="contactPrivacy" action="/api/coaching-inquiries" method="POST">
 <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="form-honeypot" aria-hidden="true">
           <p class="form-intro">Deine Anfrage fürs Erstgespräch</p><p class="form-note">Pflichtangaben: Paket, Vorname, E-Mail und ein kurzes allgemeines Ziel. Alle weiteren Angaben sind freiwillig. Bitte keine Verletzungen, Diagnosen, Medikamente, Körpermesswerte oder sonstigen Gesundheitsdaten eintragen.</p>
           <label>Dein Paket<select name="Paket" id="package" required><option value="">Paket auswählen</option><option>Basic</option><option>Basic Plus</option><option>Premium</option><option>Ernährung</option><option>Kraftplan</option></select></label>
@@ -498,8 +495,9 @@
           <div id="funnelContext" class="funnel-context" hidden></div><div id="funnelFields"></div>
           <div id="packageQuestions"></div>
           <label>Was sollte ich noch wissen?<textarea name="Weitere Angaben" rows="3" placeholder="Zum Beispiel dein Alltag oder deine grösste Herausforderung." maxlength="2000"></textarea></label>
-          <p class="form-note" id="contactPrivacy">Mit deiner Anfrage bittest du Tim Schneider um eine Antwort zu deinem Coaching-Anliegen. Wenn du den Coaching-Check ins Formular übernimmst, werden auch deine Antworten, die beste Übereinstimmung und dein gewähltes Paket mitgesendet. Du kannst diese Angaben vor dem Absenden entfernen. Die Angaben werden über FormSubmit an sein Gmail-Postfach übermittelt. Informationen zur Verarbeitung und zu deinen Rechten findest du in der <a href="/datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a>. Die Anfrage ist keine Newsletter-Anmeldung und löst keinen kostenpflichtigen Vertrag aus.</p>
+          <p class="form-note" id="contactPrivacy">Mit deiner Anfrage bittest du Tim Schneider um eine Antwort zu deinem Coaching-Anliegen. Wenn du den Coaching-Check ins Formular übernimmst, werden auch deine Antworten, die beste Übereinstimmung und dein gewähltes Paket mitgesendet. Du kannst diese Angaben vor dem Absenden entfernen. Die Angaben werden sicher im Interessenten-System von TIM COACHING gespeichert und von Tim persönlich bearbeitet. Informationen zur Verarbeitung und zu deinen Rechten findest du in der <a href="/datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a>. Die Anfrage ist keine Newsletter-Anmeldung und löst keinen kostenpflichtigen Vertrag aus.</p>
 <button class="button button-accent full" type="submit">Anfrage senden <span>↗</span></button>
+          <noscript>Zum sicheren Absenden der Anfrage muss JavaScript aktiviert sein. Alternativ findest du den Kontakt im Footer.</noscript>
           <div class="form-success" id="formSuccess" role="status" aria-live="polite"></div>
         </form>
       </div>

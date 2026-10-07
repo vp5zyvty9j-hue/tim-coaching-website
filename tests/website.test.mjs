@@ -43,7 +43,7 @@ test('security headers cover pages, assets, redirects, errors and HEAD', async (
       const response = await worker.fetch(new Request('https://timschneider.ch' + path, { method }), env);
       assert.equal(response.headers.get('strict-transport-security'), 'max-age=31536000');
       assert.match(response.headers.get('content-security-policy'), /frame-ancestors 'none'/);
-      assert.match(response.headers.get('content-security-policy'), /form-action https:\/\/formsubmit.co/);
+      assert.match(response.headers.get('content-security-policy'), /form-action 'self'/);
       assert.equal(response.headers.get('x-content-type-options'), 'nosniff');
       if (method === 'HEAD') assert.equal(await response.text(), '');
     }

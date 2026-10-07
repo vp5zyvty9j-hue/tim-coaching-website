@@ -3,7 +3,8 @@
   const status = document.getElementById('formSuccess');
   const button = form.querySelector('button[type="submit"]');
   const originalLabel = button.innerHTML;
-  let sending = false;
+  let sending = false, attempt = null;
+  const allowed = ["Vorname", "email", "Paket", "Ziel", "Sporterfahrung", "Trainingszeit", "Start", "Weitere Angaben", "Ausdauersportart", "Trainingsumfang", "Ausdauerziel", "Trainingsplanung", "Krafterfahrung", "Ausstattung", "Kraftziel", "Essgewohnheiten", "Vorlieben", "Ernährungsalltag", "Coaching-Check", "Beste Übereinstimmung", "Gewähltes Funnel-Paket", "Funnel-Antworten"];
   form.noValidate = true;
   const start = form.elements.namedItem('Start');
   function refreshStartDate() {
@@ -22,7 +23,7 @@
     status.classList.add('show');
   }
   function failure() {
-    show('Deine Anfrage konnte leider nicht versendet werden. Bitte versuche es erneut oder nutze den ', 'error');
+    show('Deine Anfrage konnte gerade nicht gesendet werden. Bitte versuche es erneut oder nutze den ', 'error');
     const link = document.createElement('a');
     link.href = '#footer-contact';
     link.textContent = 'Kontakt im Footer';
@@ -43,7 +44,9 @@
       return;
     }
     if (form.elements.namedItem('_honey').value) { failure(); return; }
-    const payload = Object.fromEntries(new FormData(form));
+    const payload = Object.fromEntries([...new FormData(form)].filter(([key]) => allowed.includes(key)));
+    const content = JSON.stringify(payload);
+    if (!attempt || attempt.content !== content) attempt = {content, id: crypto.randomUUID()};
     const controls = [...form.elements].map(field => [field, field.disabled]);
     sending = true;
     controls.forEach(([field]) => field.disabled = true);
@@ -53,17 +56,18 @@
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 30000);
     try {
-      const response = await fetch('https://formsubmit.co/ajax/timliam.schneider@gmail.com', {
+      const response = await fetch('/api/coaching-inquiries', {
         method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(payload), signal: controller.signal,
+        body: JSON.stringify({request_id: attempt.id, form: payload, honey: ''}), signal: controller.signal,
         credentials: 'omit', referrerPolicy: 'strict-origin-when-cross-origin'
       });
       const result = await response.json();
-      // Activation notices, HTML, HTTP errors and ambiguous replies are not delivery confirmations.
-      if (!response.ok || ![true, 'true'].includes(result.success) || result.message !== 'The form was submitted successfully.') throw new Error('Submission not confirmed');
+      // Only a committed server-side inquiry is success; no public account/status details.
+      if (!response.ok || result.success !== true) throw new Error('Submission not confirmed');
       document.dispatchEvent(new CustomEvent('tim:contact-success', {detail: {package: payload.Paket || null, funnel: payload['Coaching-Check'] === 'Abgeschlossen', recommended: payload['Beste Übereinstimmung'] || null}}));
       form.reset();
-      show('Vielen Dank! Deine Anfrage wurde erfolgreich versendet. Ich melde mich so schnell wie möglich bei dir.', 'success');
+      attempt = null;
+      show('ANFRAGE GESENDET – Danke für deine Anfrage. Ich melde mich persönlich bei dir bezüglich des Erstgesprächs.', 'success');
     } catch {
       failure();
     } finally {

@@ -1,3 +1,4 @@
+import { coachingInquiry } from './inquiries.mjs';
 import { securityHeaders } from './security-headers.mjs';
 import { notFoundHtml } from './not-found.mjs';
 
@@ -31,6 +32,7 @@ export default {
     else if (pages.has(path)) canonical.pathname = path + '.html';
     else if (pages.has(path.replace(/\.html$/, ''))) canonical.pathname = path;
     if (canonical.href !== url.href) return secure(Response.redirect(canonical.href, 308), request);
+    if (path === '/api/coaching-inquiries') return secure(await coachingInquiry(request, env), request);
     if (!['GET', 'HEAD'].includes(request.method)) {
       return secure(new Response('Methode nicht erlaubt', { status: 405, headers: { Allow: 'GET, HEAD' } }), request);
     }

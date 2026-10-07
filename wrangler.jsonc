@@ -3,7 +3,9 @@
   "name": "tim-coaching-website",
   "main": "worker/index.mjs",
   "compatibility_date": "2026-05-15",
-  "build": { "command": "node scripts/check-site.mjs" },
+  "build": {
+    "command": "node scripts/check-site.mjs"
+  },
   "assets": {
     "directory": "./public",
     "binding": "ASSETS",
@@ -11,5 +13,15 @@
     "html_handling": "none",
     "not_found_handling": "none"
   },
-  "workers_dev": true
+  "workers_dev": true,
+  "ratelimits": [
+    {
+      "name": "INQUIRY_RATE_LIMIT",
+      "namespace_id": "1001",
+      "simple": {
+        "limit": 8,
+        "period": 60
+      }
+    }
+  ]
 }
