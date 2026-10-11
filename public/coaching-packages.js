@@ -8,7 +8,7 @@ export const packages = [
       "Individueller Ausdauertrainingsplan",
       "Auf Leistungsstand, Ziel und verfügbare Zeit abgestimmt",
       "Wettkampfvorbereitung, wenn für dein Ziel relevant",
-      "Persönlicher Austausch über WhatsApp",
+      "Trainingsplan, Workouts & Chat in der TIM COACHING App",
       "Plananpassung nach Bedarf: wöchentlich bis monatlich",
       "Ausdauerplanung in strukturierten 4-Wochen-Blöcken"
     ]
@@ -23,7 +23,7 @@ export const packages = [
       "Individueller Krafttrainingsplan",
       "Abgestimmt auf Ausdauertraining, Sportart und Ziel",
       "Aufeinander abgestimmte Belastung und Regeneration",
-      "Persönlicher Austausch über WhatsApp",
+      "Trainingsplan, Workouts & Chat in der TIM COACHING App",
       "Plananpassung nach Bedarf: wöchentlich bis monatlich",
       "Ausdauerplanung in strukturierten 4-Wochen-Blöcken"
     ]
@@ -37,7 +37,7 @@ export const packages = [
       "Alles aus Basic Plus",
       "Individuelle Ernährungsunterstützung",
       "Alltag, Training und Regeneration zusammen gedacht",
-      "Persönlicher Austausch über WhatsApp",
+      "Trainingsplan, Workouts & Chat in der TIM COACHING App",
       "Plananpassung nach Bedarf: wöchentlich bis monatlich",
       "Ausdauerplanung in strukturierten 4-Wochen-Blöcken"
     ]
@@ -52,7 +52,7 @@ export const packages = [
       "Auch unabhängig von Sport buchbar",
       "Praktische Struktur für deinen Alltag",
       "Unterstützung bei der Umsetzung",
-      "Persönlicher Austausch über WhatsApp",
+      "Ernährungsbetreuung & Chat in der TIM COACHING App",
       "Plananpassung nach Bedarf"
     ]
   },
@@ -66,7 +66,7 @@ export const packages = [
       "Abgestimmt auf Erfahrung, Ziele und verfügbare Ausstattung",
       "Individuelle Übungsauswahl",
       "Sinnvolle und strukturierte Progression",
-      "Persönlicher Austausch über WhatsApp",
+      "Trainingsplan, Workouts & Chat in der TIM COACHING App",
       "Plananpassung nach Bedarf"
     ]
   }
