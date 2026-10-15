@@ -7,6 +7,8 @@ export async function coachingInquiry(request,env,fetcher=fetch){
  if(request.method!=='POST')return reply(405);
  if(request.headers.get('origin')!=='https://timschneider.ch'||!(request.headers.get('content-type')||'').startsWith('application/json'))return reply(403);
  try{
+  const proxySecret=env.WEBSITE_INQUIRY_SECRET;
+  if(typeof proxySecret!=='string'||proxySecret.length<32||proxySecret.length>256)return reply(503);
   // CF-Connecting-IP is supplied by Cloudflare, never a form field. No IP logging.
   const ip=request.headers.get('CF-Connecting-IP');if(!ip||!env.INQUIRY_RATE_LIMIT)return reply(503);
   if(!(await env.INQUIRY_RATE_LIMIT.limit({key:ip})).success)return reply(429);
@@ -16,7 +18,7 @@ export async function coachingInquiry(request,env,fetcher=fetch){
   let p;try{p=JSON.parse(new TextDecoder('utf-8',{fatal:true}).decode(bytes));}catch{return reply(400);}
   if(!p||typeof p!=='object'||Array.isArray(p)||!p.form||typeof p.form!=='object'||Array.isArray(p.form)||p.honey!==''||Object.keys(p).some(k=>!['request_id','form','honey'].includes(k)))return reply(400);
   if(Object.keys(p.form).some(k=>!allowed.includes(k)))return reply(400);
-  const response=await fetcher(endpoint,{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+projectAnonKey,apikey:projectAnonKey,Origin:'https://timschneider.ch'},body:JSON.stringify(p),redirect:'manual',signal:AbortSignal.timeout(18000)});
+  const response=await fetcher(endpoint,{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+projectAnonKey,apikey:projectAnonKey,Origin:'https://timschneider.ch','x-tim-inquiry-auth':proxySecret},body:JSON.stringify(p),redirect:'manual',signal:AbortSignal.timeout(18000)});
   const data=await response.json().catch(()=>null);
   if(response.status===200&&data?.success===true)return reply(200,true);
   return reply([400,429].includes(response.status)?response.status:503);

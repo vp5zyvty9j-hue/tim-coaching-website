@@ -20,9 +20,9 @@ test('plan links open app selection without direct payment or reservation',()=>{
  assert.match(page,/löst keine Zahlung aus/);assert.match(page,/einmalig pro Account, nicht pro Trainingsplan/);
  assert.doesNotMatch(page,/Garmin|COROS|Polar|Suunto|Apple Watch/);
 });
-test('future features and separation from personal coaching remain explicit',()=>{
- for(const copy of ['PACE-ANPASSUNG · GEPLANT','hauptsächlich herzfrequenzgesteuert','Einzelne schlechte oder besonders gute','Kein Trainingsscore','Keine persönliche Coach-Auswertung','Keine individuellen Planänderungen durch Tim','Keine automatische Coach-Benachrichtigung','Keine persönliche 1:1-Betreuung','keine Erfolgsgarantie']) assert.ok(page.includes(copy),copy);
- assert.equal((page.match(/<details>/g)||[]).length,6);
+test('pace capability, future device feature and separation from coaching remain explicit',()=>{
+ for(const copy of ['AUTOMATISCHE PACE-ANPASSUNG','hauptsächlich herzfrequenzgesteuert','Einzelne schlechte oder besonders gute','Kein Trainingsscore','Keine persönliche Coach-Auswertung','Keine individuellen Planänderungen durch Tim','Keine automatische Coach-Benachrichtigung','Keine persönliche 1:1-Betreuung','keine Erfolgsgarantie']) assert.ok(page.includes(copy),copy);
+ assert.equal((page.match(/<details>/g)||[]).length,7);
 });
 test('all marketing pages provide both desktop and mobile route plus footer discovery',async()=>{
  for(const name of ['index','erfolge','empfehlungen','trainingsplaene']){

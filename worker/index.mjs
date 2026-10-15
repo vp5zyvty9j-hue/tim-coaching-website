@@ -2,7 +2,7 @@ import { coachingInquiry } from './inquiries.mjs';
 import { securityHeaders } from './security-headers.mjs';
 import { notFoundHtml } from './not-found.mjs';
 
-const APP = 'https://tim-coaching-app.timliam-schneider.chatgpt.site';
+const APP = 'https://app.timschneider.ch';
 const redirects = new Map([
   ['/konto', APP + '/verwaltung'],
   ['/coach', APP + '/verwaltung'],

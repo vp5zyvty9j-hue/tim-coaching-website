@@ -16,7 +16,7 @@ test('existing account URLs retain their separate-app destinations', async () =>
   for (const [path, suffix] of [['/konto', '/verwaltung'], ['/coach/', '/verwaltung'], ['/training', '']]) {
     const response = await worker.fetch(new Request('https://timschneider.ch' + path + '?returnTo=https://evil.example'), env);
     assert.equal(response.status, 302);
-    assert.equal(response.headers.get('location'), new URL('https://tim-coaching-app.timliam-schneider.chatgpt.site' + suffix).href);
+    assert.equal(response.headers.get('location'), new URL('https://app.timschneider.ch' + suffix).href);
   }
 });
 test('removed legacy APIs do not accept forged identity headers', async () => {
