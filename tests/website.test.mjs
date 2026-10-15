@@ -4,7 +4,7 @@ import { readFile } from 'node:fs/promises';
 import worker from '../worker/index.mjs';
 import { securityHeaders } from '../worker/security-headers.mjs';
 
-const env = { ASSETS: { fetch: async request => { const path = new URL(request.url).pathname; return new Response(path, { status: ['/', '/index.html', '/datenschutz.html', '/impressum.html', '/agb.html', '/widerruf.html', '/erfolge.html', '/empfehlungen.html', '/styles.css', '/print.js', '/assets/tim-lauffinish.png'].includes(path) ? 200 : 404 }); } } };
+const env = { ASSETS: { fetch: async request => { const path = new URL(request.url).pathname; return new Response(path, { status: ['/', '/index.html', '/datenschutz.html', '/impressum.html', '/agb.html', '/widerruf.html', '/erfolge.html', '/styles.css', '/print.js', '/assets/tim-lauffinish.png'].includes(path) ? 200 : 404 }); } } };
 test('homepage and legal pages resolve to their HTML assets', async () => {
   for (const [path, expected] of [['/', '/index.html'], ['/datenschutz.html', '/datenschutz.html'], ['/impressum.html', '/impressum.html']]) {
     const response = await worker.fetch(new Request('https://timschneider.ch' + path), env);
@@ -50,7 +50,7 @@ test('security headers cover pages, assets, redirects, errors and HEAD', async (
   }
 });
 test('direct static assets and new aliases remain available', async () => {
-  for (const path of ['/', '/styles.css', '/print.js', '/assets/tim-lauffinish.png', '/erfolge.html', '/empfehlungen.html', '/agb.html', '/widerruf.html']) {
+  for (const path of ['/', '/styles.css', '/print.js', '/assets/tim-lauffinish.png', '/erfolge.html', '/agb.html', '/widerruf.html']) {
     assert.equal((await worker.fetch(new Request('https://timschneider.ch' + path), env)).status, 200);
   }
 });
@@ -63,7 +63,7 @@ test('conditional asset responses keep cache metadata', async () => {
 
 test('duplicate page URLs and alternate hosts redirect in one hop to the canonical domain', async () => {
   for (const host of ['timschneider.ch', 'www.timschneider.ch', 'tim-coaching-website.example.workers.dev']) {
-    for (const [path, target] of [['/index.html', '/'], ['/erfolge/', '/erfolge.html'], ['/empfehlungen', '/empfehlungen.html'], ['/impressum.html/', '/impressum.html'], ['/agb/', '/agb.html'], ['/widerruf', '/widerruf.html']]) {
+    for (const [path, target] of [['/index.html', '/'], ['/erfolge/', '/erfolge.html'], ['/impressum.html/', '/impressum.html'], ['/agb/', '/agb.html'], ['/widerruf', '/widerruf.html']]) {
       const response = await worker.fetch(new Request('https://' + host + path + '?ref=test'), env);
       assert.equal(response.status, 308);
       assert.equal(response.headers.get('location'), 'https://timschneider.ch' + target + '?ref=test');
@@ -108,7 +108,7 @@ test('AGB and withdrawal pages resolve through both aliases and stay noindex', a
 });
 
 test('footer links to AGB and withdrawal are present on every relevant public page', async () => {
-  for (const page of ['index.html', 'erfolge.html', 'empfehlungen.html', 'impressum.html', 'datenschutz.html', 'agb.html', 'widerruf.html']) {
+  for (const page of ['index.html', 'erfolge.html', 'impressum.html', 'datenschutz.html', 'agb.html', 'widerruf.html']) {
     const html = await readFile(new URL('../public/' + page, import.meta.url), 'utf8');
     assert.match(html, /href="\/agb\.html"/, page + ' lacks the AGB link');
     assert.match(html, /href="\/widerruf\.html"/, page + ' lacks the Widerruf link');
@@ -143,4 +143,11 @@ test('legal pages print action stays CSP-compatible and JS-free without scriptin
   const csp = securityHeaders['Content-Security-Policy'];
   assert.match(csp, /script-src 'self'/);
   assert.match(csp, /style-src 'self'/);
+});
+
+test("removed recommendations page and aliases return 404", async () => {
+ for (const path of ["/empfehlungen", "/empfehlungen/", "/empfehlungen.html"]) {
+ const response = await worker.fetch(new Request("https://timschneider.ch" + path), env);
+ assert.equal(response.status, 404); assert.equal(response.headers.get("x-robots-tag"), "noindex");
+ }
 });

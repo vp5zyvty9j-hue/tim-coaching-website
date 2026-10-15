@@ -32,7 +32,7 @@ Der Build prüft lokale HTML-Verweise, Sprungmarken, strukturierte Daten und Jav
 
 ## Dateien und Verhalten
 
-- `public/`: Startseite, Erfolge, Empfehlungen, Impressum, Datenschutz, freigegebene Fotos, Styles, Skripte sowie robots.txt, sitemap.xml und llms.txt.
+- `public/`: Startseite, Erfolge, Impressum, Datenschutz, freigegebene Fotos, Styles, Skripte sowie robots.txt, sitemap.xml und llms.txt.
 - `worker/index.mjs`: `/konto` und `/coach` leiten zur App-Verwaltung weiter; `/training` öffnet die App. Unbekannte URLs liefern 404.
 - `scripts/check-site.mjs`: Prüfung vor dem Deployment.
 - `tests/website.test.mjs`: Routing und Schutz vor Nutzung der entfernten Alt-APIs.

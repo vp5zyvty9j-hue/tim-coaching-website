@@ -37,7 +37,7 @@ const sources = [
   ['tim-laufen.jpg', [400, 720, 1080]],
   ['tim-gym.jpg', [400, 720, 1080]],
   ['tim-winterlauf.jpg', [400, 720, 1080]],
-  ['tim-heute-freigegeben.png', [400, 720, 1086]],
+  ['tim-heute-2026-10.jpg', [400, 642]],
   ['tim-schneider-logo.png', [256, 512]],
 ];
 const manifests = {};

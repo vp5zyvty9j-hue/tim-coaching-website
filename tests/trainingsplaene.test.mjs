@@ -25,7 +25,7 @@ test('pace capability, future device feature and separation from coaching remain
  assert.equal((page.match(/<details>/g)||[]).length,7);
 });
 test('all marketing pages provide both desktop and mobile route plus footer discovery',async()=>{
- for(const name of ['index','erfolge','empfehlungen','trainingsplaene']){
+ for(const name of ['index','erfolge','trainingsplaene']){
   const html=await readFile(new URL('../public/'+name+'.html',import.meta.url),'utf8');
   for(const pattern of [/<nav class="desktop-nav"[\s\S]*?<\/nav>/,/<div class="mobile-menu"[\s\S]*?<\/div>/,/<footer class="footer">[\s\S]*?<\/footer>/])assert.match(html.match(pattern)?.[0]||'',/href="\/trainingsplaene.html"/,name);
  }
