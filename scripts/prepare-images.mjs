@@ -39,6 +39,11 @@ const sources = [
   ['tim-winterlauf.jpg', [400, 720, 1080]],
   ['tim-heute-2026-10.jpg', [400, 642]],
   ['tim-schneider-logo.png', [256, 512]],
+  ['app-kalender-visual.png', [480, 720, 1080]],
+  ['app-workout-visual.png', [480, 720, 1080]],
+  ['app-uebersicht-visual.png', [480, 720, 1080]],
+  ['app-chat-visual.png', [480, 720, 1080]],
+
 ];
 const manifests = {};
 for (const [name, widths] of sources) {
@@ -49,7 +54,7 @@ for (const [name, widths] of sources) {
   for (const requested of widths) {
     const width = Math.min(requested, meta.width);
     const filename = stem + '-' + version + '-' + width + '.webp';
-    await sharp(source).resize({ width, withoutEnlargement: true }).webp(name.endsWith('.png') ? { lossless: true, effort: 6 } : { quality: 92, effort: 6 }).toFile(fileURLToPath(new URL(filename, optimized)));
+    await sharp(source).resize({ width, withoutEnlargement: true }).webp(name.endsWith('-visual.png') ? { quality: 94, smartSubsample: true, effort: 6 } : (name.endsWith('.png') || name.startsWith('app-')) ? { lossless: true, effort: 6 } : { quality: 92, effort: 6 }).toFile(fileURLToPath(new URL(filename, optimized)));
     outputs.push({ width, url: '/assets/optimized/' + filename });
   }
   manifests[stem] = { width: meta.width, height: meta.height, outputs };
