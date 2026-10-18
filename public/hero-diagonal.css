@@ -1,0 +1,75 @@
+/* Demo only: authentic originals, reversible CSS grading and diagonal masks. */
+.home-restructured .hero{padding:130px 0 58px}
+.home-restructured .hero-grid{max-width:1440px;grid-template-columns:minmax(350px,.9fr) minmax(0,1.55fr);gap:36px}
+.home-restructured .hero h1{font-size:clamp(64px,6.6vw,96px)}
+.home-restructured .hero-lead{font-size:17px;max-width:450px}
+.home-restructured .hero-actions{gap:12px}
+.hero-triptych{position:relative;height:590px;isolation:isolate;overflow:hidden;background:#4169e1;align-self:center}
+.sport-photo{position:absolute;inset:0;margin:0;overflow:hidden}
+.sport-photo img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.88) contrast(1.04) brightness(.92)}
+.sport-photo:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(0deg,rgba(0,0,0,.85),transparent 24%,transparent 82%,rgba(0,0,0,.12))}
+.sport-photo figcaption{position:absolute;bottom:25px;left:15%;z-index:2;color:#fff;text-transform:uppercase;font-weight:700;font-size:12px;letter-spacing:.14em}
+.sport-laufen{width:40%;clip-path:polygon(0 0,100% 0,79% 100%,0 100%)}
+.sport-laufen img{object-position:48% center;filter:saturate(.88) contrast(1.04)}
+.sport-rennrad{left:31.8%;width:40%;clip-path:polygon(21% 0,100% 0,79% 100%,0 100%)}
+.sport-rennrad img{object-position:40% center;filter:saturate(.82) contrast(1.04) brightness(.84)}
+.sport-kraft{left:63.6%;width:36.4%;clip-path:polygon(23% 0,100% 0,100% 100%,0 100%)}
+.sport-kraft img{object-position:48% center}
+.sport-kraft figcaption{left:20%}
+@media(max-width:1100px){.home-restructured .hero-grid{grid-template-columns:minmax(290px,.9fr) minmax(0,1.3fr);gap:24px}.hero-triptych{height:520px}.home-restructured .hero h1{font-size:64px}.sport-photo figcaption{font-size:10px;letter-spacing:.08em}}
+@media(max-width:760px){.home-restructured .hero{padding:112px 0 32px}.home-restructured .hero-grid{grid-template-columns:1fr;gap:28px}.home-restructured .hero h1{font-size:clamp(54px,14vw,76px)}.home-restructured .hero-lead{font-size:16px;max-width:550px}.hero-triptych{height:380px;width:100%;max-width:580px}.home-restructured .hero-actions{display:grid;grid-template-columns:1fr}.home-restructured .hero-actions .button{width:100%;justify-content:space-between}.sport-photo figcaption{bottom:20px;font-size:10px;letter-spacing:.06em}.sport-rennrad img{object-position:35% center}}
+@media(max-width:400px){.hero-triptych{height:320px}.sport-photo figcaption{font-size:9px}}
+/* Revision: immersive wide composition, stronger diagonals, no photo labels. */
+.sport-photo figcaption{display:none}
+.home-restructured .hero{position:relative;isolation:isolate;overflow:hidden;padding:140px 0 70px;min-height:780px}
+.home-restructured .hero-grid{display:block;position:static;max-width:1440px}
+.home-restructured .hero-copy{position:relative;z-index:3;width:34%;max-width:450px}
+.home-restructured .hero h1{font-size:clamp(60px,6.2vw,90px)}
+.home-restructured .hero-lead{font-size:16px}
+.hero-triptych{position:absolute;top:76px;right:0;width:72%;height:calc(100% - 76px);z-index:0;background:#4169e1}
+.hero-triptych:after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(90deg,#000 0%,rgba(0,0,0,.8) 7%,rgba(0,0,0,.14) 19%,transparent 29%),linear-gradient(0deg,rgba(0,0,0,.35),transparent 25%)}
+.sport-laufen{width:44%;clip-path:polygon(0 0,100% 0,55% 100%,0 100%)}
+.sport-laufen img{object-position:54% center}
+.sport-rennrad{left:24.4%;width:48%;clip-path:polygon(41.4% 0,100% 0,58% 100%,0 100%)}
+.sport-rennrad img{object-position:42% center}
+.sport-kraft{left:52.5%;width:47.5%;clip-path:polygon(42.3% 0,100% 0,100% 100%,0 100%)}
+.sport-kraft img{object-position:56% center}
+.sport-photo:after{background:linear-gradient(0deg,rgba(0,0,0,.32),transparent 30%)}
+@media(max-width:1100px) and (min-width:761px){.home-restructured .hero-copy{width:38%}.home-restructured .hero h1{font-size:60px}.hero-triptych{width:68%}.home-restructured .hero{min-height:790px}}
+@media(max-width:760px){.home-restructured .hero{padding:112px 0 0;min-height:0}.home-restructured .hero-grid{display:flex;flex-direction:column;gap:24px}.home-restructured .hero-copy{width:100%;max-width:none}.home-restructured .hero h1{font-size:clamp(54px,14vw,76px)}.hero-triptych{position:relative;inset:auto;width:calc(100% + 36px);max-width:none;height:380px;flex:none}.hero-triptych:after{background:linear-gradient(180deg,rgba(0,0,0,.24),transparent 16%,transparent 85%,rgba(0,0,0,.3))}.sport-laufen{width:40%;clip-path:polygon(0 0,100% 0,79% 100%,0 100%)}.sport-rennrad{left:31.8%;width:40%;clip-path:polygon(21% 0,100% 0,79% 100%,0 100%)}.sport-kraft{left:63.6%;width:36.4%;clip-path:polygon(23% 0,100% 0,100% 100%,0 100%)}.sport-rennrad img{object-position:35% center}.sport-kraft img{object-position:48% center}}
+@media(max-width:400px){.hero-triptych{height:320px}}
+@media(min-width:761px){
+.sport-laufen{width:38.2%;clip-path:polygon(0 0,100% 0,63.4% 100%,0 100%)}
+.sport-rennrad{clip-path:polygon(29.2% 0,88.2% 0,58% 100%,0 100%)}
+.sport-kraft{clip-path:polygon(30% 0,100% 0,100% 100%,0 100%)}
+.hero-triptych:after{background:linear-gradient(90deg,#000 0%,#000 1%,rgba(0,0,0,.85) 8%,rgba(0,0,0,.14) 20%,transparent 29%),linear-gradient(0deg,rgba(0,0,0,.35),transparent 25%)}
+}
+/* Richer natural colour; original-resolution lossless image sources. */
+.sport-photo img{filter:saturate(1.12) contrast(1.06) brightness(1.02)}
+.sport-laufen img{filter:saturate(1.12) contrast(1.04) brightness(1.08)}
+.sport-rennrad img{filter:saturate(1.12) contrast(1.06) brightness(.98)}
+@media(max-width:760px){
+.home-restructured .hero{padding:76px 0 30px}
+.home-restructured .hero-grid{display:block}
+.home-restructured .hero-copy{padding-top:340px}
+.home-restructured .hero-copy .eyebrow{margin-bottom:18px;text-shadow:0 2px 10px #000}
+.home-restructured .hero h1{font-size:clamp(54px,14vw,76px);text-shadow:0 2px 24px rgba(0,0,0,.4)}
+.hero-triptych{position:absolute;top:76px;left:0;right:0;width:100%;height:430px}
+.hero-triptych:after{background:linear-gradient(180deg,rgba(0,0,0,.06),transparent 45%,rgba(0,0,0,.25) 66%,#000 100%)}
+.sport-laufen{width:42%;clip-path:polygon(0 0,100% 0,65% 100%,0 100%)}
+.sport-rennrad{left:27.6%;width:44%;clip-path:polygon(33.3% 0,100% 0,66.7% 100%,0 100%)}
+.sport-kraft{left:57.2%;width:42.8%;clip-path:polygon(34.6% 0,100% 0,100% 100%,0 100%)}
+.sport-laufen img{object-position:52% center}.sport-rennrad img{object-position:28% center}.sport-kraft img{object-position:50% center}
+}
+@media(max-width:360px){.hero-triptych{height:380px}.home-restructured .hero-copy{padding-top:295px}}
+/* Mobile revision: readable text above the full-width diagonal photographs. */
+@media(max-width:760px){
+.home-restructured .hero{padding:108px 0 0;min-height:0}
+.home-restructured .hero-grid{display:flex;flex-direction:column;gap:26px}
+.home-restructured .hero-copy{padding-top:0;width:100%;max-width:none}
+.home-restructured .hero-copy .eyebrow{margin-bottom:20px;text-shadow:none}
+.home-restructured .hero h1{text-shadow:none}
+.hero-triptych{position:relative;inset:auto;width:calc(100% + 36px);height:350px;flex:none;align-self:center}
+.hero-triptych:after{background:linear-gradient(180deg,rgba(0,0,0,.2),transparent 15%,transparent 85%,rgba(0,0,0,.2))}
+}
+@media(max-width:360px){.hero-triptych{height:300px}.home-restructured .hero-copy{padding-top:0}}
