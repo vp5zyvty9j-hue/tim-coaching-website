@@ -1,0 +1,10 @@
+export function privacyChoice(config,onAllowed,onDenied){
+ const link=document.createElement('link');link.rel='stylesheet';link.href='/analytics-consent.css';document.head.append(link);
+ const panel=document.createElement('section');panel.className='analytics-choice';panel.setAttribute('role','region');panel.setAttribute('aria-label','Freiwillige Statistik');
+ const h=document.createElement('h2');h.textContent='Statistik deiner Nutzung?';const p=document.createElement('p');p.textContent='Mit deiner Zustimmung messen wir Seitenaufrufe, Angebotsinteresse und Marketingquellen bis zur bestätigten Anfrage oder zum Kauf. Keine Namen, Formularinhalte oder Werbepixel. Ein Cookie speichert nur deine Auswahl für 180 Tage.';
+ const actions=document.createElement('div');actions.className='analytics-choice-actions';
+ const note=document.createElement('p');note.setAttribute('role','status');
+ for(const [choice,label]of [['allow','Zustimmen'],['deny','Ablehnen']]){const b=document.createElement('button');b.type='button';b.textContent=label;b.addEventListener('click',async()=>{for(const b of actions.children)b.disabled=true;try{const r=await fetch('/api/analytics/consent',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({choice}),credentials:'same-origin'});if(!r.ok)throw Error();panel.hidden=true;if(choice==='allow')onAllowed();else onDenied();settings.focus()}catch{note.textContent='Die Auswahl konnte nicht gespeichert werden. Die Statistik bleibt bis dahin ausgeschaltet.'}finally{for(const b of actions.children)b.disabled=false}});actions.append(b)}
+ const a=document.createElement('a');a.href='/datenschutz.html#statistik';a.textContent='Datenschutz und Widerruf';panel.append(h,p,actions,a,note);panel.hidden=!(config.consent_required&&config.choice==='none');document.body.append(panel);
+ const settings=document.createElement('button');settings.type='button';settings.className='analytics-settings';settings.textContent='Statistik-Einstellungen';settings.addEventListener('click',()=>{panel.hidden=!panel.hidden;if(!panel.hidden)actions.querySelector('button').focus()});document.body.append(settings);
+}

@@ -14,7 +14,26 @@
     "not_found_handling": "none"
   },
   "workers_dev": true,
+  "triggers": {
+    "crons": [
+      "17 3 * * *",
+      "*/5 * * * *"
+    ]
+  },
+  "vars": {
+    "ANALYTICS_ENABLED": "true",
+    "ANALYTICS_ENV": "live",
+    "ANALYTICS_APP_AUTH": "true"
+  },
   "ratelimits": [
+    {
+      "name": "ANALYTICS_RATE_LIMIT",
+      "namespace_id": "1002",
+      "simple": {
+        "limit": 120,
+        "period": 60
+      }
+    },
     {
       "name": "INQUIRY_RATE_LIMIT",
       "namespace_id": "1001",
@@ -22,6 +41,14 @@
         "limit": 8,
         "period": 60
       }
+    }
+  ],
+  "d1_databases": [
+    {
+      "binding": "ANALYTICS_DB",
+      "database_name": "tim-website-analytics",
+      "database_id": "751efb44-2d04-46a6-9d68-390132c36e80",
+      "jurisdiction": "eu"
     }
   ]
 }

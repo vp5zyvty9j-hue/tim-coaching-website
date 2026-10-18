@@ -56,10 +56,12 @@
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 30000);
     try {
+      let analyticsContext=null;
+      try{analyticsContext=typeof window!=='undefined'?window.TIMAnalytics?.context?.():null;}catch{}
       const response = await fetch('/api/coaching-inquiries', {
-        method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json', ...(analyticsContext ? {'X-Tim-Analytics': JSON.stringify(analyticsContext)} : {}) },
         body: JSON.stringify({request_id: attempt.id, form: payload, honey: ''}), signal: controller.signal,
-        credentials: 'omit', referrerPolicy: 'strict-origin-when-cross-origin'
+        credentials: 'same-origin', referrerPolicy: 'strict-origin-when-cross-origin'
       });
       const result = await response.json();
       // Only a committed server-side inquiry is success; no public account/status details.

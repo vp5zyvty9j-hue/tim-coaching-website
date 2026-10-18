@@ -2,7 +2,7 @@
 const projectAnonKey="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh4enljc2FucnF4YmZtdmVvc2xlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAzNTQxMDksImV4cCI6MjEwNTkzMDEwOX0.XbJdYxQRnhEgvnjaruAy3wYsfLncOq-DbucFe8VTEr8";
 const endpoint='https://hxzycsanrqxbfmveosle.supabase.co/functions/v1/coaching-inquiry';
 const allowed=['Vorname','email','Paket','Ziel','Sporterfahrung','Trainingszeit','Start','Weitere Angaben','Ausdauersportart','Trainingsumfang','Ausdauerziel','Trainingsplanung','Krafterfahrung','Ausstattung','Kraftziel','Essgewohnheiten','Vorlieben','Ernährungsalltag','Coaching-Check','Beste Übereinstimmung','Gewähltes Funnel-Paket','Funnel-Antworten'];
-export async function coachingInquiry(request,env,fetcher=fetch){
+export async function coachingInquiry(request,env,fetcher=fetch,onConfirmed=null){
  const reply=(status,success=false)=>new Response(JSON.stringify({success}),{status,headers:{'Content-Type':'application/json','Cache-Control':'no-store'}});
  if(request.method!=='POST')return reply(405);
  if(request.headers.get('origin')!=='https://timschneider.ch'||!(request.headers.get('content-type')||'').startsWith('application/json'))return reply(403);
@@ -20,7 +20,11 @@ export async function coachingInquiry(request,env,fetcher=fetch){
   if(Object.keys(p.form).some(k=>!allowed.includes(k)))return reply(400);
   const response=await fetcher(endpoint,{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+projectAnonKey,apikey:projectAnonKey,Origin:'https://timschneider.ch','x-tim-inquiry-auth':proxySecret},body:JSON.stringify(p),redirect:'manual',signal:AbortSignal.timeout(18000)});
   const data=await response.json().catch(()=>null);
-  if(response.status===200&&data?.success===true)return reply(200,true);
+  if(response.status===200&&data?.success===true){
+   // Isolated observability: failures cannot affect an accepted inquiry.
+   try{Promise.resolve(onConfirmed?.(p.request_id)).catch(()=>{});}catch{}
+   return reply(200,true);
+  }
   return reply([400,429].includes(response.status)?response.status:503);
  }catch{return reply(503);}
 }
