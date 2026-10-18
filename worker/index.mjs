@@ -39,7 +39,7 @@ export default {
   async scheduled(event,env,ctx){
     if(env.ANALYTICS_ENABLED!=='true'||!env.ANALYTICS_DB)return;
     if(event.cron==='17 3 * * *')ctx.waitUntil(env.ANALYTICS_DB.prepare("DELETE FROM events WHERE occurred_at < ?").bind(new Date(Date.now()-90*86400000).toISOString()).run());
-    if(event.cron==='*/5 * * * *'&&env.ANALYTICS_MAINTENANCE_SECRET)ctx.waitUntil(fetch('https://hxzycsanrqxbfmveosle.supabase.co/functions/v1/analytics-maintenance',{method:'POST',headers:{Authorization:'Bearer '+env.ANALYTICS_MAINTENANCE_SECRET},redirect:'error',signal:AbortSignal.timeout(90000)}).then(r=>{if(!r.ok)throw Error('analytics_maintenance_unavailable')}));
+    if(event.cron==='*/5 * * * *'&&env.ANALYTICS_MAINTENANCE_SECRET)ctx.waitUntil(fetch('https://hxzycsanrqxbfmveosle.supabase.co/functions/v1/analytics-maintenance',{method:'POST',headers:{Authorization:'Bearer '+env.ANALYTICS_MAINTENANCE_SECRET},redirect:'manual',signal:AbortSignal.timeout(90000)}).then(r=>{if(!r.ok)throw Error('analytics_maintenance_unavailable')}));
   },
   async fetch(request, env, ctx) {
     const url = new URL(request.url);

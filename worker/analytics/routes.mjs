@@ -45,7 +45,7 @@ export async function analyticsRoute(req,env,ctx={waitUntil:p=>p.catch(()=>{})})
  if(/bot|spider|crawler|headless|preview|slurp/i.test(req.headers.get('user-agent')||''))return new Response(null,{status:204});
  const ip=req.headers.get('CF-Connecting-IP');if(!ip||!env.ANALYTICS_RATE_LIMIT)return json({},503);
  if(!(await env.ANALYTICS_RATE_LIMIT.limit({key:ip})).success)return json({},429);
- try{const p=await boundedJSON(req);const e=publicEvent(p,req,preview?'test':'live');if(!e)return json({},400);if(!env.ANALYTICS_HASH_SECRET)return json({},503);e.event_id=e.environment+':'+e.event_name+':'+await digest(env.ANALYTICS_HASH_SECRET,e.event_id);ctx.waitUntil(saveEvent(env.ANALYTICS_DB,e).catch(()=>{}));return new Response(null,{status:204})}catch{return json({},400)}
+ try{const p=await boundedJSON(req);const e=publicEvent(p,req,preview||p.campaign==='test_preview'?'test':'live');if(!e)return json({},400);if(!env.ANALYTICS_HASH_SECRET)return json({},503);e.event_id=e.environment+':'+e.event_name+':'+await digest(env.ANALYTICS_HASH_SECRET,e.event_id);ctx.waitUntil(saveEvent(env.ANALYTICS_DB,e).catch(()=>{}));return new Response(null,{status:204})}catch{return json({},400)}
  }
  if(path==='/api/analytics/server'){
  if(req.method!=='POST'||!env.ANALYTICS_INGEST_SECRET||!env.ANALYTICS_HASH_SECRET)return json({},403);
