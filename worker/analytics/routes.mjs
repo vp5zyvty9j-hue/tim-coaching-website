@@ -1,7 +1,7 @@
 import {publicEvent,saveEvent,recordConfirmed,digest,CATALOG,canonicalPlan} from './contract.mjs';
 import {buildReport} from './report.mjs';
 import {isAnalyticsAdmin} from './access.mjs';
-import {isAppAnalyticsAdmin} from './app-access.mjs';
+import {checkAppAnalyticsAdmin} from './app-access.mjs';
 import {consentState,consentCookie} from './consent.mjs';
 const json=(body,status=200)=>new Response(JSON.stringify(body),{status,headers:{'Content-Type':'application/json','Cache-Control':'no-store','X-Robots-Tag':'noindex'}});
 export async function boundedJSON(req,max=2048){const reader=req.body?.getReader();if(!reader)throw Error('no_body');let n=0,out='';const decoder=new TextDecoder('utf8',{fatal:true});try{for(;;){const {done,value}=await reader.read();if(done)break;n+=value.length;if(n>max){await reader.cancel();throw Error('too_large')}out+=decoder.decode(value,{stream:true})}out+=decoder.decode();return JSON.parse(out)}finally{reader.releaseLock()}}
@@ -17,7 +17,8 @@ export async function analyticsRoute(req,env,ctx={waitUntil:p=>p.catch(()=>{})})
   const asset=new URL(req.url);if(path==='/internal-analytics'||path==='/internal-analytics/')asset.pathname='/internal-analytics/index.html';return env.ASSETS.fetch(new Request(asset,req));
  }
  if(path.startsWith('/internal-analytics')||path==='/api/analytics/report'){
-  if(!await isAppAnalyticsAdmin(req,env)&&!await isAnalyticsAdmin(req,env))return json({error:'Admin-Anmeldung erforderlich'},403);
+  const appAccess=await checkAppAnalyticsAdmin(req,env);
+  if(!appAccess.allowed&&!await isAnalyticsAdmin(req,env))return json({error:'Admin-Anmeldung erforderlich',detail:appAccess.detail},403);
   if(req.method!=='GET')return json({},405);
   if(path==='/api/analytics/report'){if(!env.ANALYTICS_DB)return json({error:'Noch nicht eingerichtet'},503);try{return json(await buildReport(env.ANALYTICS_DB,url))}catch{return json({error:'Ungültiger Zeitraum oder Datenbank nicht verfügbar'},400)}}
   const asset=new URL(req.url);if(path==='/internal-analytics'||path==='/internal-analytics/')asset.pathname='/internal-analytics/index.html';return env.ASSETS.fetch(new Request(asset,req));
