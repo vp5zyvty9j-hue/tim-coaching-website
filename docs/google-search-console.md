@@ -17,7 +17,7 @@ Nach Bestätigung die Property `timschneider.ch` auswählen → „Sitemaps“ �
 
 ## Erneute Indexierung beantragen
 
-Oben in die URL-Prüfung `https://timschneider.ch/` eingeben → Enter → „Live-URL testen“. Bei erfolgreichem Test „Indexierung beantragen“ wählen. Entsprechend bei Bedarf für `/erfolge.html` und `/empfehlungen.html` vorgehen. Das Favicon wird über die neu gecrawlte Startseite entdeckt; es gibt keine separate garantierte Sofort-Aktualisierung des Symbols.
+Oben in die URL-Prüfung `https://timschneider.ch/` eingeben → Enter → „Live-URL testen“. Bei erfolgreichem Test „Indexierung beantragen“ wählen. Entsprechend bei Bedarf für `/erfolge.html` und `/trainingsplaene.html` vorgehen. Das Favicon wird über die neu gecrawlte Startseite entdeckt; es gibt keine separate garantierte Sofort-Aktualisierung des Symbols.
 
 Unter „Seiten“ und „Core Web Vitals“ später Indexierungsgründe bzw. verfügbare Felddaten kontrollieren. Wiederholte Anträge beschleunigen die Verarbeitung nicht garantiert. Crawling, Indexierung, Darstellung von Titel/Snippet und Favicon entscheidet Google.
 

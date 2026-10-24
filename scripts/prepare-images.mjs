@@ -33,6 +33,11 @@ import { createHash } from 'node:crypto';
 const optimized = new URL('../public/assets/optimized/', import.meta.url);
 await mkdir(optimized, { recursive: true });
 const sources = [
+  // Responsive delivery copies of the original lossless hero photographs.
+  // The original files and the page's composition remain unchanged.
+  ['hero-diagonal/laufen-full.webp', [320, 480, 780], 'hero-laufen'],
+  ['hero-diagonal/rennrad-full.webp', [320, 480, 768, 1024, 1290], 'hero-rennrad'],
+  ['hero-diagonal/kraft-full.webp', [320, 480, 768, 1024, 1290], 'hero-kraft'],
   ['tim-krafttraining.jpg', [480, 768, 1154]],
   ['tim-laufen.jpg', [400, 720, 1080]],
   ['tim-gym.jpg', [400, 720, 1080]],
@@ -46,15 +51,16 @@ const sources = [
 
 ];
 const manifests = {};
-for (const [name, widths] of sources) {
+for (const [name, widths, outputStem] of sources) {
   const source = path(name), meta = await sharp(source).metadata();
-  const version = createHash('sha256').update(await readFile(source)).update('responsive-v1-sharp-0.35.4').digest('hex').slice(0, 12);
-  const stem = name.replace(/\.[^.]+$/, '');
+  const hero = name.startsWith('hero-diagonal/');
+  const version = createHash('sha256').update(await readFile(source)).update(hero ? 'responsive-hero-v1-q88-sharp-0.35.4' : 'responsive-v1-sharp-0.35.4').digest('hex').slice(0, 12);
+  const stem = outputStem ?? name.replace(/\.[^.]+$/, '');
   const outputs = [];
   for (const requested of widths) {
     const width = Math.min(requested, meta.width);
     const filename = stem + '-' + version + '-' + width + '.webp';
-    await sharp(source).resize({ width, withoutEnlargement: true }).webp(name.endsWith('-visual.png') ? { quality: 94, smartSubsample: true, effort: 6 } : (name.endsWith('.png') || name.startsWith('app-')) ? { lossless: true, effort: 6 } : { quality: 92, effort: 6 }).toFile(fileURLToPath(new URL(filename, optimized)));
+    await sharp(source).resize({ width, withoutEnlargement: true }).webp(hero ? { quality: 88, smartSubsample: true, effort: 6 } : name.endsWith('-visual.png') ? { quality: 94, smartSubsample: true, effort: 6 } : (name.endsWith('.png') || name.startsWith('app-')) ? { lossless: true, effort: 6 } : { quality: 92, effort: 6 }).toFile(fileURLToPath(new URL(filename, optimized)));
     outputs.push({ width, url: '/assets/optimized/' + filename });
   }
   manifests[stem] = { width: meta.width, height: meta.height, outputs };
