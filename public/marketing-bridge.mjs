@@ -18,7 +18,7 @@ if(location.origin===WEB&&location.pathname==='/marketing/bridge'&&!location.sea
    window.fbq('trackSingle',PIXEL,data.event,data.event==='Purchase'?{value:data.value,currency:'CHF'}:{},{eventID:data.id});
    if(data.event!=='PageView'){seen=pruneSeen([...seen,[data.id,Date.now()]]);localStorage.setItem('tim_meta_seen',JSON.stringify(seen))}
    source.postMessage({type:'tim-meta-queued',id:data.id},origin);
-  }catch{/* Fail closed; no success claim. */}
+  }catch{console.warn('TIM marketing: browser measurement unavailable; no delivery confirmed.')}
  }
  function message(e){if(e.source!==parent||![WEB,APP].includes(e.origin)||stopped)return;
   if(e.data?.type==='tim-meta-stop'){stop();return}

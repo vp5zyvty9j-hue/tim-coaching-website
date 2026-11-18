@@ -14,10 +14,10 @@ if(location.origin===WEB&&['/','/trainingsplaene.html'].includes(location.pathna
  function enqueue(event){if(!granted||deniedByBrowser())return;queue.push(event);queue=queue.slice(-5);flush()}
  async function enable(){if(deniedByBrowser()||locallyDenied())return;const mine=++epoch;granted=true;
   const click=new URL(location.href).searchParams.get('fbclid');if(click&&/^[A-Za-z0-9_-]{10,512}$/.test(click))document.cookie=`_fbc=fb.1.${Date.now()}.${click}; Path=/; Max-Age=7776000; Secure; SameSite=Lax`;
-  frame=document.createElement('iframe');frame.hidden=true;frame.title='Freiwillige Werbemessung';frame.referrerPolicy='no-referrer';frame.src='/marketing/bridge';frame.onload=()=>{if(granted&&mine===epoch)frame?.contentWindow?.postMessage({type:'tim-meta-hello'},WEB)};document.body.append(frame);
+  frame=document.createElement('iframe');frame.hidden=true;frame.title='Freiwillige Werbemessung';frame.referrerPolicy='no-referrer';frame.src='/marketing/bridge';frame.dataset.measurementState='loading';frame.onload=()=>{if(granted&&mine===epoch)frame?.contentWindow?.postMessage({type:'tim-meta-hello'},WEB)};document.body.append(frame);
   const id=await eventHash('PageView',crypto.randomUUID());if(mine===epoch)enqueue({type:'tim-meta-event',event:'PageView',id});
  }
- addEventListener('message',e=>{if(e.origin===WEB&&e.source===frame?.contentWindow&&e.data?.type==='tim-meta-ready'&&granted){ready=true;flush()}});
+ addEventListener('message',e=>{if(e.origin!==WEB||e.source!==frame?.contentWindow||!granted)return;if(e.data?.type==='tim-meta-ready'){frame.dataset.measurementState='ready';ready=true;flush()}else if(e.data?.type==='tim-meta-queued'){frame.dataset.measurementState='queued'}});
  document.addEventListener('tim:marketing-lead',e=>{if(/^[a-f0-9]{64}$/.test(e.detail?.id||''))enqueue({type:'tim-meta-event',event:'Lead',id:e.detail.id})});
  function open(){panel.hidden=false;settings.setAttribute('aria-expanded','true');panel.querySelector('button').focus()}
  settings.addEventListener('click',()=>{if(panel.hidden)open();else{panel.hidden=true;settings.setAttribute('aria-expanded','false')}});
