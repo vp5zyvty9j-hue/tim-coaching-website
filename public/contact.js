@@ -66,6 +66,9 @@
       const result = await response.json();
       // Only a committed server-side inquiry is success; no public account/status details.
       if (!response.ok || result.success !== true) throw new Error('Submission not confirmed');
+      // Only a confirmed inquiry; never send form fields to advertising code.
+      const confirmedId=attempt.id;
+      void import('/marketing-contract.mjs').then(m=>m.eventHash('Lead',confirmedId)).then(id=>document.dispatchEvent(new CustomEvent('tim:marketing-lead',{detail:{id}}))).catch(()=>{});
       document.dispatchEvent(new CustomEvent('tim:contact-success', {detail: {package: payload.Paket || null, funnel: payload['Coaching-Check'] === 'Abgeschlossen', recommended: payload['Beste Übereinstimmung'] || null}}));
       form.reset();
       attempt = null;

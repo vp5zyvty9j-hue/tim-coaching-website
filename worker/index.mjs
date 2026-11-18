@@ -4,6 +4,7 @@ import { consentState } from './analytics/consent.mjs';
 import { coachingInquiry } from './inquiries.mjs';
 import { securityHeaders } from './security-headers.mjs';
 import { notFoundHtml } from './not-found.mjs';
+import { marketingRoute, marketingEnabled, bridgePolicy } from './marketing.mjs';
 
 const APP = 'https://app.timschneider.ch';
 const redirects = new Map([
@@ -17,6 +18,12 @@ function secure(response, request) {
   const headers = new Headers(response.headers);
   for (const [name, value] of Object.entries(securityHeaders)) headers.set(name, value);
   const requestPath=new URL(request.url).pathname;
+  if(requestPath==='/marketing/bridge'){
+    headers.set('Content-Security-Policy',bridgePolicy);
+    headers.delete('X-Frame-Options');
+    headers.set('Referrer-Policy','no-referrer');
+    headers.set('Cache-Control','no-store');
+  }
   if(requestPath.startsWith('/internal-analytics')){
     headers.set('Content-Security-Policy',headers.get('Content-Security-Policy').replace("frame-ancestors 'none'","frame-ancestors https://app.timschneider.ch"));
     headers.delete('X-Frame-Options');
@@ -51,6 +58,8 @@ export default {
     else if (pages.has(path)) canonical.pathname = path + '.html';
     else if (pages.has(path.replace(/\.html$/, ''))) canonical.pathname = path;
     if (canonical.href !== url.href) return secure(Response.redirect(canonical.href, 308), request);
+    const marketingResponse = await marketingRoute(request,env);
+    if(marketingResponse)return secure(marketingResponse,request);
     const analyticsResponse = await analyticsRoute(request,env,ctx);
     if(analyticsResponse) return secure(analyticsResponse,request);
     if (path === '/api/coaching-inquiries') {
@@ -64,7 +73,13 @@ export default {
     if (redirects.has(path)) return secure(Response.redirect(redirects.get(path), 302), request);
     if (path === '/' || pages.has(path)) url.pathname = path === '/' ? '/index.html' : path + '.html';
     const asset = await env.ASSETS.fetch(new Request(url, request));
-    if (asset.status !== 404) return secure(asset, request);
+    if (asset.status !== 404) {
+      if(asset.status===200&&request.method==='GET'&&marketingEnabled(env)&&['/','/trainingsplaene.html'].includes(path)&&asset.headers.get('Content-Type')?.includes('text/html')){
+        const response=new HTMLRewriter().on('head',{element(e){e.append('<script type="module" src="/marketing.mjs"></script>',{html:true})}}).transform(asset);
+        const result=secure(response,request);result.headers.set('Cache-Control','no-store');return result;
+      }
+      return secure(asset, request);
+    }
     return secure(new Response(notFoundHtml, {
       status: 404, headers: { 'Content-Type': 'text/html; charset=utf-8', 'X-Robots-Tag': 'noindex', 'Cache-Control': 'no-store' },
     }), request);

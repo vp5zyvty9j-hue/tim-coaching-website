@@ -22,6 +22,7 @@
   },
   "vars": {
     "ANALYTICS_ENABLED": "true",
+    "META_PIXEL_ENABLED": "true",
     "ANALYTICS_ENV": "live",
     "ANALYTICS_APP_AUTH": "true"
   },
