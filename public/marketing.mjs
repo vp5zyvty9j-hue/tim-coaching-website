@@ -17,7 +17,7 @@ if(location.origin===WEB&&['/','/trainingsplaene.html'].includes(location.pathna
   frame=document.createElement('iframe');frame.hidden=true;frame.title='Freiwillige Werbemessung';frame.referrerPolicy='no-referrer';frame.src='/marketing/bridge';frame.dataset.measurementState='loading';frame.onload=()=>{if(granted&&mine===epoch)frame?.contentWindow?.postMessage({type:'tim-meta-hello'},WEB)};document.body.append(frame);
   const id=await eventHash('PageView',crypto.randomUUID());if(mine===epoch)enqueue({type:'tim-meta-event',event:'PageView',id});
  }
- addEventListener('message',e=>{if(e.origin!==WEB||e.source!==frame?.contentWindow||!granted)return;if(e.data?.type==='tim-meta-ready'){frame.dataset.measurementState='ready';ready=true;flush()}else if(e.data?.type==='tim-meta-queued'){frame.dataset.measurementState='queued'}});
+ addEventListener('message',e=>{if(e.origin!==WEB||e.source!==frame?.contentWindow||!granted)return;if(e.data?.type==='tim-meta-ready'){frame.dataset.measurementState='ready';ready=true;flush()}else if(e.data?.type==='tim-meta-queued'){frame.dataset.measurementState='queued'}else if(e.data?.type==='tim-meta-unavailable'){frame.dataset.measurementState='unavailable'}});
  document.addEventListener('tim:marketing-lead',e=>{if(/^[a-f0-9]{64}$/.test(e.detail?.id||''))enqueue({type:'tim-meta-event',event:'Lead',id:e.detail.id})});
  function open(){panel.hidden=false;settings.setAttribute('aria-expanded','true');panel.querySelector('button').focus()}
  settings.addEventListener('click',()=>{if(panel.hidden)open();else{panel.hidden=true;settings.setAttribute('aria-expanded','false')}});

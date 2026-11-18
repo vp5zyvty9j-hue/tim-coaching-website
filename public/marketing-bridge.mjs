@@ -8,6 +8,7 @@ if(location.origin===WEB&&location.pathname==='/marketing/bridge'&&!location.sea
   const f=function(...args){f.callMethod?f.callMethod.apply(f,args):f.queue.push(args)};f.queue=[];f.push=f;f.loaded=true;f.version='2.0';window.fbq=f;window._fbq=f;
   f('set','autoConfig',false,PIXEL);f('consent','grant');f('init',PIXEL);
   await new Promise((resolve,reject)=>{script=document.createElement('script');script.src='https://connect.facebook.net/en_US/fbevents.js';script.referrerPolicy='no-referrer';script.onload=resolve;script.onerror=()=>reject(Error('blocked'));document.head.append(script)});
+  if(typeof window.fbq?.callMethod!=='function')throw Error('sdk unavailable');
   if(await allowed()!==true)throw Error('consent');
  })().catch(e=>{script?.remove();loading=null;throw e});return loading}
  async function send(data,origin,source){
@@ -18,7 +19,7 @@ if(location.origin===WEB&&location.pathname==='/marketing/bridge'&&!location.sea
    window.fbq('trackSingle',PIXEL,data.event,data.event==='Purchase'?{value:data.value,currency:'CHF'}:{},{eventID:data.id});
    if(data.event!=='PageView'){seen=pruneSeen([...seen,[data.id,Date.now()]]);localStorage.setItem('tim_meta_seen',JSON.stringify(seen))}
    source.postMessage({type:'tim-meta-queued',id:data.id},origin);
-  }catch{console.warn('TIM marketing: browser measurement unavailable; no delivery confirmed.')}
+  }catch{source.postMessage({type:'tim-meta-unavailable'},origin);console.warn('TIM marketing: browser measurement unavailable; no delivery confirmed.')}
  }
  function message(e){if(e.source!==parent||![WEB,APP].includes(e.origin)||stopped)return;
   if(e.data?.type==='tim-meta-stop'){stop();return}

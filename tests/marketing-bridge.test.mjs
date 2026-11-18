@@ -5,10 +5,10 @@ import {readFile} from 'node:fs/promises';
 import {WEB,APP,PIXEL,eventPayload,pruneSeen} from '../public/marketing-contract.mjs';
 const source=(await readFile(new URL('../public/marketing-bridge.mjs',import.meta.url),'utf8')).replace(/^import[^\n]+\n/,'');
 const settle=()=>new Promise(resolve=>setImmediate(resolve));
-async function fixture(){
+async function fixture({emptyScript=false}={}){
  const handlers=new Map(),store=new Map(),events=[],posted=[];let permission=true,networkError=false,scripts=0,browserDeny=false,finishLoad=null,broadcast=null;
  const parent={postMessage:x=>posted.push(x)},win={};
- const context={WEB,APP,PIXEL,eventPayload,pruneSeen,window:win,parent,location:{origin:WEB,pathname:'/marketing/bridge',search:'',hash:''},deniedByBrowser:()=>browserDeny,locallyDenied:()=>store.get('tim_meta_denied')==='1',setInterval:()=>1,clearInterval:()=>{},addEventListener:(k,f)=>handlers.set(k,f),removeEventListener:(k)=>handlers.delete(k),localStorage:{getItem:k=>store.get(k)||null,setItem:(k,v)=>store.set(k,v)},fetch:async()=>{if(networkError)throw Error();return {ok:true,json:async()=>({allowed:permission})}},BroadcastChannel:class{addEventListener(k,f){broadcast=f}close(){}},document:{createElement:()=>({remove(){}}),head:{append(script){scripts++;finishLoad=()=>{win.fbq.callMethod=(...args)=>events.push(args);script.onload()}}}}};
+ const context={WEB,APP,PIXEL,eventPayload,pruneSeen,window:win,parent,location:{origin:WEB,pathname:'/marketing/bridge',search:'',hash:''},deniedByBrowser:()=>browserDeny,locallyDenied:()=>store.get('tim_meta_denied')==='1',setInterval:()=>1,clearInterval:()=>{},addEventListener:(k,f)=>handlers.set(k,f),removeEventListener:(k)=>handlers.delete(k),localStorage:{getItem:k=>store.get(k)||null,setItem:(k,v)=>store.set(k,v)},fetch:async()=>{if(networkError)throw Error();return {ok:true,json:async()=>({allowed:permission})}},BroadcastChannel:class{addEventListener(k,f){broadcast=f}close(){}},document:{createElement:()=>({remove(){}}),head:{append(script){scripts++;finishLoad=()=>{if(!emptyScript)win.fbq.callMethod=(...args)=>events.push(args);script.onload()}}}}};
  vm.runInNewContext(source,context);
  async function message(data,origin=WEB,sender=parent){handlers.get('message')?.({source:sender,origin,data});for(let i=0;i<5;i++)await settle()}
  return {message,events,posted,store,get scripts(){return scripts},setPermission:x=>permission=x,setNetwork:x=>networkError=x,setBrowser:x=>browserDeny=x,finish:async()=>{finishLoad?.();for(let i=0;i<8;i++)await settle()},deny:()=>broadcast?.({data:'deny'})};
@@ -29,4 +29,8 @@ test('deny during script loading prevents conversion and revokes consent',async(
 test('network failure fails closed but later event may retry; local deny wins',async()=>{
  const f=await fixture();await f.message({type:'tim-meta-hello'});f.setNetwork(true);const e={type:'tim-meta-event',event:'Lead',id:'d'.repeat(64)};await f.message(e);assert.equal(f.scripts,0);f.setNetwork(false);await f.message(e);await f.finish();assert.equal(f.events.filter(x=>x[0]==='trackSingle').length,1);
  const g=await fixture();g.store.set('tim_meta_denied','1');await g.message({type:'tim-meta-hello'});await g.message(e);assert.equal(g.scripts,0);
+});
+
+test('an empty or replaced SDK never acknowledges or deduplicates a conversion',async()=>{
+ const f=await fixture({emptyScript:true});await f.message({type:'tim-meta-hello'});await f.message({type:'tim-meta-event',event:'Lead',id:'e'.repeat(64)});await f.finish();assert.equal(f.events.length,0);assert.equal(f.posted.some(x=>x.type==='tim-meta-queued'),false);assert.equal(f.posted.some(x=>x.type==='tim-meta-unavailable'),true);assert.equal(f.store.get('tim_meta_seen'),'[]');
 });
