@@ -1,8 +1,9 @@
 import {digest} from './contract.mjs';
-const region=new Set('AT BE BG HR CY CZ DK EE FI FR DE GR HU IE IT LV LT LU MT NL PL PT RO SK SI ES SE IS LI NO GB'.split(' '));
 const lifetime=180*86400;
 export async function consentState(req,env,preview=false,now=Date.now()){
- const required=!preview&&(!req.cf?.country||region.has(req.cf.country));
+ // Production: every visitor worldwide (including CH and unknown countries such as XX/T1) needs a valid signed allow preference.
+ // Only the localhost-style preview keeps the previous non-required behavior.
+ const required=!preview;
  if(req.headers.get('sec-gpc')==='1'||req.headers.get('dnt')==='1')return {required,choice:'deny',allowed:false};
  const value=(req.headers.get('cookie')||'').split(';').map(x=>x.trim()).find(x=>x.startsWith('tim_analytics_choice='))?.split('=')[1]||'';
  const [version,choice,expires,signature]=value.split('.');
